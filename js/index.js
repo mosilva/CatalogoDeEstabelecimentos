@@ -6,7 +6,7 @@ let CatalogEstablishment = [
         "Nome": "Cacau Show",
         "Endereco": "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
         "Cep": "05724-003",
-        "Telefone": 1158457187,
+        "Telefone": "1158457187",
         "Email": "dengoChocolateCacauShow@gmail.com"
     },
     {
@@ -14,7 +14,7 @@ let CatalogEstablishment = [
         "Nome": "Burguer King",
         "Endereco": "Estrada do Campo Limpo, 459",
         "Cep": "05777-001",
-        "Telefone": 1158401212,
+        "Telefone": "1158401212",
         "Email": "bkCampoLimpo@hotmail.com"
     },
     ]
@@ -30,10 +30,12 @@ function generateHeader(){
 }
 
 const header = ["Categoria", "Nome", "Endereço", "CEP","Telefone","E-mail"];
-
+const main__Catalogo = document.createElement("main");
+const main_formMain = document.createElement("form");
+main_formMain.setAttribute("class","form-add");
 
 function generateMain(){
-    const main__Catalogo = document.createElement("main");
+
     const section__Catalogo = document.createElement("section");
     section__Catalogo.setAttribute("class","section-main");
     document.body.appendChild(main__Catalogo);
@@ -84,6 +86,52 @@ function generateMain(){
       }   
 };
 
+function generateForm(){    
+    const main__formSection = document.createElement("section");
+    main__formSection.setAttribute("class","regristry-form");
+    main__Catalogo.appendChild(main__formSection);
+    
+    const main__formH2 = document.createElement("h2");
+    main__formH2.setAttribute("id","title-form");
+    main__formH2.textContent ="Add Establishment";
+    main__formSection.appendChild(main__formH2);
+    
+    main__formSection.appendChild(main_formMain);
+}
+
+
+function inputsForm()
+{
+
+    for(let i = 0; i < header.length; i++)
+        {            
+            element = header[i];
+            const div_form = document.createElement("div");
+            div_form.setAttribute("class","group-input");
+            
+            const label_form = document.createElement("label");
+            label_form.setAttribute("for",element);
+            label_form.textContent = element + " : "
+            div_form.appendChild(label_form);
+
+            const input_form = document.createElement("input");
+            input_form.setAttribute("id",element);
+            input_form.setAttribute("name",element);
+            article = element[element.length-1] =='a'? "a ": "o "
+            input_form.setAttribute("placeholder","Digite aqui " + article + (element.toLowerCase()) + " ...");
+            input_form.setAttribute("type","text");
+            input_form.setAttribute("class", "campo");     
+            div_form.appendChild(input_form);
+                
+            main_formMain.appendChild(div_form);
+        }
+
+
+}
+
+
+
+
 // function styleTable(tag) {
 //     Object.assign(tag.style, {
 //       "font-size": "15px",
@@ -97,5 +145,6 @@ function generateMain(){
 
 generateHeader();
 generateMain();
-
+generateForm();
+inputsForm();
 
