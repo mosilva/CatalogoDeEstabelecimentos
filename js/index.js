@@ -1,3 +1,5 @@
+console.log(document);
+
 let CatalogEstablishment = [
     {
         "Categoria": "Doce",
@@ -82,7 +84,16 @@ function generateMain(){
       }   
 };
 
-
+// function styleTable(tag) {
+//     Object.assign(tag.style, {
+//       "font-size": "15px",
+//       textAlign: "center",
+//       margin: "1vw",
+//       padding: "1vw",
+//       "border-collapse": "collapse",
+//       border: "1px black solid",
+//     });
+//   }
 
 generateHeader();
 generateMain();
