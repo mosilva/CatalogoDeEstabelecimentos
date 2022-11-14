@@ -1,4 +1,4 @@
-# CatalogoDeEstabelecimentos
+# Catalogo de Estabelecimentos
 
 
 <h2><a href = "https://mosilva.github.io/CatalogoDeEstabelecimentos/index.html" target="_blank">Link para o Catálogo de estabelecimento<a/></h2>
