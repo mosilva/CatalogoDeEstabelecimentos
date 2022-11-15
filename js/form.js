@@ -62,39 +62,8 @@ button__form.addEventListener("click", function(event)
 
     CatalogEstablishment.push(newEstablishment);
 
-    let categoria = main__formMain.Categoria.value;     
-    let nome = main__formMain.Nome.value;
-    let endereco = main__formMain.Endereço.value;
-    let cep = main__formMain.CEP.value;
-    let telefone = main__formMain.Telefone.value;
-    let email =  main__formMain.Email.value;
-
-    let establishmentTr = document.createElement("tr");
+    showEstablishments(newEstablishment);  
     
-    let categoriaTd = document.createElement("td");  
-    let nomeTd = document.createElement("td");  
-    let enderecoTd = document.createElement("td");  
-    let cepTd = document.createElement("td");  
-    let telefoneTd = document.createElement("td");  
-    let emailTd = document.createElement("td");  
-
-    categoriaTd.textContent = categoria;  
-    nomeTd.textContent = nome;  
-    enderecoTd.textContent = endereco;  
-    cepTd.textContent = cep;  
-    telefoneTd.textContent = telefone;  
-    emailTd.textContent = email;  
-    
-    establishmentTr.appendChild(categoriaTd);
-    establishmentTr.appendChild(nomeTd);
-    establishmentTr.appendChild(enderecoTd);
-    establishmentTr.appendChild(cepTd);
-    establishmentTr.appendChild(telefoneTd);
-    establishmentTr.appendChild(emailTd);
-
-
-    let tbody = document.querySelector(".establishment-table");
-    tbody.appendChild(establishmentTr);    
 });
 
 
