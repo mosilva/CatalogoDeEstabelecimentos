@@ -39,7 +39,7 @@ function generateForm()
     main__formH2.textContent ="Adicionar um novo estabelecimento";
     main__formSection.appendChild(main__formH2);    
 
-    const main__formSpan = document.createElement("span");
+    const main__formSpan = document.createElement("ul");
     main__formSpan.setAttribute("id","error-message");
     styleSpanError(main__formSpan);
     main__formSection.appendChild(main__formSpan);
@@ -73,12 +73,18 @@ button__form.addEventListener("click", function(event)
             "Email":  main__formMain.Email.value
         }    
 
-    if(!(validateEstablishment(newEstablishment)))
+    let errors = validateEstablishment(newEstablishment);
+
+    if(errors.length > 0)
     {
+        showErros(errors);
         return;
     }  
     else
-    {  
+    {          
+        let ul__error = document.querySelector("#error-message");
+        ul__error.innerHTML = "";
+
         CatalogEstablishment.push(newEstablishment);
 
         showEstablishments(newEstablishment);  
@@ -90,17 +96,35 @@ button__form.addEventListener("click", function(event)
 
 
 function validateEstablishment(establishment){
-    let errorMessage = document.querySelector("#error-message");
+    let allErrors = [];
 
-    if(establishment.Categoria.length < 3){
-        errorMessage.textContent = "A Categoria deve ter no mínimo 3 letras!";
-        return false;
+    if(establishment.Categoria.length < 3)
+    {
+        allErrors.push("A Categoria deve ter no mínimo 3 letras!");
     }
 
-    if(establishment.Nome.length < 3){
-        errorMessage.textContent = "O Nome deve ter no mínimo 3 letras!";
-        return false;
+    if(establishment.Nome.length < 3)
+    {
+        allErrors.push("O Nome deve ter no mínimo 3 letras!");
+
     }
 
-    return true;
+    return allErrors;
+
+}
+
+
+function showErros(errors){
+
+    let ul__error = document.querySelector("#error-message");
+    ul__error.innerHTML = "";
+
+    errors.forEach(element => {
+        let li__error = document.createElement("li");
+        li__error.textContent = element;
+        ul__error.appendChild(li__error);
+        
+    });
+
+
 }
