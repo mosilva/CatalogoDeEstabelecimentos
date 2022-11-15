@@ -8,6 +8,7 @@ function createInputs(){
         element = header[i];
         const div__form = document.createElement("div");
         div__form.setAttribute("class","group-input");
+        styleSpace(div__form);
         
         const label__form = document.createElement("label");
         label__form.setAttribute("for",element);
@@ -35,8 +36,14 @@ function generateForm()
     
     const main__formH2 = document.createElement("h2");
     main__formH2.setAttribute("id","title-form");
-    main__formH2.textContent ="Add Establishment";
+    main__formH2.textContent ="Adicionar um novo estabelecimento";
     main__formSection.appendChild(main__formH2);    
+
+    const main__formSpan = document.createElement("span");
+    main__formSpan.setAttribute("id","error-message");
+    styleSpanError(main__formSpan);
+    main__formSection.appendChild(main__formSpan);
+
     main__formSection.appendChild(main__formMain);
 
     createInputs();
@@ -44,7 +51,7 @@ function generateForm()
     const button__form = document.createElement("button");
     button__form.setAttribute("id","add-establishment");
     button__form.setAttribute("class","main-button");
-    button__form.textContent = "Add establishment";  
+    button__form.textContent = "Acionar Estabelecimento";  
     main__formMain.appendChild(button__form);
 }
 
@@ -66,12 +73,34 @@ button__form.addEventListener("click", function(event)
             "Email":  main__formMain.Email.value
         }    
 
-    CatalogEstablishment.push(newEstablishment);
+    if(!(validateEstablishment(newEstablishment)))
+    {
+        return;
+    }  
+    else
+    {  
+        CatalogEstablishment.push(newEstablishment);
 
-    showEstablishments(newEstablishment);  
+        showEstablishments(newEstablishment);  
 
-    main__formMain.reset();
+        main__formMain.reset();
+    }
     
 });
 
 
+function validateEstablishment(establishment){
+    let errorMessage = document.querySelector("#error-message");
+
+    if(establishment.Categoria.length < 3){
+        errorMessage.textContent = "A Categoria deve ter no mínimo 3 letras!";
+        return false;
+    }
+
+    if(establishment.Nome.length < 3){
+        errorMessage.textContent = "O Nome deve ter no mínimo 3 letras!";
+        return false;
+    }
+
+    return true;
+}
