@@ -1,3 +1,4 @@
+const main__Catalogo = document.createElement("main");
 const table__main__tbody = document.createElement("tbody");
 table__main__tbody.setAttribute("class","establishment-table");
 const table__main__catalogo = document.createElement("table");

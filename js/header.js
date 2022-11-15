@@ -21,10 +21,6 @@ let CatalogEstablishment =
     ]
 
 const header = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
-const main__Catalogo = document.createElement("main");
-const main__formMain = document.createElement("form");
-main__formMain.setAttribute("class","form-add");
-
 
 function generateHeader()
     {

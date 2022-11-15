@@ -1,3 +1,5 @@
+const main__formMain = document.createElement("form");
+main__formMain.setAttribute("class","form-add");
 
 function createInputs(){
 
@@ -34,8 +36,7 @@ function generateForm()
     const main__formH2 = document.createElement("h2");
     main__formH2.setAttribute("id","title-form");
     main__formH2.textContent ="Add Establishment";
-    main__formSection.appendChild(main__formH2);
-    
+    main__formSection.appendChild(main__formH2);    
     main__formSection.appendChild(main__formMain);
 
     createInputs();
@@ -68,6 +69,8 @@ button__form.addEventListener("click", function(event)
     CatalogEstablishment.push(newEstablishment);
 
     showEstablishments(newEstablishment);  
+
+    main__formMain.reset();
     
 });
 
