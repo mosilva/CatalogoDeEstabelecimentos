@@ -1,5 +1,5 @@
 
-function generateMain(){
+function generateShowsEstablishments(){
 
     const section__Catalogo = document.createElement("section");
     section__Catalogo.setAttribute("class","section-main");
@@ -49,4 +49,4 @@ function generateMain(){
     }   
 };
 
-generateMain();
+generateShowsEstablishments();
