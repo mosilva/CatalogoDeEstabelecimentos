@@ -9,7 +9,15 @@ function styleSpanError(tag) {
   }
 
 function styleSpace(tag) {
-      Object.assign(tag.style, {
-      padding: "1vw",
+    Object.assign(tag.style, {
+      padding: "1vw"
+    });
+  }
+
+
+function deleteEstab(tag) {
+    Object.assign(tag.style, {
+      opacity: "0",
+      transition: "0.5s"
     });
   }
