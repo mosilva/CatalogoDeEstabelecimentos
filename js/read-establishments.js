@@ -42,7 +42,7 @@ function generateTableShowsEstablishments(){
     input__Catalogo__search.setAttribute("type","text");
     input__Catalogo__search.setAttribute("name","filter");
     input__Catalogo__search.setAttribute("id","filter__table");
-    input__Catalogo__search.setAttribute("placeholder","Digite o nome do estabelecimento");
+    input__Catalogo__search.setAttribute("placeholder","Digite a categoria do estabelecimento");
     filterEstab(input__Catalogo__search);
     section__Catalogo.appendChild(input__Catalogo__search);
 
@@ -53,8 +53,6 @@ function generateTableShowsEstablishments(){
     const table__main__theadTr = document.createElement("tr");
     table__main__theadTr.setAttribute("class","catalog-table");
     table__main__thead.appendChild(table__main__theadTr);
-
-
 
     for (const element of header) 
     {

@@ -50,6 +50,7 @@ function validateEstablishment(establishment){
 
     }
 
+    
     return allErrors;
 
 }

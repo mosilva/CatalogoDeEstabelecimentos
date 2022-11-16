@@ -18,7 +18,7 @@ function createInputs(){
         const input__form = document.createElement("input");
         input__form.setAttribute("id",element);
         input__form.setAttribute("name",element);
-        let article = element[element.length-1] =='a'? "a ": "o ";
+        const article = element[element.length-1] =='a'? "a ": "o ";
         input__form.setAttribute("placeholder","Digite aqui " + article + (element.toLowerCase()) + "...");
         input__form.setAttribute("type","text");
         input__form.setAttribute("class", "campo");     
