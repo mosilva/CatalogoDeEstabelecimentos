@@ -8,11 +8,11 @@ filterField.addEventListener("input", function(){
     {
         for(const element of establishments)
         {
-            const tdName = element.querySelector(".info-Nome");
-            const name = tdName.textContent;
+            const tdCategory = element.querySelector(".info-Categoria");
+            const category = tdCategory.textContent;
             let expressionRegular = new RegExp(this.value, "i" );       
 
-            if(!(expressionRegular.test(name))){
+            if(!(expressionRegular.test(category))){
                 invisibleEstab(element);
             }
             else
