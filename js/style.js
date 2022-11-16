@@ -21,3 +21,13 @@ function deleteEstab(tag) {
       transition: "0.5s"
     });
   }
+
+function filterEstab(tag) {
+    Object.assign(tag.style, {
+      width: "16em",
+      height: "2em",
+      marginBottom: "1em",
+      display: "flex"
+    });
+  }
+

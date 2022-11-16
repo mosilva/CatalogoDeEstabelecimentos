@@ -33,6 +33,19 @@ function generateTableShowsEstablishments(){
     h2__Catalogo.textContent = "Catálogo de Estabelecimentos";
     section__Catalogo.appendChild(h2__Catalogo);
 
+    const label__Catalogo__search = document.createElement("label");
+    label__Catalogo__search.setAttribute("for", "filter__table");
+    label__Catalogo__search.textContent = "Filter: "
+    section__Catalogo.appendChild(label__Catalogo__search);
+
+    const input__Catalogo__search = document.createElement("input");
+    input__Catalogo__search.setAttribute("type","text");
+    input__Catalogo__search.setAttribute("name","filter");
+    input__Catalogo__search.setAttribute("id","filter__table");
+    input__Catalogo__search.setAttribute("placeholder","Digite o nome do estabelecimento");
+    filterEstab(input__Catalogo__search);
+    section__Catalogo.appendChild(input__Catalogo__search);
+
     section__Catalogo.appendChild(table__main__catalogo);
     const table__main__thead = document.createElement("thead");
     table__main__catalogo.appendChild(table__main__thead);
