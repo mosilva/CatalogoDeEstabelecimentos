@@ -18,6 +18,15 @@ let CatalogEstablishment =
             "Telefone": "1158401212",
             "Email": "bkCampoLimpo@hotmail.com"
         }
+        ,
+        {
+            "Categoria": "Doce",
+            "Nome": "Cacau Brasil",
+            "Endereco": "Giovanni Gronchi, 5819 - Piso 2 - Loja 32",
+            "Cep": "05724-003",
+            "Telefone": "115844058",
+            "Email": "cacau_brasil_gio@gmail.com"
+        }
     ]
 
 const header = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
