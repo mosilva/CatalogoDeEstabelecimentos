@@ -51,7 +51,7 @@ function generateForm()
     const button__form = document.createElement("button");
     button__form.setAttribute("id","add-establishment");
     button__form.setAttribute("class","main-button");
-    button__form.textContent = "Acionar Estabelecimento";  
+    button__form.textContent = "Adicionar Estabelecimento";  
     main__formMain.appendChild(button__form);
 }
 
