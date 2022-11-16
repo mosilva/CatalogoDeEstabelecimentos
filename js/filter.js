@@ -9,10 +9,8 @@ filterField.addEventListener("input", function(){
         for(const element of establishments)
         {
             const tdName = element.querySelector(".info-Nome");
-            const name = tdName.textContent.toLowerCase();
-            const inputName = this.value.toLowerCase();
-            let expressionRegular = new RegExp(this.value, "i" )
-        
+            const name = tdName.textContent;
+            let expressionRegular = new RegExp(this.value, "i" );       
 
             if(!(expressionRegular.test(name))){
                 invisibleEstab(element);
