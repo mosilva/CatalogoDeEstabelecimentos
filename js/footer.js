@@ -121,9 +121,15 @@ const catalogEstablishment = [
       listItem.appendChild(listLink);
       listUnordered.appendChild(listItem);
     }
+    else{
+      categories[element.Categoria] += 1;
+    }
+    countCategory(categories);
   });
 
-  
+
+
+
 
   list.appendChild(listUnordered);
   footer.appendChild(list);
