@@ -1,58 +1,58 @@
-const main__formMain = document.createElement("form");
-main__formMain.setAttribute("class","form-add");
+const mainFormMain = document.createElement("form");
+mainFormMain.setAttribute("class","form-add");
 
 function createInputs(){
 
     for(let i = 0; i < header.length; i++)
     {            
         element = header[i];
-        const div__form = document.createElement("div");
-        div__form.setAttribute("class","group-input");
-        styleSpace(div__form);
+        const divForm = document.createElement("div");
+        divForm.setAttribute("class","group-input");
+        styleSpace(divForm);
         
-        const label__form = document.createElement("label");
-        label__form.setAttribute("for",element);
-        label__form.textContent = element + " : ";
-        div__form.appendChild(label__form);
+        const labelForm = document.createElement("label");
+        labelForm.setAttribute("for",element);
+        labelForm.textContent = element + " : ";
+        divForm.appendChild(labelForm);
 
-        const input__form = document.createElement("input");
-        input__form.setAttribute("id",element);
-        input__form.setAttribute("name",element);
+        const inputForm = document.createElement("input");
+        inputForm.setAttribute("id",element);
+        inputForm.setAttribute("name",element);
         const article = element[element.length-1] =='a'? "a ": "o ";
-        input__form.setAttribute("placeholder","Digite aqui " + article + (element.toLowerCase()) + "...");
-        input__form.setAttribute("type","text");
-        input__form.setAttribute("class", "campo");     
-        div__form.appendChild(input__form);
+        inputForm.setAttribute("placeholder","Digite aqui " + article + (element.toLowerCase()) + "...");
+        inputForm.setAttribute("type","text");
+        inputForm.setAttribute("class", "campo");     
+        divForm.appendChild(inputForm);
             
-        main__formMain.appendChild(div__form);
+        mainFormMain.appendChild(divForm);
     }
 }
 
 function generateForm()
 {    
-    const main__formSection = document.createElement("section");
-    main__formSection.setAttribute("class","regristry-form");
-    main__Catalogo.appendChild(main__formSection);
+    const mainFormSection = document.createElement("section");
+    mainFormSection.setAttribute("class","regristry-form");
+    mainCatalogo.appendChild(mainFormSection);
     
-    const main__formH2 = document.createElement("h2");
-    main__formH2.setAttribute("id","title-form");
-    main__formH2.textContent ="Adicionar um novo estabelecimento";
-    main__formSection.appendChild(main__formH2);    
+    const mainFormH2 = document.createElement("h2");
+    mainFormH2.setAttribute("id","title-form");
+    mainFormH2.textContent ="Adicionar um novo estabelecimento";
+    mainFormSection.appendChild(mainFormH2);    
 
-    const main__formSpan = document.createElement("ul");
-    main__formSpan.setAttribute("id","error-message");
-    styleSpanError(main__formSpan);
-    main__formSection.appendChild(main__formSpan);
+    const mainFormUl = document.createElement("ul");
+    mainFormUl.setAttribute("id","error-message");
+    styleSpanError(mainFormUl);
+    mainFormSection.appendChild(mainFormUl);
 
-    main__formSection.appendChild(main__formMain);
+    mainFormSection.appendChild(mainFormMain);
 
     createInputs();
 
-    const button__form = document.createElement("button");
-    button__form.setAttribute("id","add-establishment");
-    button__form.setAttribute("class","main-button");
-    button__form.textContent = "Adicionar Estabelecimento";  
-    main__formMain.appendChild(button__form);
+    const buttonForm = document.createElement("button");
+    buttonForm.setAttribute("id","add-establishment");
+    buttonForm.setAttribute("class","main-button");
+    buttonForm.textContent = "Adicionar Estabelecimento";  
+    mainFormMain.appendChild(buttonForm);
 }
 
 generateForm();

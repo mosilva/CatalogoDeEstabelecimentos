@@ -1,18 +1,18 @@
 
-const button__form = document.querySelector("#add-establishment");
+const buttonForm = document.querySelector("#add-establishment");
 
-button__form.addEventListener("click", function(event)
+buttonForm.addEventListener("click", function(event)
 {
     event.preventDefault();    
 
     let newEstablishment = 
         {
-            "Categoria": main__formMain.Categoria.value,       
-            "Nome": main__formMain.Nome.value,
-            "Endereco":  main__formMain.Endereço.value,
-            "Cep": main__formMain.CEP.value,
-            "Telefone": main__formMain.Telefone.value,
-            "Email":  main__formMain.Email.value
+            "Categoria": mainFormMain.Categoria.value,       
+            "Nome": mainFormMain.Nome.value,
+            "Endereco":  mainFormMain.Endereço.value,
+            "Cep": mainFormMain.CEP.value,
+            "Telefone": mainFormMain.Telefone.value,
+            "Email":  mainFormMain.Email.value
         }    
 
     let errors = validateEstablishment(newEstablishment);
@@ -23,14 +23,14 @@ button__form.addEventListener("click", function(event)
     }  
     else
     {          
-        let ul__error = document.querySelector("#error-message");
-        ul__error.innerHTML = "";
+        let ulError = document.querySelector("#error-message");
+        ulError.innerHTML = "";
 
         CatalogEstablishment.push(newEstablishment);
 
         showEstablishments(newEstablishment);  
 
-        main__formMain.reset();
+        mainFormMain.reset();
     }
     
 });
@@ -58,13 +58,13 @@ function validateEstablishment(establishment){
 
 function showErros(errors){
 
-    let ul__error = document.querySelector("#error-message");
-    ul__error.innerHTML = "";
+    let ulError = document.querySelector("#error-message");
+    ulError.innerHTML = "";
 
     errors.forEach(element => {
-        let li__error = document.createElement("li");
-        li__error.textContent = element;
-        ul__error.appendChild(li__error);
+        let liError = document.createElement("li");
+        liError.textContent = element;
+        ulError.appendChild(liError);
         
     });
 

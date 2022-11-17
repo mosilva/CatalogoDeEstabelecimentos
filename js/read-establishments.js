@@ -1,22 +1,22 @@
-const main__Catalogo = document.createElement("main");
-const table__main__tbody = document.createElement("tbody");
-table__main__tbody.setAttribute("class","establishment-table");
-const table__main__catalogo = document.createElement("table");
+const mainCatalogo = document.createElement("main");
+const tableMainTbody = document.createElement("tbody");
+tableMainTbody.setAttribute("class","establishment-table");
+const tableMainCatalogo = document.createElement("table");
 
 function showEstablishments(establishment){
     
-        const table__main__tbodyTr = document.createElement("tr");
-        table__main__tbodyTr.setAttribute("class","establishment");
-        table__main__tbodyTr.setAttribute("class", "body__information");
+        const tableMainTbodyTr = document.createElement("tr");
+        tableMainTbodyTr.setAttribute("class","establishment");
+        tableMainTbodyTr.setAttribute("class", "body__information");
 
         for (let k = 0; k < header.length; k++) {
-          const table__main__tbodyTd = document.createElement("td");
-          table__main__tbodyTd.textContent = Object.values(establishment)[k];
-          table__main__tbodyTd.setAttribute("class","info-"+ Object.keys(establishment)[k]);
-          table__main__tbodyTr.appendChild(table__main__tbodyTd);
+          const tableMainTbodyTd = document.createElement("td");
+          tableMainTbodyTd.textContent = Object.values(establishment)[k];
+          tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(establishment)[k]);
+          tableMainTbodyTr.appendChild(tableMainTbodyTd);
 
-          table__main__tbody.appendChild(table__main__tbodyTr);
-          table__main__catalogo.appendChild(table__main__tbody);
+          tableMainTbody.appendChild(tableMainTbodyTr);
+          tableMainCatalogo.appendChild(tableMainTbody);
 
         }
 }
@@ -24,43 +24,43 @@ function showEstablishments(establishment){
 
 function generateTableShowsEstablishments(){
 
-    const section__Catalogo = document.createElement("section");
-    section__Catalogo.setAttribute("class","section-main");
-    document.body.appendChild(main__Catalogo);
-    main__Catalogo.appendChild(section__Catalogo);
+    const sectionCatalogo = document.createElement("section");
+    sectionCatalogo.setAttribute("class","section-main");
+    document.body.appendChild(mainCatalogo);
+    mainCatalogo.appendChild(sectionCatalogo);
 
-    const h2__Catalogo = document.createElement("h2");
-    h2__Catalogo.textContent = "Catálogo de Estabelecimentos";
-    section__Catalogo.appendChild(h2__Catalogo);
+    const h2Catalogo = document.createElement("h2");
+    h2Catalogo.textContent = "Catálogo de Estabelecimentos";
+    sectionCatalogo.appendChild(h2Catalogo);
 
-    const label__Catalogo__search = document.createElement("label");
-    label__Catalogo__search.setAttribute("for", "filter__table");
-    label__Catalogo__search.textContent = "Filter: "
-    section__Catalogo.appendChild(label__Catalogo__search);
+    const labelCatalogoSearch = document.createElement("label");
+    labelCatalogoSearch.setAttribute("for", "filter__table");
+    labelCatalogoSearch.textContent = "Filter: "
+    sectionCatalogo.appendChild(labelCatalogoSearch);
 
-    const input__Catalogo__search = document.createElement("input");
-    input__Catalogo__search.setAttribute("type","text");
-    input__Catalogo__search.setAttribute("name","filter");
-    input__Catalogo__search.setAttribute("id","filter__table");
-    input__Catalogo__search.setAttribute("placeholder","Digite a categoria do estabelecimento");
-    filterEstab(input__Catalogo__search);
-    section__Catalogo.appendChild(input__Catalogo__search);
+    const inputCatalogoSearch = document.createElement("input");
+    inputCatalogoSearch.setAttribute("type","text");
+    inputCatalogoSearch.setAttribute("name","filter");
+    inputCatalogoSearch.setAttribute("id","filter__table");
+    inputCatalogoSearch.setAttribute("placeholder","Digite a categoria do estabelecimento");
+    filterEstab(inputCatalogoSearch);
+    sectionCatalogo.appendChild(inputCatalogoSearch);     
+    
+    sectionCatalogo.appendChild(tableMainCatalogo);
+    const tableMainThead = document.createElement("thead");
+    tableMainCatalogo.appendChild(tableMainThead);
 
-    section__Catalogo.appendChild(table__main__catalogo);
-    const table__main__thead = document.createElement("thead");
-    table__main__catalogo.appendChild(table__main__thead);
-
-    const table__main__theadTr = document.createElement("tr");
-    table__main__theadTr.setAttribute("class","catalog-table");
-    table__main__thead.appendChild(table__main__theadTr);
+    const tableMainTheadTr = document.createElement("tr");
+    tableMainTheadTr.setAttribute("class","catalog-table");
+    tableMainThead.appendChild(tableMainTheadTr);
 
     for (const element of header) 
     {
-        const table__main__theadTh = document.createElement("th");
+        const tableMainTheadTh = document.createElement("th");
         const texti = document.createTextNode(element);
-        table__main__theadTh.appendChild(texti);
-        table__main__theadTr.appendChild(table__main__theadTh);
-        table__main__thead.appendChild(table__main__theadTr);
+        tableMainTheadTh.appendChild(texti);
+        tableMainTheadTr.appendChild(tableMainTheadTh);
+        tableMainThead.appendChild(tableMainTheadTr);
     }
 
     for (const element of CatalogEstablishment) 

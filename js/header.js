@@ -33,11 +33,11 @@ const header = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
 
 function generateHeader()
     {
-        const header__Catalogo = document.createElement("header");
-        const header__logo = document.createElement("div");
-        header__logo.setAttribute("class", "main-logo");
-        document.body.appendChild(header__Catalogo);
-        header__Catalogo.appendChild(header__logo);
+        const headerCatalogo = document.createElement("header");
+        const headerLogo = document.createElement("div");
+        headerLogo.setAttribute("class", "main-logo");
+        document.body.appendChild(headerCatalogo);
+        headerCatalogo.appendChild(headerLogo);
 
     }
 
