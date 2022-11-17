@@ -127,7 +127,13 @@ const catalogEstablishment = [
     countCategory(categories);
   });
 
-
+  function countCategory(categories){
+  console.warn("oii");
+  for(let item in categories){
+    console.log(item);
+    console.log(categories[item]);
+  }
+  }
 
 
 
