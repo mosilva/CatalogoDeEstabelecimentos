@@ -14,6 +14,14 @@ const catalogEstablishment = [
     Email: "dengoChocolateCacauShow@gmail.com",
   },
   {
+    Categoria: "Doce",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+  {
     Categoria: "Fast Food",
     Nome: "Burguer King",
     Endereco: "Estrada do Campo Limpo, 459",
@@ -107,36 +115,28 @@ const catalogEstablishment = [
   const footer = document.createElement("footer");
   const list = document.createElement("list");
   const listUnordered = document.createElement("ul");
-  const categories = {};
-  catalogEstablishment.forEach((element) => {
-    const seletor = element.Categoria.replaceAll(" ","");
-    const notInCategories = !(element.Categoria in categories);
-    if (notInCategories) {
-      categories[element.Categoria] = 1;
-      const listItem = document.createElement("li");
-      const listLink = document.createElement("a");
-      listLink.href = "#";
-      listLink.classList.add("" + seletor);
-      listLink.textContent = `${element.Categoria} `;
-      listItem.appendChild(listLink);
-      listUnordered.appendChild(listItem);
-    }
-    else{
-      categories[element.Categoria] += 1;
-    }
-    countCategory(categories);
+  const myCategories = new Set();
+  catalogEstablishment.forEach(element => 
+  {
+    myCategories.add(element.Categoria)
   });
 
-  function countCategory(categories){
-  console.warn("oii");
-  for(let item in categories){
-    console.log(item);
-    console.log(categories[item]);
-  }
-  }
-
-
-
+  const categories = [...myCategories];
+  categories.forEach((item) => {
+    let count = 0;
+    catalogEstablishment.forEach(element => {
+      if(element.Categoria === item){
+        count++;
+      }
+    })
+    const listItem = document.createElement("li");
+    const listLink = document.createElement("a");
+    listLink.href = "#";
+    listLink.classList.add("testeSeletor");      
+    listLink.textContent = `${item} (${count})`;
+    listItem.appendChild(listLink);
+    listUnordered.appendChild(listItem);
+  })
   list.appendChild(listUnordered);
   footer.appendChild(list);
   document.body.appendChild(footer);
