@@ -19,7 +19,7 @@
     ul{
       display: flex;
       flex-wrap: wrap;  
-      justify-content: center;
+      justify-content: space-evenly;
       align-itens: center;
 
     }

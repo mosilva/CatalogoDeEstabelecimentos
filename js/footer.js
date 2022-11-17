@@ -22,7 +22,7 @@ const catalogEstablishment = [
     Email: "bkCampoLimpo@hotmail.com",
   },
   {
-    Categoria: "Doce",
+    Categoria: "Doceee",
     Nome: "Cacau Brasil",
     Endereco: "Giovanni Gronchi, 5819 - Piso 2 - Loja 32",
     Cep: "05724-003",
@@ -30,7 +30,7 @@ const catalogEstablishment = [
     Email: "cacau_brasil_gio@gmail.com",
   },
   {
-    Categoria: "Doce",
+    Categoria: "Drrrroce",
     Nome: "Cacau Show",
     Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
     Cep: "05724-003",
@@ -54,7 +54,7 @@ const catalogEstablishment = [
     Email: "cacau_brasil_gio@gmail.com",
   },
   {
-    Categoria: "Doce",
+    Categoria: "BATATA",
     Nome: "Cacau Show",
     Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
     Cep: "05724-003",
@@ -103,24 +103,29 @@ const catalogEstablishment = [
   },
 ];
 
-function generateFooter() {
+(function generateFooter() {
   const footer = document.createElement("footer");
   const list = document.createElement("list");
   const listUnordered = document.createElement("ul");
+  const categories = {};
   catalogEstablishment.forEach((element) => {
-    const listItem = document.createElement("li");
-    const listLink = document.createElement("a");
-    listLink.href = "#";
-    const categoryQuantity = document.createElement("p");
-    categoryQuantity.textContent = "(1)";
-    listLink.appendChild(categoryQuantity);
-    listLink.textContent += ` ${element.Categoria}`;
-    listItem.appendChild(listLink);
-    listUnordered.appendChild(listItem);
+    const seletor = element.Categoria.replaceAll(" ","");
+    const notInCategories = !(element.Categoria in categories);
+    if (notInCategories) {
+      categories[element.Categoria] = 1;
+      const listItem = document.createElement("li");
+      const listLink = document.createElement("a");
+      listLink.href = "#";
+      listLink.classList.add("" + seletor);
+      listLink.textContent = `${element.Categoria} `;
+      listItem.appendChild(listLink);
+      listUnordered.appendChild(listItem);
+    }
   });
+
+  
 
   list.appendChild(listUnordered);
   footer.appendChild(list);
   document.body.appendChild(footer);
-}
-generateFooter();
+})();
