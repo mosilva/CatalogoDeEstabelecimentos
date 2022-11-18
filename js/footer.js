@@ -6,7 +6,7 @@
 
 const catalogEstablishment = [
   {
-    Categoria: "Doce",
+    Categoria: "Do33333ce",
     Nome: "Cacau Show",
     Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
     Cep: "05724-003",
@@ -14,7 +14,55 @@ const catalogEstablishment = [
     Email: "dengoChocolateCacauShow@gmail.com",
   },
   {
-    Categoria: "Doce",
+    Categoria: "D33oce",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+    {
+    Categoria: "3D33oce",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+    {
+    Categoria: "2D33oce",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+    {
+    Categoria: "33D33oce",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+  {
+    Categoria: "3434",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+    {
+    Categoria: "2D3334343oce",
+    Nome: "Cacau Show",
+    Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
+    Cep: "05724-003",
+    Telefone: "1158457187",
+    Email: "dengoChocolateCacauShow@gmail.com",
+  },
+    {
+    Categoria: "333434D33oce",
     Nome: "Cacau Show",
     Endereco: "Giovanni Gronchi, 5819 - Piso 1 - Loja 01",
     Cep: "05724-003",
@@ -46,20 +94,12 @@ const catalogEstablishment = [
     Email: "dengoChocolateCacauShow@gmail.com",
   },
   {
-    Categoria: "Fast Food",
+    Categoria: "Fas33t Food",
     Nome: "Burguer King",
     Endereco: "Estrada do Campo Limpo, 459",
     Cep: "05777-001",
     Telefone: "1158401212",
     Email: "bkCampoLimpo@hotmail.com",
-  },
-  {
-    Categoria: "Doce",
-    Nome: "Cacau Brasil",
-    Endereco: "Giovanni Gronchi, 5819 - Piso 2 - Loja 32",
-    Cep: "05724-003",
-    Telefone: "115844058",
-    Email: "cacau_brasil_gio@gmail.com",
   },
   {
     Categoria: "BATATA",
@@ -110,7 +150,6 @@ const catalogEstablishment = [
     Email: "cacau_brasil_gio@gmail.com",
   },
 ];
-
 (function generateFooter() {
   const footer = document.createElement("footer");
   const list = document.createElement("list");
