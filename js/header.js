@@ -1,4 +1,8 @@
-console.log(document);
+(() => {
+    const headerStyles = document.createElement("script");
+    headerStyles.setAttribute("src", "js/styles/headerStyles.js");
+    document.body.appendChild(headerStyles);
+  })();
 
 let CatalogEstablishment = 
     [
@@ -30,15 +34,31 @@ let CatalogEstablishment =
     ]
 
 const header = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
+const headerNav = ["Estabelecimentos", "Categorias"];
 
 function generateHeader()
     {
         const headerCatalogo = document.createElement("header");
-        const headerLogo = document.createElement("div");
-        headerLogo.setAttribute("class", "main-logo");
-        document.body.appendChild(headerCatalogo);
-        headerCatalogo.appendChild(headerLogo);
+        const headerSection = document.createElement("section");
+        headerSection.setAttribute("class", "containerHeader");
+        const logo = document.createElement("img");
+        logo.setAttribute("src", "img/headerLogo.png")
+        logo.setAttribute("class", "logoHeader");
+        const nav = document.createElement("nav");
+        const navList = document.createElement("ul");
 
+        headerNav.forEach(item => {
+            const list = document.createElement("li");
+            list.setAttribute("class", "navList");
+            list.innerText = item;
+            headerSection.appendChild(list);
+        });
+
+        document.body.appendChild(headerCatalogo);
+        document.body.appendChild(headerSection);
+        headerSection.appendChild(logo);
+        headerSection.appendChild(nav);
+        nav.appendChild(navList);
     }
 
 generateHeader();
