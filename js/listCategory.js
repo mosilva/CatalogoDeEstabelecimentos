@@ -25,13 +25,42 @@ const listCategory = [
 
 const titlesTable = ["Nome", "Codigo"];
 
-
 const newTable = document.createElement("table");
-const header = newTable.createTHead();
+const headerTable = newTable.createTHead();
 const tableBody = newTable.createTBody();
-const footer = newTable.createTFoot();
-
+const footerTable = newTable.createTFoot();
 document.body.appendChild(newTable);
+
+
+insertTitlesTable(headerTable, titlesTable);
+
+insertContentTable(listCategory);
+
+
+function insertTitlesTable (headerTable, titlesTable) {
+
+  for (let i = 0; i < titlesTable.length; i++) {
+    const headerCell = document.createElement('th');
+    headerTable.appendChild(headerCell);
+    headerCell.textContent = titlesTable[i];
+  }
+  
+}
+
+function insertContentTable(listCategory){
+
+  for (let i = 0; i < listCategory.length; i++) {
+
+    const rowTable = tableBody.insertRow();
+
+    Object.values(listCategory[i]).forEach(item => {
+      const headerCell = document.createElement('td');
+      rowTable.appendChild(headerCell);
+      headerCell.textContent = item;
+    });
+
+  }
+}
 
 
 

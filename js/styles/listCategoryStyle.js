@@ -6,6 +6,11 @@
       padding: 0;
       box-sizing: border-box;
     }
+
+    table{
+      border: 1px dotted blue;
+    }
+
     `
 })();
 
