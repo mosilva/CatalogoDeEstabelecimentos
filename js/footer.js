@@ -1,6 +1,6 @@
 (() => {
   const styleJs = document.createElement("script");
-  styleJs.setAttribute("src", "js/footer-styles.js");
+  styleJs.setAttribute("src", "js/styles/footer-styles.js");
   document.body.appendChild(styleJs);
 })();
 
