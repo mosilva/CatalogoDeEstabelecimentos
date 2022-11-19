@@ -61,5 +61,6 @@ function generateHeader()
         nav.appendChild(navList);
     }
 
+    generateHeader();
 
             
