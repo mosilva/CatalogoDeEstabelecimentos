@@ -13,7 +13,7 @@
       position: fixed;
       z-index: 1;
       bottom: 0;
-      background-color: #000000;
+      background-color: #A4133C;
     }
     ul{
       display: flex;
@@ -26,13 +26,11 @@
       list-style:none;
       padding: 0.1rem;
       margin: 0.2rem;
-      border-radius: 5px;
-      font-weight: bold;
     }
     li a{
         text-decoration: none;
         font-size: 1rem;
-        color: #0074c1;
+        color: #ffffff;
     }
 
     @media screen and (min-width: 600px)
@@ -40,7 +38,9 @@
     li{
       padding: 0.2rem;
       margin: 0.2rem;
-      border: solid 0.3px #8aa2dc;
+      font-weight: bold;
+
+
     }
     li a{
         text-decoration: none;
