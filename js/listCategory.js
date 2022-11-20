@@ -32,12 +32,13 @@ const titlePage = document.createElement('h1');
 titlePage.textContent = 'Buscar Categoria';
 document.body.appendChild(titlePage);
 
+createSearchCategory();
+
 const newTable = document.createElement("table");
 const headerTable = newTable.createTHead();
 const tableBody = newTable.createTBody();
 const footerTable = newTable.createTFoot();
 document.body.appendChild(newTable);
-
 
 createLinkApiGoogle();
 
@@ -45,26 +46,29 @@ insertTitlesTable(headerTable, titlesTable);
 
 insertContentTable(listCategory);
 
-createSearchCategory();
+
 
 const button = document.querySelector('button');
 const input = document.querySelector("input");
 
-input.value = 'Burguer King';
-
-const searchInputed = input.value;
-
-const result = SearchCategoryByName(searchInputed);
-
-//button.setAttribute('onclick', 'insertContentTable(result)');
-
 button.addEventListener('click', function(event){
   event.preventDefault()
-  insertContentTable(result)
+
+  function showCategory(input);
+  
 });
 
+function showCategory(input){
 
-// insertContentTable(result)
+  const result = SearchCategoryByName(input.value);
+
+    clearTable();  
+
+    if(result.length)
+    insertContentTable(result);
+    else
+    insertContentTable(listCategory);
+}
 
 function insertTitlesTable (headerTable, titlesTable) {
 
@@ -93,6 +97,13 @@ function insertContentTable(listCategory){
   }
 }
 
+function clearTable(){
+  const trs = tableBody.querySelectorAll('tr');
+  for(i = 0; i < trs.length ; i++){
+    trs[i].remove();
+  }
+}
+
 function createLinkApiGoogle(){
   const newlink = document.createElement('link');
   newlink.setAttribute('rel', 'stylesheet');
@@ -117,7 +128,6 @@ function createSearchCategory(){
   form.setAttribute('method', 'POST');
 
   const input = document.createElement('input');
-  input.setAttribute('id', 'busca');
   input.setAttribute('type', 'text');
   input.setAttribute('placeholder', 'Digite a categoria ou palavra chave.');
 
@@ -137,34 +147,3 @@ function SearchCategoryByName(nameCategory){
   return result;
 
 }
-
-
-// function generateHeader()
-//     {
-//         const headerCatalogo = document.createElement("header");
-//         const headerLogo = document.createElement("div");
-//         headerLogo.setAttribute("class", "main-logo");
-//         document.body.appendChild(headerCatalogo);
-//         headerCatalogo.appendChild(headerLogo);
-
-//     }
-
-// generateHeader();
-
-// function CreateTable (row, tableHead) {
-//     const table = document.createElement('table');
-//     const thead = document.createElement('thead');
-//     const tbody = document.createElement('tbody');
-
-
-// for (let i = 0; i < row.length; i++) {
-//         const tr = document.createElement("tr");
-//         for(let j = 1; j < tableHead.length + 1; j++) {
-//             const td = document.createElement("td");
-//             const texto = document.createTextNode(Object.values(row[i])[j]);
-//             td.appendChild(texto);
-//             tr.appendChild(td);
-//         }
-//     }
-//     tbody.appendChild(tr);
-//     }
