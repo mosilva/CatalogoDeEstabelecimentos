@@ -34,7 +34,7 @@
 //     ]
 
 // const header = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
-const headerNav = ["Estabelecimentos", "Categorias"];
+const headerNav = ["Home", "Estabelecimentos", "Categorias"];
 
 function generateHeader()
     {
@@ -44,8 +44,10 @@ function generateHeader()
         const logo = document.createElement("img");
         logo.setAttribute("src", "img/headerLogo.png")
         logo.setAttribute("class", "logoHeader");
+        headerSection.appendChild(logo);
         const nav = document.createElement("nav");
         const navList = document.createElement("ul");
+
 
         headerNav.forEach(item => {
             const list = document.createElement("li");
@@ -56,7 +58,6 @@ function generateHeader()
 
         document.body.appendChild(header);
         header.appendChild(headerSection);
-        headerSection.appendChild(logo);
         headerSection.appendChild(nav);
         nav.appendChild(navList);
     }
