@@ -45,9 +45,10 @@
         }
         .logoHeader{
             height:15vh;
+            margin-left: 0;
           }
         .navList{
-            widht:10vw;
+            width:40vw;
             font-size: 14px;
             font-weight: bolder;
         }

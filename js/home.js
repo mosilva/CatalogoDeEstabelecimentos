@@ -34,9 +34,7 @@ function carouselGenerate(){
 carouselGenerate();
 
 let interval = 0;
-let maxSlidder = document.querySelectorAll(".carouselImg").length -1;
-
-carouselAction();
+let maxImgs = document.querySelectorAll(".carouselImg").length -1;
 
 function carouselAction(){
     let img = document.querySelectorAll(".carouselImg");
@@ -44,9 +42,11 @@ function carouselAction(){
     setInterval(function(){
         img[interval].style.display = 'none';
         interval++;
-        if(interval > maxSlidder){
+        if(interval > maxImgs){
             interval = 0;
         }
         img[interval].style.display = 'block';
     }, 1500)
 }
+
+carouselAction();
