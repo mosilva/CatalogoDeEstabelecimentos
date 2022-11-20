@@ -54,7 +54,7 @@ const input = document.querySelector("input");
 button.addEventListener('click', function(event){
   event.preventDefault()
 
-  function showCategory(input);
+  showCategory(input);
   
 });
 
