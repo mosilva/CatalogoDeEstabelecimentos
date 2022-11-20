@@ -23,7 +23,14 @@ const listCategory = [
   },
 ];
 
+const urlGoogleIcons = '<link rel="stylesheet" href="" />';
+
 const titlesTable = ["Nome", "Codigo"];
+
+
+const titlePage = document.createElement('h1');
+titlePage.textContent = 'Buscar Categoria';
+document.body.appendChild(titlePage);
 
 const newTable = document.createElement("table");
 const headerTable = newTable.createTHead();
@@ -32,10 +39,26 @@ const footerTable = newTable.createTFoot();
 document.body.appendChild(newTable);
 
 
+createLinkApiGoogle();
+
 insertTitlesTable(headerTable, titlesTable);
 
 insertContentTable(listCategory);
 
+createSearchCategory(titlePage);
+
+button = document.querySelector('button');
+var input = document.querySelector("#busca")
+
+const searchInputed = input.value;
+
+const result = SearchCategoryByName(searchInputed);
+
+button.setAttribute('onclick', 'insertContentTable(result)');
+
+
+
+// insertContentTable(result)
 
 function insertTitlesTable (headerTable, titlesTable) {
 
@@ -59,9 +82,55 @@ function insertContentTable(listCategory){
       headerCell.textContent = item;
     });
 
+    createIconGarbage('delete', rowTable);
+    createIconGarbage('draw', rowTable);
   }
 }
 
+function createLinkApiGoogle(){
+  const newlink = document.createElement('link');
+  newlink.setAttribute('rel', 'stylesheet');
+  newlink.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+  document.head.appendChild(newlink);
+}
+
+function createIconGarbage(icon, rowTable){
+  
+  const cellGarbage = document.createElement('td');
+  const iconGarbage = document.createElement('span');
+  iconGarbage.textContent = icon;
+  iconGarbage.setAttribute('class', 'material-symbols-outlined');
+  cellGarbage.appendChild(iconGarbage);
+  rowTable.appendChild(cellGarbage);
+
+}
+
+function createSearchCategory(titlePage){
+  const form = document.createElement('form');
+  form.setAttribute('action', '');
+  form.setAttribute('method', 'POST');
+
+  const input = document.createElement('input');
+  input.setAttribute('id', 'busca');
+  input.setAttribute('type', 'text');
+  input.setAttribute('placeholder', 'Digite a categoria ou palavra chave.');
+
+  const button = document.createElement('button');
+  button.textContent = "Buscar";
+
+  titlePage.appendChild(form);
+  form.appendChild(input);
+  form.appendChild(button);
+
+}
+
+function SearchCategoryByName(nameCategory){
+
+  const result = listCategory.filter( p => p.Nome == nameCategory);
+
+  return result;
+
+}
 
 
 // function generateHeader()
