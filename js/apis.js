@@ -1,10 +1,3 @@
-(() => {
-  const styleJs = document.createElement("script");
-  styleJs.setAttribute("src", "js/styles/footer-styles.js");
-  document.body.appendChild(styleJs);
-})();
-
-
 const url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services';
 
 async function listCategories() {
