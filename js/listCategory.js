@@ -45,17 +45,18 @@ insertTitlesTable(headerTable, titlesTable);
 
 insertContentTable(listCategory);
 
-createSearchCategory(titlePage);
+createSearchCategory();
 
 button = document.querySelector('button');
-var input = document.querySelector("#busca")
+var input = document.querySelector("input")
+
+input.value = 'Burguer King';
 
 const searchInputed = input.value;
 
 const result = SearchCategoryByName(searchInputed);
 
 button.setAttribute('onclick', 'insertContentTable(result)');
-
 
 
 // insertContentTable(result)
@@ -105,7 +106,7 @@ function createIconGarbage(icon, rowTable){
 
 }
 
-function createSearchCategory(titlePage){
+function createSearchCategory(){
   const form = document.createElement('form');
   form.setAttribute('action', '');
   form.setAttribute('method', 'POST');
@@ -118,7 +119,7 @@ function createSearchCategory(titlePage){
   const button = document.createElement('button');
   button.textContent = "Buscar";
 
-  titlePage.appendChild(form);
+  document.body.appendChild(form);
   form.appendChild(input);
   form.appendChild(button);
 
