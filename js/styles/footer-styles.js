@@ -8,9 +8,10 @@
     }
     footer {
       margin-top: 1rem;
-      width: 100vw;
+      width: 100vw  ;
+      height:10vh;
       padding: 1rem;
-      position: fixed;
+      position: relative;
       z-index: 1;
       bottom: 0;
       background-color: #A4133C;
@@ -20,7 +21,6 @@
       flex-wrap: wrap;  
       justify-content: space-evenly;
       align-itens: center;
-
     }
     li{
       list-style:none;
@@ -32,15 +32,16 @@
         font-size: 1rem;
         color: #ffffff;
     }
+    li:hover{
+      cursor: pointer;
+      font-weight: bolder;
+    }
 
     @media screen and (min-width: 600px)
     {
     li{
       padding: 0.2rem;
       margin: 0.2rem;
-      font-weight: bold;
-
-
     }
     li a{
         text-decoration: none;
