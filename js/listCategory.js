@@ -47,8 +47,8 @@ insertContentTable(listCategory);
 
 createSearchCategory();
 
-button = document.querySelector('button');
-var input = document.querySelector("input")
+const button = document.querySelector('button');
+const input = document.querySelector("input");
 
 input.value = 'Burguer King';
 
@@ -56,7 +56,12 @@ const searchInputed = input.value;
 
 const result = SearchCategoryByName(searchInputed);
 
-button.setAttribute('onclick', 'insertContentTable(result)');
+//button.setAttribute('onclick', 'insertContentTable(result)');
+
+button.addEventListener('click', function(event){
+  event.preventDefault()
+  insertContentTable(result)
+});
 
 
 // insertContentTable(result)
