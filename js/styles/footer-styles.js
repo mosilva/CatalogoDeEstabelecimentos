@@ -11,7 +11,7 @@
       width: 100vw  ;
       height:10vh;
       padding: 1rem;
-      position: relative;
+      position: fixed;
       z-index: 1;
       bottom: 0;
       background-color: #A4133C;

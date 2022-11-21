@@ -48,13 +48,18 @@ function generateHeader()
         const nav = document.createElement("nav");
         const navList = document.createElement("ul");
 
-
         headerNav.forEach(item => {
             const list = document.createElement("li");
+            const link = document.createElement("a");
             list.setAttribute("class", "navList");
-            list.innerText = item;
-            headerSection.appendChild(list);
-        });
+            link.setAttribute("class", "link");
+            // link.setAttribute("href", "../categories.html");
+            // link.setAttribute("href", "./create-establishments.js");
+            // link.setAttribute("href", "./listCategory.js");
+            link.innerText = item;
+            navList.appendChild(list);
+            list.appendChild(link);
+        });         
 
         document.body.appendChild(header);
         header.appendChild(headerSection);
