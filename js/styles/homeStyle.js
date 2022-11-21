@@ -9,7 +9,6 @@
       }
 
       main{
-        background-color: #F5F5F5;
         height: 150vh;
         display: flex;
         flex-direction: column;
