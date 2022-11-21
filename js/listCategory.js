@@ -19,7 +19,7 @@ const listCategory = [
   },
   {
     Nome: "Burguer King",
-    Codigo: "5555",
+    Codigo: "5567",
   },
 ];
 
@@ -46,6 +46,7 @@ insertTitlesTable(headerTable, titlesTable);
 
 insertContentTable(listCategory);
 
+Delete();
 
 
 const button = document.querySelector('button');
@@ -77,7 +78,6 @@ function insertTitlesTable (headerTable, titlesTable) {
     headerTable.appendChild(headerCell);
     headerCell.textContent = titlesTable[i];
   }
-  
 }
 
 function insertContentTable(listCategory){
@@ -90,10 +90,11 @@ function insertContentTable(listCategory){
       const headerCell = document.createElement('td');
       rowTable.appendChild(headerCell);
       headerCell.textContent = item;
+      
     });
-
     createIconGarbage('delete', rowTable);
     createIconGarbage('draw', rowTable);
+    
   }
 }
 
@@ -147,3 +148,22 @@ function SearchCategoryByName(nameCategory){
   return result;
 
 }
+
+function Delete(){
+  const iconDelete = document.querySelectorAll("span");
+  //const tdrow = document.querySelectorAll("td");
+  
+  iconDelete.forEach(function(event){
+    event.addEventListener("dblclick",function(event){
+      event.target.parentNode.remove();
+      //event.removeChild(event.target.parentElement);
+      DeletRow();
+    });
+  });
+}
+
+function DeletRow (){
+  const table = document.querySelectorAll("table")
+  table.target.parentNode.remove();
+}
+
