@@ -72,9 +72,13 @@
         }
 
         table{
+            width: 100%;
+            padding-left: 2vw;
+            line-height: 5vh;
         }
 
         table td{
+            text-align: center;
         }
 
         .regristry-form{
