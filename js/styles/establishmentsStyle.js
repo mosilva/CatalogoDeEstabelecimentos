@@ -10,13 +10,12 @@
 
         main{
             background-color: #F5F5F5;
-            margin-top: 20vh;
             width: 100%;
             height: 100vh;
         }
 
         .title{
-            padding-top: 8vh;
+            padding-top: 27vh;
             text-align: center;
             font-size: 30px;
         }
@@ -71,6 +70,32 @@
         }
         .lupa:hover{
             cursor: pointer;
+        }
+
+        @media(max-width: 700px) and (min-width: 360px){
+            .title{
+                padding-top: 22vh;
+            }
+            .boxRegister{
+                height: 30vh;
+                flex-direction: column;
+            }
+            .divRegister{
+                width: 55vw;
+            }
+            .firstP{
+                width: 55vw;
+            }
+            .boxSearch{
+                width: 95vw;
+            }
+            .inputSearch{
+                width: 85vw;
+            }
+            .lupa{
+                height: 5vh;
+            }
+
         }
     `;
 
