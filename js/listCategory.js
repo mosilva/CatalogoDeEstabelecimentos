@@ -4,7 +4,7 @@
     document.body.appendChild(styleJS);
 })();
 
-const listCategory = [
+/*const listCategory = [
   {
     Nome: "Cacau Show",
     Codigo: "2222",
@@ -21,16 +21,26 @@ const listCategory = [
     Nome: "Burguer King",
     Codigo: "5567",
   },
-];
+];*/
 
-const urlGoogleIcons = '<link rel="stylesheet" href="" />';
+
+( async () => {
+  const listCategory = await listCategories();
+  console.log(listCategory);
+
+
+  const urlGoogleIcons = '<link rel="stylesheet" href="" />';
 
 const titlesTable = ["Nome", "Codigo"];
 
 
 const titlePage = document.createElement('h1');
 titlePage.textContent = 'Buscar Categoria';
-document.body.appendChild(titlePage);
+
+
+const main = document.createElement("main");
+document.body.appendChild(main);
+main.appendChild(titlePage);
 
 createSearchCategory();
 
@@ -38,7 +48,8 @@ const newTable = document.createElement("table");
 const headerTable = newTable.createTHead();
 const tableBody = newTable.createTBody();
 const footerTable = newTable.createTFoot();
-document.body.appendChild(newTable);
+main.appendChild(newTable);
+
 
 createLinkApiGoogle();
 
@@ -135,7 +146,7 @@ function createSearchCategory(){
   const button = document.createElement('button');
   button.textContent = "Buscar";
 
-  document.body.appendChild(form);
+  main.appendChild(form);
   form.appendChild(input);
   form.appendChild(button);
 
@@ -149,9 +160,18 @@ function SearchCategoryByName(nameCategory){
 
 }
 
-function Delete(){
+
+/*function Delete(){
   const iconDelete = document.querySelectorAll("span");
   //const tdrow = document.querySelectorAll("td");
+  
+  iconDelete.addEventListener("dblclick", DeleteRow());
+
+}*/
+
+function Delete(){
+  const iconDelete = document.querySelectorAll("span");
+  const tdrow = document.querySelectorAll("td");
   
   iconDelete.forEach(function(event){
     event.addEventListener("dblclick",function(event){
@@ -163,7 +183,12 @@ function Delete(){
 }
 
 function DeletRow (){
-  const table = document.querySelectorAll("table")
-  table.target.parentNode.remove();
+  const td = document.querySelectorAll("th")
+  th.target.parentNode.remove();
 }
+
+
+})();
+
+
 

@@ -31,3 +31,17 @@ async function generateFooter(){
 }
 
 generateFooter();
+
+
+
+
+
+
+
+
+async function generate (){
+  const xListCategory = await window.listCategories();
+  console.log(xListCategory);
+}
+
+generate();

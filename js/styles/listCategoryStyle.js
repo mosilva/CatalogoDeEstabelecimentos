@@ -7,10 +7,25 @@
       box-sizing: border-box;
     }
 
-    table{
-      border: 1px dotted blue;
+    main{
+      height: 85vh;
+      padding-top: 25vh;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: center;
     }
 
-    `
+    h1{
+      text-align: center;
+    }
+
+    table{
+      border: 1px;
+      text-align: center;
+    }
+
+    `;
+    document.body.appendChild(style);
 })();
 

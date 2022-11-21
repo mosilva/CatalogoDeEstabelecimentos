@@ -1,6 +1,6 @@
 const url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services';
 
-async function listCategories() {
+window.listCategories = async function () {
     const promise = await fetch(`${url}/category/list`, {   
       method: 'POST',
       headers: {
@@ -23,7 +23,7 @@ async function listCategories() {
 
 
 async function listEstablishments(){
-  const promise = await fetch(`${url}//establishment/list`, {   
+  const promise = await fetch(`${url}/establishment/list`, {   
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
