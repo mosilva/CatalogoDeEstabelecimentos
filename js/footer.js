@@ -21,7 +21,6 @@ async function generateFooter(){
     const listItem = document.createElement("li");
     const listLink = document.createElement("a");
     listLink.href = "#";
-    listLink.classList.add("testeSeletor");      
     listLink.textContent = `${item.name} (${count})`;
     listItem.appendChild(listLink);
     listUnordered.appendChild(listItem);
