@@ -34,7 +34,19 @@
 //     ]
 
 // const header = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
-const headerNav = ["Home", "Estabelecimentos", "Categorias"];
+
+const headerLinks = [
+    {
+        nome: 'Home',
+        link: '../index.html'
+    },{
+        nome: 'Estabelecimentos',
+        link: '../establishments.html'
+    },{
+        nome: 'Categorias',
+        link: '../categories.html'
+    }
+]
 
 function generateHeader()
     {
@@ -48,18 +60,16 @@ function generateHeader()
         const nav = document.createElement("nav");
         const navList = document.createElement("ul");
 
-        headerNav.forEach(item => {
+        headerLinks.forEach(item => {
             const list = document.createElement("li");
             const link = document.createElement("a");
             list.setAttribute("class", "navList");
             link.setAttribute("class", "link");
-            // link.setAttribute("href", "../categories.html");
-            // link.setAttribute("href", "./create-establishments.js");
-            // link.setAttribute("href", "./listCategory.js");
-            link.innerText = item;
+            link.innerText = item.nome;
+            link.setAttribute("href", item.link);
             navList.appendChild(list);
             list.appendChild(link);
-        });         
+        })
 
         document.body.appendChild(header);
         header.appendChild(headerSection);
