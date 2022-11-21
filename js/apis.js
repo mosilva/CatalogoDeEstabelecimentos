@@ -41,10 +41,3 @@ async function listEstablishments(){
   }
   return promise.json();
 }
-
-//exemplo de chamada, nao precisa ser anonima ou autoinvocavel
-// importante por o await antes da chamada, pra parar os processos naquele ponto
-(async () => {
-  const x = await listEstablishments();
-  console.log(x)
-})();
