@@ -9,6 +9,7 @@
       }
 
       main{
+        background-color: #F5F5F5;
         height: 150vh;
         display: flex;
         flex-direction: column;
@@ -35,7 +36,16 @@
         height:80vh;
       }
       
-      
+      @media(max-width: 700px) and (min-width: 360px){
+        .title{
+          text-align: center;
+        }
+
+        .carouselImg{
+          width: 100vw;
+          height: 50vh;
+        }
+      }
     `;
     document.body.appendChild(homeStyle);
   })();

@@ -44,12 +44,20 @@
             height:15vh;
         }
         .logoHeader{
-            height:15vh;
+            height: 15vh;
           }
+        nav{
+          display: flex;
+          width: 80vw;
+          margin-left: -10vw;
+        }
         .navList{
-            widht:10vw;
-            font-size: 14px;
-            font-weight: bolder;
+            display:flex;
+            justify-content: space-around;
+            width: 30vw;
+        }
+        .link{
+          font-size: 1.2rem;
         }
       }
     `;
