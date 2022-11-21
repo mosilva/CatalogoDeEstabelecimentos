@@ -10,7 +10,7 @@
 
         main{
             width: 100%;
-            height: 100vh;
+            height: 200vh;
         }
 
         .title{
@@ -23,7 +23,7 @@
             width: 100%;
             height: 25vh;
             display: flex;
-            justify-content: space-evenly;
+            justify-content:center;
             align-items: center;
         }
 
@@ -69,6 +69,56 @@
         }
         .lupa:hover{
             cursor: pointer;
+        }
+
+        table{
+        }
+
+        table td{
+        }
+
+        .regristry-form{
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 20vh;
+        }
+
+        .group-input{
+            display: flex;
+            justify-content: space-between;
+            width: 35vw;
+        }
+
+        .label-form{
+            width: 10vw;
+            height: 5vh;
+            padding-top: 1vh;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .campo{
+            width: 25vw;
+            height: 5vh;
+            background-color: #D9D9D9;
+            border-radius: 5px;
+            border: none;
+        }
+        .campo::placeholder{
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .main-button{
+            width: 10vw;
+            padding-bottom: 2vh;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 2vh;
         }
 
         @media(max-width: 700px) and (min-width: 360px){

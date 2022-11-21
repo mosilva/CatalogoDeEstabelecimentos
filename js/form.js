@@ -1,3 +1,9 @@
+(() => {
+    const establishmentsStyle = document.createElement("script");
+    establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
+    document.body.appendChild(establishmentsStyle);
+})();
+
 const mainFormMain = document.createElement("form");
 mainFormMain.setAttribute("class","form-add");
 
@@ -11,8 +17,9 @@ function createInputs(){
         styleSpace(divForm);
         
         const labelForm = document.createElement("label");
+        labelForm.setAttribute("class", "label-form");
         labelForm.setAttribute("for",element);
-        labelForm.textContent = element + " : ";
+        labelForm.textContent = element + ": ";
         divForm.appendChild(labelForm);
 
         const inputForm = document.createElement("input");
@@ -36,7 +43,8 @@ function generateForm()
     
     const mainFormH2 = document.createElement("h2");
     mainFormH2.setAttribute("id","title-form");
-    mainFormH2.textContent ="Adicionar um novo estabelecimento";
+    mainFormH2.setAttribute("class", "title-form");
+    mainFormH2.textContent ="Cadastrar um novo estabelecimento";
     mainFormSection.appendChild(mainFormH2);    
 
     const mainFormUl = document.createElement("ul");

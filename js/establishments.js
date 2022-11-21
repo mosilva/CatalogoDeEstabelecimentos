@@ -1,3 +1,9 @@
+(() => {
+    const establishmentsStyle = document.createElement("script");
+    establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
+    document.body.appendChild(establishmentsStyle);
+})();
+
 let CatalogEstablishment = 
 [
     {
@@ -29,12 +35,6 @@ let CatalogEstablishment =
 
 const headerEstablishments = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
 
-(() => {
-    const establishmentsStyle = document.createElement("script");
-    establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
-    document.body.appendChild(establishmentsStyle);
-  })();
-
   const mainCatalogo = document.createElement("main");
   const tableMainTbody = document.createElement("tbody");
   tableMainTbody.setAttribute("class","establishment-table");
@@ -45,7 +45,7 @@ function generateEstablishmentsMain(){
     const containerEstablishments = document.createElement("span");
     const divTitle = document.createElement("div");
     const title = document.createElement("h2");
-    title.textContent = "Cadastrar estabelecimentos";
+    title.textContent = "Estabelecimentos";
     const boxRegister = document.createElement("section");
     const divRegister = document.createElement("div");
     const boxSearch = document.createElement("div");
@@ -78,11 +78,7 @@ function generateEstablishmentsMain(){
         mainCatalogo.appendChild(sectionCatalogo);
     
         const inputCatalogoSearch = document.createElement("input");
-        inputCatalogoSearch.setAttribute("type","text");
-        inputCatalogoSearch.setAttribute("name","filter");
-        inputCatalogoSearch.setAttribute("id","filter__table");
-        inputCatalogoSearch.setAttribute("class", "inputSearch")
-        inputCatalogoSearch.setAttribute("placeholder","Digite o nome da categoria do estabelecimento");
+        
         filterEstab(inputCatalogoSearch);
         boxSearch.appendChild(inputCatalogoSearch); 
         boxSearch.appendChild(lupaImg);    
@@ -92,8 +88,16 @@ function generateEstablishmentsMain(){
         tableMainCatalogo.appendChild(tableMainThead);
     
         const tableMainTheadTr = document.createElement("tr");
-        tableMainTheadTr.setAttribute("class","catalog-table");
         tableMainThead.appendChild(tableMainTheadTr);
+
+        function setAttributeShowsEstablishments(){
+            inputCatalogoSearch.setAttribute("type","text");
+            inputCatalogoSearch.setAttribute("name","filter");
+            inputCatalogoSearch.setAttribute("id","filter__table");
+            inputCatalogoSearch.setAttribute("class", "inputSearch")
+            inputCatalogoSearch.setAttribute("placeholder","Digite o nome da categoria do estabelecimento");
+            tableMainTheadTr.setAttribute("class","catalog-table");
+        }
     
         for (const element of headerEstablishments) 
         {
@@ -108,11 +112,10 @@ function generateEstablishmentsMain(){
         {
             showEstablishments(element);
         }
+    setAttributeShowsEstablishments();
     }   
-    
     generateTableShowsEstablishments();
 }
-
 generateEstablishmentsMain();
 
 function showEstablishments(establishment){
@@ -126,9 +129,7 @@ function showEstablishments(establishment){
           tableMainTbodyTd.textContent = Object.values(establishment)[k];
           tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(establishment)[k]);
           tableMainTbodyTr.appendChild(tableMainTbodyTd);
-
           tableMainTbody.appendChild(tableMainTbodyTr);
           tableMainCatalogo.appendChild(tableMainTbody);
-
         }
 }

@@ -24,10 +24,6 @@ function deleteEstab(tag) {
 
 function filterEstab(tag) {
     Object.assign(tag.style, {
-      // width: "20em",
-      // height: "2em",
-      // marginBottom: "1em",
-      // display: "flex"
     });
   }
 
