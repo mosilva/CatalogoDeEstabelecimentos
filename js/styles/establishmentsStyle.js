@@ -35,13 +35,13 @@
             border-radius: 20px;
         }
 
-        .firstP{
+        .main-button{
             width: 15vw;
             text-align: center;
             font-size: 20px;
             padding-top: 1.5vh;
         }
-        .firstP:hover{
+        .main-button:hover{
             cursor: pointer;
             font-weight: bolder;
         }
@@ -83,7 +83,7 @@
             .divRegister{
                 width: 55vw;
             }
-            .firstP{
+            .main-button{
                 width: 55vw;
             }
             .boxSearch{

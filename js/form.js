@@ -3,9 +3,9 @@ mainFormMain.setAttribute("class","form-add");
 
 function createInputs(){
 
-    for(let i = 0; i < header.length; i++)
+    for(let i = 0; i < headerEstablishments.length; i++)
     {            
-        element = header[i];
+        element = headerEstablishments[i];
         const divForm = document.createElement("div");
         divForm.setAttribute("class","group-input");
         styleSpace(divForm);
@@ -23,7 +23,7 @@ function createInputs(){
         inputForm.setAttribute("type","text");
         inputForm.setAttribute("class", "campo");     
         divForm.appendChild(inputForm);
-            
+        
         mainFormMain.appendChild(divForm);
     }
 }
@@ -51,7 +51,7 @@ function generateForm()
     const buttonForm = document.createElement("button");
     buttonForm.setAttribute("id","add-establishment");
     buttonForm.setAttribute("class","main-button");
-    buttonForm.textContent = "Adicionar Estabelecimento";  
+    buttonForm.textContent = "Cadastrar";  
     mainFormMain.appendChild(buttonForm);
 }
 

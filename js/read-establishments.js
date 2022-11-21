@@ -1,8 +1,3 @@
-const mainCatalogo = document.createElement("main");
-const tableMainTbody = document.createElement("tbody");
-tableMainTbody.setAttribute("class","establishment-table");
-const tableMainCatalogo = document.createElement("table");
-
 function showEstablishments(establishment){
     
         const tableMainTbodyTr = document.createElement("tr");
@@ -17,7 +12,6 @@ function showEstablishments(establishment){
 
           tableMainTbody.appendChild(tableMainTbodyTr);
           tableMainCatalogo.appendChild(tableMainTbody);
-
         }
 }
 
@@ -54,7 +48,7 @@ function generateTableShowsEstablishments(){
     tableMainTheadTr.setAttribute("class","catalog-table");
     tableMainThead.appendChild(tableMainTheadTr);
 
-    for (const element of header) 
+    for (const element of headerEstabblishments) 
     {
         const tableMainTheadTh = document.createElement("th");
         const texti = document.createTextNode(element);
