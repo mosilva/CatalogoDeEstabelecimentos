@@ -17,6 +17,7 @@
     }
 
     form{
+      margin-top: 5vh;
       display: flex; 
       flex-direction: row;
       justify-content: center;
@@ -25,6 +26,8 @@
     }
 
     h1{
+      margin-top: 3vh;
+      margin-bottom: 5vh;
       text-align: center;
     }
 
@@ -65,23 +68,20 @@
   }
 
   button{
-      width: 15vw;
+      width: 17vw;
       margin: 10px;
       padding: 1vh 2vh;
       font-size: 18px;
       text-align: center;
-
       background-color: #449C5C;
       border: none;
       border-radius: 10px;
       color: #fff; 
-     
   }
 
   button:hover{
     cursor: pointer;
     font-weight: bold;
-    padding: 9px;
   }
 
   .idCategory{
