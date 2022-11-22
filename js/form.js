@@ -6,6 +6,8 @@
 
 const mainFormMain = document.createElement("form");
 mainFormMain.setAttribute("class","form-add");
+mainFormMain.setAttribute("action", "");
+mainFormMain.setAttribute("method", "POST");
 
 function createInputs(){
 
