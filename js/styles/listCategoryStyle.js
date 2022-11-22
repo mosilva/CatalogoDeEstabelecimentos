@@ -70,7 +70,18 @@
       padding: 1vh 2vh;
       font-size: 18px;
       text-align: center;
+
+      background-color: #449C5C;
+      border: none;
+      border-radius: 10px;
+      color: #fff; 
      
+  }
+
+  button:hover{
+    cursor: pointer;
+    font-weight: bold;
+    padding: 9px;
   }
 
   .idCategory{

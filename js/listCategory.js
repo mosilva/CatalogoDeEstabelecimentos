@@ -23,7 +23,8 @@ titlePage.textContent = 'Buscar Categoria';
 main.appendChild(titlePage);
 
 const buttonCadastrar = document.createElement('button');
-buttonCadastrar.textContent = "Cadastrar Nova Categoria";
+buttonCadastrar.textContent = "Criar Nova Categoria";
+buttonCadastrar.setAttribute('id', 'btn-nova-categoria');
 main.appendChild(buttonCadastrar);
 
 createFormRegisterCategory();
@@ -76,6 +77,7 @@ function createFormRegisterCategory(){
   inputName.setAttribute('placeholder', 'Digite o nome da categoria');
 
   const button = document.createElement('button');
+  button.setAttribute('id', 'btn-cadastrar-categoria')
   button.textContent = "Criar Categoria";
 
   divRegister.appendChild(form);
