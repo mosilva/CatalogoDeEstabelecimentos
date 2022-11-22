@@ -39,7 +39,7 @@ window.catalogEstablishmentsByName = async function(nameCategory) {
 }
 
 window.listCategories = async function () {
-    const promise = await fetch(`${url}/establishment/list`, {   
+    const promise = await fetch(`${url}/category/list`, {     
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
