@@ -4,6 +4,7 @@
     document.body.appendChild(styleJS);
 })();
 
+
 ( async () => {
 
 createLinkApiGoogle();
@@ -69,43 +70,19 @@ function createFormRegisterCategory(){
   inputCode.setAttribute('type', 'text');
   inputCode.setAttribute('placeholder', 'Digite o código da categoria');
 
-  const selectName = document.createElement('select');
-  selectName.classList.add('campo');
-  selectName.setAttribute('name', 'selectCategory');
-  selectName.setAttribute('placeholder', 'Digite o nome da categoria');
-
-  const optionsCategory = ['Selecione uma categoria','Varejo', 'Educação', 'Bancários', 'Saúde', 'Esporte'];
-
-  for (let i = 0; i < optionsCategory.length; i++) {
-    
-    const option = document.createElement('option');
-    let value = optionsCategory[i].toLowerCase().replaceAll(" ", "");
-    value = convertString(value);
-    option.setAttribute('value', `${value}`);
-    option.textContent = optionsCategory[i];
-
-    selectName.appendChild(option);
-    
-  }
+  const inputName = document.createElement('input');
+  inputName.classList.add('campo');
+  inputName.setAttribute('type', 'text');
+  inputName.setAttribute('placeholder', 'Digite o nome da categoria');
 
   const button = document.createElement('button');
   button.textContent = "Criar Categoria";
 
   divRegister.appendChild(form);
   form.appendChild(inputCode);
-  form.appendChild(selectName);
+  form.appendChild(inputName);
   form.appendChild(button);
 
-}
-
-function convertString(text){
-  const a = 'àáäâãèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;';
-  const b = 'aaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------';
-  const p = new RegExp(a.split('').join('|'), 'g');
-  return text.toString().toLowerCase().trim()
-    .replace(p, c => b.charAt(a.indexOf(c))) 
-    .replace(/&/g, '-and-') 
-    .replace(/[\s\W-]+/g, '-');
 }
 
 function createFormSearchCategory(){
