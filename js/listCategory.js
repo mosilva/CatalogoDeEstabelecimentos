@@ -19,7 +19,7 @@ const main = document.createElement("main");
 document.body.appendChild(main);
 
 const titlePage = document.createElement('h1');
-titlePage.textContent = 'Buscar Categoria';
+titlePage.textContent = 'Categorias';
 main.appendChild(titlePage);
 
 const buttonCadastrar = document.createElement('button');
@@ -192,7 +192,6 @@ function clearTable(){
     trs[i].remove();
   }
 }
-
 
 })();
 

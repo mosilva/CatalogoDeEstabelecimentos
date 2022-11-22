@@ -7,7 +7,6 @@
       box-sizing: border-box;
     }
 
-
     main{
       width: 100%;
       min-height: 100vh;
@@ -44,6 +43,7 @@
       width: 100%;
       padding-left: 2vw;
       line-height: 5vh;
+      margin-right: 7vh; 
   }
 
   table td{
@@ -88,7 +88,16 @@
     display:none;
   }
 
+  @media(max-width: 700px) and (min-width: 360px){
+            .title{
+                padding-top: 22vh;
+            }
+            
+
+        }
+
     `;
+
     document.body.appendChild(style);
 })();
 
