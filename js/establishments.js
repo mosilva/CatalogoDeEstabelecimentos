@@ -47,7 +47,8 @@ function generateEstablishmentsMain(){
     const title = document.createElement("h2");
     title.textContent = "Estabelecimentos";
     const boxRegister = document.createElement("section");
-    const divRegister = document.createElement("div");
+    const btnRegister = document.createElement("button");
+    btnRegister.textContent = "Cadastrar";
     const boxSearch = document.createElement("div");
     const lupaImg = document.createElement("img");
 
@@ -56,6 +57,7 @@ function generateEstablishmentsMain(){
         tableMainTbody.setAttribute("class","establishment-table");
         containerEstablishments.setAttribute("class", "containerEstablishment");
         title.setAttribute("class", "title");
+        btnRegister.setAttribute("class", "btnRegister");
         boxSearch.setAttribute("class", "boxSearch");
         lupaImg.setAttribute("class", "lupa");
         lupaImg.setAttribute("src", "../img/iconeLupa.png");
@@ -66,7 +68,7 @@ function generateEstablishmentsMain(){
     containerEstablishments.appendChild(divTitle);
     divTitle.appendChild(title);
     mainCatalogo.appendChild(boxRegister);
-    boxRegister.appendChild(divRegister);
+    boxRegister.appendChild(btnRegister);
     boxRegister.appendChild(boxSearch);
 
     setAttributesRegister();

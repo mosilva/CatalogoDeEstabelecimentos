@@ -23,24 +23,16 @@
             width: 100%;
             height: 25vh;
             display: flex;
-            justify-content:center;
+            justify-content:space-evenly;
             align-items: center;
         }
 
-        .divRegister{
-            width: 15vw;
+        .btnRegister{
             height: 7vh;
-            background-color: #D9D9D9;
-            border-radius: 20px;
+            width: 10vw;
+            font-size: 18px;
         }
-
-        .main-button{
-            width: 15vw;
-            text-align: center;
-            font-size: 20px;
-            padding-top: 1.5vh;
-        }
-        .main-button:hover{
+        .btnRegister:hover{
             cursor: pointer;
             font-weight: bolder;
         }
@@ -118,11 +110,16 @@
         }
 
         .main-button{
-            width: 10vw;
+            width: 17vw;
             padding-bottom: 2vh;
             font-size: 18px;
             text-align: center;
+            padding-top: 1.5vh;
             margin-top: 2vh;
+        }
+        .main-button:hover{
+            cursor: pointer;
+            font-weight: bolder;
         }
 
         @media(max-width: 700px) and (min-width: 360px){

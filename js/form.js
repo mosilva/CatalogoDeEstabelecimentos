@@ -59,7 +59,7 @@ function generateForm()
     const buttonForm = document.createElement("button");
     buttonForm.setAttribute("id","add-establishment");
     buttonForm.setAttribute("class","main-button");
-    buttonForm.textContent = "Cadastrar";  
+    buttonForm.textContent = "Salvar estabelecimento";  
     mainFormMain.appendChild(buttonForm);
 }
 
