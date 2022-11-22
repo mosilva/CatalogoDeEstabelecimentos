@@ -122,16 +122,16 @@ generateEstablishmentsMain();
 
 function showEstablishments(establishment){
     
-        const tableMainTbodyTr = document.createElement("tr");
-        tableMainTbodyTr.setAttribute("class","establishment");
-        tableMainTbodyTr.setAttribute("class", "body__information");
+    const tableMainTbodyTr = document.createElement("tr");
+    tableMainTbodyTr.setAttribute("class","establishment");
+    tableMainTbodyTr.setAttribute("class", "body__information");
 
-        for (let k = 0; k < headerEstablishments.length; k++) {
-          const tableMainTbodyTd = document.createElement("td");
-          tableMainTbodyTd.textContent = Object.values(establishment)[k];
-          tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(establishment)[k]);
-          tableMainTbodyTr.appendChild(tableMainTbodyTd);
-          tableMainTbody.appendChild(tableMainTbodyTr);
-          tableMainCatalogo.appendChild(tableMainTbody);
-        }
+    for (let k = 0; k < headerEstablishments.length; k++) {
+        const tableMainTbodyTd = document.createElement("td");
+        tableMainTbodyTd.textContent = Object.values(establishment)[k];
+        tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(establishment)[k]);
+        tableMainTbodyTr.appendChild(tableMainTbodyTd);
+        tableMainTbody.appendChild(tableMainTbodyTr);
+        tableMainCatalogo.appendChild(tableMainTbody);
+    }
 }

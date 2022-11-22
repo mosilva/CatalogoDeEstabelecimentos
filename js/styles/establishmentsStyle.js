@@ -23,14 +23,21 @@
             width: 100%;
             height: 25vh;
             display: flex;
-            justify-content:space-evenly;
+            flex-direction: column;
+            justify-content:space-around;
             align-items: center;
+            margin-top: 5vh;
+            margin-bottom: 10vh;
         }
 
         .btnRegister{
-            height: 7vh;
-            width: 10vw;
+            width: 12vw;
+            height: 6vh;
             font-size: 18px;
+            background-color: #C9184A;
+            border: none;
+            border-radius: 10px;
+            color: #fff; 
         }
         .btnRegister:hover{
             cursor: pointer;
@@ -111,11 +118,14 @@
 
         .main-button{
             width: 17vw;
-            padding-bottom: 2vh;
+            height: 6vh;
             font-size: 18px;
-            text-align: center;
-            padding-top: 1.5vh;
-            margin-top: 2vh;
+            background-color: #C9184A;
+            border: none;
+            border-radius: 10px;
+            color: #fff; 
+            margin-top: 5vh;
+            margin-left: 12vw;
         }
         .main-button:hover{
             cursor: pointer;
