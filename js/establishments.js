@@ -1,14 +1,14 @@
-(() => {
   const establishmentsStyle = document.createElement("script");
   establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
   document.body.appendChild(establishmentsStyle);
-})();
+  const mainFormMain = document.createElement("form");
+  mainFormMain.setAttribute("class","form-add");
+  mainFormMain.setAttribute("action", "");
+  mainFormMain.setAttribute("method", "POST");
 
-(async () => {
-  createLinkApiGoogle();
 
-  const catalogEstablishment = await catalogEstablishments();
-  const headerEstablishments = [
+
+const headerEstablishments = [
     "Endereço",
     "Telefone",
     "Nome",
@@ -19,6 +19,75 @@
     "Editar",
   ];
 
+function createInputs() {
+    for (let i = 0; i < headerEstablishments.length; i++) {
+      if (
+        headerEstablishments[i] != "Deletar" &&
+        headerEstablishments[i] != "Editar"
+      ) {
+        element = headerEstablishments[i];
+        const divForm = document.createElement("div");
+        divForm.setAttribute("class", "group-input");
+        styleSpace(divForm);
+
+        const labelForm = document.createElement("label");
+        labelForm.setAttribute("class", "label-form");
+        labelForm.setAttribute("for", element);
+        labelForm.textContent = element + ": ";
+        divForm.appendChild(labelForm);
+
+        const inputForm = document.createElement("input");
+        inputForm.setAttribute("id", element);
+        inputForm.setAttribute("name", element);
+        const article = element[element.length - 1] == "a" ? "a " : "o ";
+        inputForm.setAttribute(
+          "placeholder",
+          "Digite aqui " + article + element.toLowerCase() + "..."
+        );
+        inputForm.setAttribute("type", "text");
+        inputForm.setAttribute("class", "campo");
+        divForm.appendChild(inputForm);
+        mainFormMain.appendChild(divForm);
+      }
+    }
+  }
+
+function generateForm()
+{    
+    const mainFormSection = document.createElement("section");
+    mainFormSection.setAttribute("class","registry-form");
+    mainCatalogo.appendChild(mainFormSection);
+    
+    const mainFormH2 = document.createElement("h2");
+    mainFormH2.setAttribute("id","title-form");
+    mainFormH2.setAttribute("class", "title-form");
+    mainFormH2.textContent ="Cadastrar um novo estabelecimento";
+    mainFormSection.appendChild(mainFormH2);    
+    
+    const mainFormUl = document.createElement("ul");
+    mainFormUl.setAttribute("id","error-message");
+    styleSpanError(mainFormUl);
+    mainFormSection.appendChild(mainFormUl);
+
+    mainFormSection.appendChild(mainFormMain);
+
+    createInputs();
+
+    const buttonForm = document.createElement("button");
+    buttonForm.setAttribute("id","add-establishment");
+    buttonForm.setAttribute("class","main-button");
+    buttonForm.textContent = "Salvar estabelecimento";  
+    mainFormMain.appendChild(buttonForm);
+}
+
+
+(async () => {
+  createLinkApiGoogle();
+
+  const catalogEstablishment = await catalogEstablishments();
+
+
+  
   const tableMainTbody = document.createElement("tbody");
   const tableMainCatalogo = document.createElement("table");
   window.mainCatalogo = document.createElement("main");
@@ -120,9 +189,10 @@
 
       })();
     }
-
-    generateTableShowsEstablishments();
+    
     generateForm();
+    generateTableShowsEstablishments();
+
   }
   generateEstablishmentsMain();
 
@@ -156,6 +226,12 @@
       });
     }
   }
+
+  hiddenFormRegister(    
+    document.querySelector("#btn-register"),
+    document.querySelector(".registry-form"),
+    "Cadastrar"
+  );
 
   async function deleteEstablishmentEvent(event) {
     const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
@@ -206,80 +282,6 @@
       trs[i].remove();
     }
   }
-
-  function createInputs() {
-    for (let i = 0; i < headerEstablishments.length; i++) {
-      if (
-        headerEstablishments[i] != "Deletar" &&
-        headerEstablishments[i] != "Editar"
-      ) {
-        element = headerEstablishments[i];
-        const divForm = document.createElement("div");
-        divForm.setAttribute("class", "group-input");
-        styleSpace(divForm);
-
-        const labelForm = document.createElement("label");
-        labelForm.setAttribute("class", "label-form");
-        labelForm.setAttribute("for", element);
-        labelForm.textContent = element + ": ";
-        divForm.appendChild(labelForm);
-
-        const inputForm = document.createElement("input");
-        inputForm.setAttribute("id", element);
-        inputForm.setAttribute("name", element);
-        const article = element[element.length - 1] == "a" ? "a " : "o ";
-        inputForm.setAttribute(
-          "placeholder",
-          "Digite aqui " + article + element.toLowerCase() + "..."
-        );
-        inputForm.setAttribute("type", "text");
-        inputForm.setAttribute("class", "campo");
-        divForm.appendChild(inputForm);
-        mainFormMain.appendChild(divForm);
-      }
-    }
-  }
-
-  function generateForm() {
-    const mainFormSection = document.createElement("section");
-    mainFormSection.setAttribute("class", "registry-form");
-    console.log(mainCatalogo);
-    mainCatalogo.appendChild(mainFormSection);
-
-    mainFormMain = document.createElement("form");
-    mainFormMain.setAttribute("class", "form-add");
-    mainFormMain.setAttribute("action", "");
-    mainFormMain.setAttribute("method", "POST");
-
-    const mainFormH2 = document.createElement("h2");
-    mainFormH2.setAttribute("id", "title-form");
-    mainFormH2.setAttribute("class", "title-form");
-    mainFormH2.textContent = "Cadastrar um novo estabelecimento";
-    mainFormSection.appendChild(mainFormH2);
-
-    const mainFormUl = document.createElement("ul");
-    mainFormUl.setAttribute("id", "error-message");
-    styleSpanError(mainFormUl);
-    mainFormSection.appendChild(mainFormUl);
-
-    mainFormSection.appendChild(mainFormMain);
-
-    createInputs();
-
-    const buttonForm = document.createElement("button");
-    buttonForm.setAttribute("id", "add-establishment");
-    buttonForm.setAttribute("class", "main-button");
-    buttonForm.textContent = "Salvar estabelecimento";
-    mainFormMain.appendChild(buttonForm);
-
-    const button = document.querySelector("#add-establishment");
-    const input = document.querySelector("#filter__table");
-    button.addEventListener("click", function (event) {
-      event.preventDefault();
-      showCategory(input);
-    });
-  }
-
   const buttonForm = await document.querySelector("#add-establishment");
 
   buttonForm.addEventListener("click", function (event) {
@@ -359,9 +361,5 @@
     }
   });
 
-  hiddenFormRegister(
-    document.querySelector("#btn-register"),
-    document.querySelector(".registry-form"),
-    "Cadastrar"
-  );
+
 }})();
