@@ -331,8 +331,6 @@ function generateForm() {
         iconGoogle.addEventListener("dblclick", deleteEstablishmentEvent);
       } else {
         iconGoogle.addEventListener("dblclick", function (event) {
-          console.log("Clicou no lapis");
-          console.log(event);
         });
       }
     });

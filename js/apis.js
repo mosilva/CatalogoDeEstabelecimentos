@@ -36,7 +36,6 @@ window.catalogEstablishmentsByName = async function(nameCategory) {
     }
   })
   }).catch((error) => {
-  console.log("Erro na comunicação:", error);
   });
 }
 
@@ -75,7 +74,6 @@ body: JSON.stringify({
   }
 })
 }).catch((error) => {
-console.log("Erro na comunicação:", error);
 });
 
 
@@ -121,7 +119,6 @@ body: JSON.stringify({
   }
 })
 }).catch((error) => {
-console.log("Erro na comunicação:", error);
 });
 
 
@@ -146,7 +143,6 @@ body: JSON.stringify({
 }
 })
 }).catch((error) => {
-console.log("Erro na comunicação:", error);
 });
 
 
@@ -160,7 +156,6 @@ return promise.json();
 
 window.deleteEstablishment = async function (idEstab) {
 
-  console.log(idEstab);
   const promise = await fetch(`${url}//establishment`, {   
   method: 'DELETE',
   headers: {
@@ -173,7 +168,6 @@ body: JSON.stringify({
   }
 })
 }).catch((error) => {
-console.log("Erro na comunicação:", error);
 });
 
 
@@ -206,7 +200,6 @@ window.createEstablishment = async function (newEstablishment) {
       }
 })
 }).catch((error) => {
-console.log("Erro na comunicação:", error);
 });
 
 

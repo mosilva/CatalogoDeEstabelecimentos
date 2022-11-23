@@ -165,10 +165,7 @@ function createIcon(icon, rowTable){
 
   }else{
 
-    iconGoogle.addEventListener("dblclick",function(event){
-      console.log("Clicou no lapis");
-      console.log(event);
-     
+    iconGoogle.addEventListener("dblclick",function(event){    
     });
   }
 
@@ -190,9 +187,6 @@ async function deleteCategory(event){
 }
 
 window.showCategory = async function (input){
-  console.log("dentro do shoe", input)
-    console.log("dentro do shoe", input.value)
-
   clearTable();
 
   const result = await listCategoriesByName(input.value);
