@@ -10,7 +10,7 @@
 
         main{
             width: 100%;
-            height: 200vh;
+            height: 185vh;
         }
 
         .title{
@@ -80,14 +80,14 @@
             text-align: center;
         }
 
-        .regristry-form{
+        .registry-form{
             width: 100%;
             height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            margin-top: 20vh;
+            margin-top: 22vh;
         }
 
         .group-input{
@@ -133,6 +133,9 @@
         }
 
         @media(max-width: 700px) and (min-width: 360px){
+            main{
+                height: 195vh;
+            }
             .title{
                 padding-top: 22vh;
             }
@@ -143,6 +146,9 @@
             .divRegister{
                 width: 55vw;
             }
+            .btnRegister{
+                width: 50vw;
+            }
             .main-button{
                 width: 55vw;
             }
@@ -150,12 +156,51 @@
                 width: 95vw;
             }
             .inputSearch{
-                width: 85vw;
+                width: 70vw;
             }
             .lupa{
                 height: 5vh;
             }
-
+            table{
+                margin-top: -2vh;
+                height: 50vh;
+                display: flex;
+                font-size: 20px;
+            }
+            thead{
+                width: 42vw;
+            }
+            table th{
+                height: 8vh;
+            }
+            .catalog-table{
+                display: flex;
+                flex-direction: column;
+            }
+            table td{
+                display: flex;
+                flex-direction: column;
+                height: 8vh;
+            }
+            .registry-form{
+                margin-top: 7vh;
+            }
+            .title-form{
+                margin-bottom: 2vh;
+                text-align: center;
+            }
+            // 
+            .label-form{
+                width: 60vw;
+            }
+            .campo{
+                width: 40vw;
+                margin-left: 20vw;
+            }
+            .main-button{
+                width: 65vw;
+                margin-right: 10vw;
+            }
         }
     `;
 

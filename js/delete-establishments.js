@@ -1,4 +1,3 @@
-(async () => {
 let tableEstablishments = await document.querySelector("table");
 
 tableEstablishments.addEventListener("dblclick", function(event)
@@ -10,4 +9,4 @@ tableEstablishments.addEventListener("dblclick", function(event)
     },500);
 
 
-})})();
+});

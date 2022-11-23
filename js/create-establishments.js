@@ -1,4 +1,3 @@
-(async () => {
 const buttonForm = await document.querySelector("#add-establishment");
 
 buttonForm.addEventListener("click", function(event)
@@ -69,4 +68,4 @@ function showErros(errors){
     });
 
 
-}})();
+};
