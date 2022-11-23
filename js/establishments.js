@@ -5,6 +5,7 @@ const mainFormMain = document.createElement("form");
 mainFormMain.setAttribute("class", "form-add");
 mainFormMain.setAttribute("action", "");
 mainFormMain.setAttribute("method", "POST");
+let listCategoryReturn;
 
 const headerEstablishments = [
   "Endereço",
@@ -17,19 +18,17 @@ const headerEstablishments = [
   "Editar",
 ];
 
-
 async function searchCategories(myParent) {
-    const listCategoryReturn = await listCategories();
+    listCategoryReturn = await listCategories();
 
     let categories = [];
-
-    console.log(listCategoryReturn);
 
     listCategoryReturn.forEach((item) => {
       categories.push(item.name);
     });
 
     const selectList = document.createElement("select");
+    selectList.setAttribute("id","select-list")
     myParent.appendChild(selectList);
 
     for (var i = 0; i < categories.length; i++) {
@@ -60,8 +59,6 @@ function createInputs() {
         const inputForm = searchCategories(divForm)
 
         mainFormMain.appendChild(divForm);
-
-
 
     } else if (
       headerEstablishments[i] != "Deletar" &&
@@ -119,6 +116,7 @@ function generateForm() {
   buttonForm.textContent = "Salvar estabelecimento";
   mainFormMain.appendChild(buttonForm);
 }
+
 
 (async () => {
   createLinkApiGoogle();
@@ -227,7 +225,41 @@ function generateForm() {
     generateForm();
     generateTableShowsEstablishments();
   }
+
   generateEstablishmentsMain();
+
+  const buttonForm = document.querySelector("#add-establishment");
+
+  buttonForm.addEventListener("click", async function (event) {
+    
+      event.preventDefault()
+
+      select = document.getElementById("select-list");
+  
+      let codeCategory;
+  
+      listCategoryReturn.forEach((item) => {
+          if(item.name = select.options[select.selectedIndex].value)
+          {
+              codeCategory = item.uid;
+          }
+        });
+     
+      const newEstablishment = {
+          "address": document.getElementById("Endereço").value,
+          "phone": document.getElementById("Telefone").value,
+          "name": document.getElementById("Nome").value,
+          "category": codeCategory,
+          "postal_code": document.getElementById("CEP").value,
+          "email": document.getElementById("Email").value
+      }
+  
+      await createEstablishment(newEstablishment);
+
+      //   document.location.reload(true);
+  });
+  
+
 
   function showEstablishments(Establishments) {
     for (let index = 0; index < Establishments.length; index++) {
@@ -294,17 +326,34 @@ function generateForm() {
 
 
     async function CreateEstablishmentEvent(event) {
-      await createEstablishment(itemDelete[0].textContent);
-      document.location.reload(true);
+
+        select = document.getElementById("select-list");
+
+        let codeCategory;
+
+        listCategoryReturn.forEach((item) => {
+            if(item.name = select.options[select.selectedIndex].value)
+            {
+                codeCategory = item.uid;
+            }
+          });
+      
+
+        select.options[select.selectedIndex].value
+
+        const newEstablishment = {
+            "address": document.getElementById("Endereço").value,
+            "phone": document.getElementById("Telefone").value,
+            "name": document.getElementById("Nome").value,
+            "category": codeCategory,
+            "postal_code": document.getElementById("CEP").value,
+            "email": document.getElementById("Email").value
+        }
+
+        await createEstablishment(newEstablishment);
+        document.location.reload(true);
     }
 
-    async function showCategory(input) {
-      clearTable();
-
-      const result = await catalogEstablishmentsByName(input.value);
-      if (result.length) insertContentTable(result);
-      else insertContentTable(catalogEstablishment);
-    }
 
     function clearTable() {
       const trs = tableMainTbody.querySelectorAll("tr");
@@ -312,35 +361,7 @@ function generateForm() {
         trs[i].remove();
       }
     }
-    const buttonForm = await document.querySelector("#add-establishment");
 
-    buttonForm.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      let newEstablishment = {
-        Categoria: mainFormMain.Categoria.value,
-        Nome: mainFormMain.Nome.value,
-        Endereco: mainFormMain.Endereço.value,
-        Cep: mainFormMain.CEP.value,
-        Telefone: mainFormMain.Telefone.value,
-        Email: mainFormMain.Email.value,
-      };
-
-      let errors = validateEstablishment(newEstablishment);
-
-      if (errors.length > 0) {
-        showErros(errors);
-      } else {
-        let ulError = document.querySelector("#error-message");
-        ulError.innerHTML = "";
-
-        CatalogEstablishment.push(newEstablishment);
-
-        showEstablishments(newEstablishment);
-
-        mainFormMain.reset();
-      }
-    });
 
     function validateEstablishment(establishment) {
       let allErrors = [];

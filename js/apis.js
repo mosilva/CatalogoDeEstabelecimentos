@@ -185,30 +185,25 @@ return promise.json();
 };
 
 
-window.createEstablishment = async function (idEstab) {
+window.createEstablishment = async function (newEstablishment) {
 
-  console.log(idEstab);
-  const promise = await fetch(`${url}//establishment`, {   
-  method: 'DELETE',
+  const promise = await fetch(`${url}/establishment`, {   
+  method: 'POST',
   headers: {
-    "Content-Type": "application/json"
+      "Content-Type": "application/json"
 },
-body: JSON.stringify({
- 
-    "address": "string",
-    "phone": "string",
-    "name": "string",
-    "category": {
-      "uid": uidGroup
-    },
-    "postal_code": "string",
-    "email": "user@example.com",
-    "group": {
-      "uid": "string"
-    }
-  
-
-
+  body: JSON.stringify({  
+      "address": newEstablishment.address,
+      "phone": newEstablishment.phone,
+      "name": newEstablishment.name,
+      "category": {
+        "uid": newEstablishment.category,
+      },
+      "postal_code": newEstablishment.postal_code,
+      "email": newEstablishment.email,
+      "group": {
+        "uid": uidGroup
+      }
 })
 }).catch((error) => {
 console.log("Erro na comunicação:", error);
