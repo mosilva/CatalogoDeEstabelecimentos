@@ -156,3 +156,67 @@ return []
 
 return promise.json();
 };
+
+
+window.deleteEstablishment = async function (idEstab) {
+
+  console.log(idEstab);
+  const promise = await fetch(`${url}//establishment`, {   
+  method: 'DELETE',
+  headers: {
+    "Content-Type": "application/json"
+},
+body: JSON.stringify({
+  "uid": `${idEstab}`,
+  "group": {
+    "uid": uidGroup
+  }
+})
+}).catch((error) => {
+console.log("Erro na comunicação:", error);
+});
+
+
+if(!promise){
+return []
+}
+
+return promise.json();
+};
+
+
+window.createEstablishment = async function (newEstablishment) {
+
+  const promise = await fetch(`${url}/establishment`, {   
+  method: 'POST',
+  headers: {
+      "Content-Type": "application/json"
+},
+  body: JSON.stringify({  
+      "address": newEstablishment.address,
+      "phone": newEstablishment.phone,
+      "name": newEstablishment.name,
+      "category": {
+        "uid": newEstablishment.category,
+      },
+      "postal_code": newEstablishment.postal_code,
+      "email": newEstablishment.email,
+      "group": {
+        "uid": uidGroup
+      }
+})
+}).catch((error) => {
+console.log("Erro na comunicação:", error);
+});
+
+
+if(!promise){
+return []
+}
+
+return promise.json();
+};
+
+
+
+

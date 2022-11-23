@@ -14,8 +14,7 @@
             font-family: 'Source Sans Pro', sans-serif;
         }
 
-        .establishmentContainer .title{
-
+        .establishmentContainer .title{   
             text-align: center;
             font-size: 30px;
         }
@@ -83,12 +82,23 @@
 
         .establishmentContainer .registry-form{
             width: 100%;
-            height: 60vh;
+            height:55vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
+        }
+
+        .title-form{
+            text-align: center;
+        }
+
+        .form-add{
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: center;
-            margin-top: 22vh;
         }
 
         .establishmentContainer .group-input{
@@ -126,7 +136,7 @@
             border-radius: 10px;
             color: #fff; 
             margin-top: 5vh;
-            margin-left: 12vw;
+            margin-right: 12vw;
         }
         .establishmentContainer .main-button:hover{
             cursor: pointer;

@@ -69,4 +69,3 @@ function generateForm()
     mainFormMain.appendChild(buttonForm);
 }
 
-generateForm();
