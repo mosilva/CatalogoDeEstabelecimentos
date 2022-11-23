@@ -109,7 +109,7 @@ function generateForm() {
   mainFormSection.appendChild(mainFormMain);
 
   createInputs();
-
+    
   const buttonForm = document.createElement("button");
   buttonForm.setAttribute("id", "add-establishment");
   buttonForm.setAttribute("class", "main-button");
