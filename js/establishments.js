@@ -19,10 +19,22 @@
     "Editar"
   ];
 
+  const mainCatalogo = document.createElement("section");
+  mainCatalogo.classList.add('establishmentContainer');
+  mainCatalogo.classList.add('hide');
+  
+    const main = document.querySelector("main");
+    if(main){
+        main.appendChild(mainCatalogo);
+    }
+    else{
+        const main = document.createElement('main')
+        document.body.appendChild(main);
+        main.appendChild(mainCatalogo);
+    }
+
   const tableMainTbody = document.createElement("tbody");
   const tableMainCatalogo = document.createElement("table");
-  window.mainCatalogo = document.createElement("main");
-  document.body.appendChild(mainCatalogo);
 
   function createLinkApiGoogle() {
     const linkGoogleApi = document.createElement("link");
@@ -233,7 +245,6 @@ function generateForm() {
 
     const mainFormSection = document.createElement("section");
     mainFormSection.setAttribute("class", "registry-form");
-    console.log(mainCatalogo);
     mainCatalogo.appendChild(mainFormSection);
 
     mainFormMain = document.createElement("form");

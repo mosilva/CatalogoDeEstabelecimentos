@@ -1,14 +1,7 @@
 (() => {
     const homeStyle = document.createElement("style");
     homeStyle.innerHTML += `
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Source Sans Pro', sans-serif;
-      }
-
-      main{
+      .establishmentContainer section{
         height: 150vh;
         display: flex;
         flex-direction: column;
@@ -16,12 +9,12 @@
         align-items: center;
       }
 
-      .title{
+      establishmentContainer .title{
         margin-bottom: 6vh;
         font-weight: 300;
       }
 
-      .container{
+      establishmentContainer .container{
         width: 80%;
         height:80vh;
         position: relative;
@@ -29,18 +22,18 @@
         justify-content: center;
       }
 
-      .carouselImg{
+      establishmentContainer .carouselImg{
         position: absolute;
         width: 80%;
         height:80vh;
       }
       
       @media(max-width: 700px) and (min-width: 360px){
-        .title{
+        establishmentContainer .title{
           text-align: center;
         }
 
-        .carouselImg{
+        establishmentContainer .carouselImg{
           width: 100vw;
           height: 50vh;
         }
