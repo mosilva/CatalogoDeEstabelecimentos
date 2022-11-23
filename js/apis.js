@@ -40,7 +40,7 @@ window.catalogEstablishmentsByName = async function(nameCategory) {
   });
 }
 
-async function listEstablishments(){
+window.listEstablishments = async function (){
   const promise = await fetch(`${url}/establishment/list`, {   
       method: 'POST',
       headers: {
