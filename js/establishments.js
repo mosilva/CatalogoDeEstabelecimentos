@@ -15,6 +15,8 @@
     "Categoria",
     "CEP",
     "Email",
+    "Delete",
+    "Editar"
   ];
   const tableMainTbody = document.createElement("tbody");
   const tableMainCatalogo = document.createElement("table");
@@ -151,7 +153,6 @@
 
     const allTr = document.querySelectorAll('.body-information');
 
-
     allTr.forEach((tr) => {
         const iconElement = document.createElement("td");
         const iconGoogle = document.createElement("span");
@@ -160,7 +161,7 @@
         iconElement.appendChild(iconGoogle);
         tr.appendChild(iconElement);
       });
-      
+
 
     if (icon == "delete") {
     //   iconGoogle.addEventListener("dblclick", );
