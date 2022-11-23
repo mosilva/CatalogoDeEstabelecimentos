@@ -1,6 +1,21 @@
 const establishmentsStyle = document.createElement("script");
 establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
 document.body.appendChild(establishmentsStyle);
+
+const mainCatalogo = document.createElement("section");
+  mainCatalogo.classList.add('establishmentContainer');
+  mainCatalogo.classList.add('hide');
+  
+    const main = document.querySelector("main");
+    if(main){
+        main.appendChild(mainCatalogo);
+    }
+    else{
+        const main = document.createElement('main')
+        document.body.appendChild(main);
+        main.appendChild(mainCatalogo);
+    }
+
 const mainFormMain = document.createElement("form");
 mainFormMain.setAttribute("class", "form-add");
 mainFormMain.setAttribute("action", "");
