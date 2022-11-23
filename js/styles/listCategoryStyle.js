@@ -76,6 +76,7 @@
       border: none;
       border-radius: 10px;
       color: #fff; 
+      background-color: #C9184A;
   }
 
   button:hover{
