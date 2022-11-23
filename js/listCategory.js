@@ -49,6 +49,13 @@ button.addEventListener('click', function(event){
   showCategory(input);
 });
 
+
+
+
+  
+
+ 
+
 function createLinkApiGoogle(){
   const newlink = document.createElement('link');
   newlink.setAttribute('rel', 'stylesheet');
@@ -69,11 +76,13 @@ function createFormRegisterCategory(){
   const inputCode = document.createElement('input');
   inputCode.classList.add('campo');
   inputCode.setAttribute('type', 'text');
+  inputCode.setAttribute('id', 'codigoCategoria');
   inputCode.setAttribute('placeholder', 'Digite o código da categoria');
 
   const inputName = document.createElement('input');
   inputName.classList.add('campo');
   inputName.setAttribute('type', 'text');
+  inputName.setAttribute('id', 'nomeCategoria');
   inputName.setAttribute('placeholder', 'Digite o nome da categoria');
 
   const button = document.createElement('button');
@@ -193,18 +202,28 @@ function clearTable(){
   }
 }
 
-async function registerCategory(){
- 
+async function registerCategory(codeCategory, nameCategory){
+
+  await createCategory(codeCategory.value, nameCategory.value);
+
+  document.location.reload(true);
+
+}
+
+function captureDataRegister(){
   const button = document.querySelector('#btn-cadastrar-categoria');
   const codeCategory = document.querySelector("#codigoCategoria");
   const nameCategory = document.querySelector("#nomeCategoria");
-
-
-  await button.addEventListener("dblclick",  createCategory(codeCategory.value, nameCategory.value));
-     //document.location.reload(true);
-
-
+    
+  button.addEventListener('click', function(event){
+    event.preventDefault()
+     registerCategory(codeCategory, nameCategory);
+  });
 }
+
+captureDataRegister();
+
+
 
 })();
 

@@ -60,7 +60,7 @@ async function listEstablishments(){
   return promise.json();
 }
 
-window.createCategory = async function ({codeCategory, nameCategory}) {
+window.createCategory = async function (codeCategory, nameCategory) {
 
   const promise = await fetch(`${url}/category`, {   
   method: 'POST',
