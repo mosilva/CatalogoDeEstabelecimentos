@@ -35,7 +35,7 @@ window.hiddenSection = (event) => {
     category.classList.remove("hide");
     establishment.classList.add("hide");
     home.classList.add("hide");
-    document.querySelector('')
+    //document.querySelector('')
   }
 };
 
