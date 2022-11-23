@@ -110,12 +110,13 @@
     generateForm();
     
     function showEstablishments(Establishments){
-        const tableMainTbodyTr = document.createElement("tr");
-        tableMainTbodyTr.setAttribute("class","book");
-        tableMainTbodyTr.setAttribute("class","body-information");
+
 
         for (let i = 0; i < Establishments.length; i++) 
             {   
+                const tableMainTbodyTr = document.createElement("tr");
+                tableMainTbodyTr.setAttribute("class","book");
+                tableMainTbodyTr.setAttribute("class","body-information");
                 const rowTable = tableMainTbody.insertRow();
                 Object.entries(Establishments[i]).forEach((entry) => 
                 // Object.values(Establishments[i]).forEach((item) => 
@@ -126,7 +127,7 @@
                     {
                         const tableMainTbodyTd = document.createElement("td");
                         tableMainTbodyTd.textContent = value;
-                        tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(headerEstablishments)[i]);
+                        tableMainTbodyTd.setAttribute("class",`info-${key}`);
                         tableMainTbodyTr.appendChild(tableMainTbodyTd);
                         console.log(key);
                     }
@@ -135,7 +136,7 @@
                     {
                         const tableMainTbodyTd = document.createElement("td");
                         tableMainTbodyTd.textContent = value.name;
-                        tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(headerEstablishments)[i]);
+                        tableMainTbodyTd.setAttribute("class",`info-${key}`);
                         tableMainTbodyTr.appendChild(tableMainTbodyTd);
                         console.log(key);
                     }
