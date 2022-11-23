@@ -185,4 +185,43 @@ return promise.json();
 };
 
 
+window.createEstablishment = async function (idEstab) {
+
+  console.log(idEstab);
+  const promise = await fetch(`${url}//establishment`, {   
+  method: 'DELETE',
+  headers: {
+    "Content-Type": "application/json"
+},
+body: JSON.stringify({
+ 
+    "address": "string",
+    "phone": "string",
+    "name": "string",
+    "category": {
+      "uid": uidGroup
+    },
+    "postal_code": "string",
+    "email": "user@example.com",
+    "group": {
+      "uid": "string"
+    }
+  
+
+
+})
+}).catch((error) => {
+console.log("Erro na comunicação:", error);
+});
+
+
+if(!promise){
+return []
+}
+
+return promise.json();
+};
+
+
+
 
