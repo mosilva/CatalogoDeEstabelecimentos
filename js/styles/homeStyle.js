@@ -16,7 +16,7 @@
         margin-bottom: 6vh;
         font-weight: bolder;
         text-align: center;
-        font-size: 30px;
+        font-size: 2rem;
       }
 
       .homeContainer .container{
@@ -41,7 +41,7 @@
         }
         .homeContainer .title{
           padding-top: 10vh;
-          font-size: 25px;
+          font-size: 1.7rem;
         }
 
         .homeContainer .carouselImg{
