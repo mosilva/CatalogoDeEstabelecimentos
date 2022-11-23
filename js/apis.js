@@ -60,6 +60,32 @@ async function listEstablishments(){
   return promise.json();
 }
 
+window.createCategory = async function ({codeCategory, nameCategory}) {
+
+  const promise = await fetch(`${url}/category`, {   
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json"
+},
+body: JSON.stringify({
+  "code": `${codeCategory}`,
+  "name": `${nameCategory}`,
+  "group": {
+    "uid": "837c74f0-609f-44ef-a2c1-53c8df8993c4"
+  }
+})
+}).catch((error) => {
+console.log("Erro na comunicação:", error);
+});
+
+
+if(!promise){
+return []
+}
+
+return promise.json();
+};
+
 window.listCategories = async function () {
   const promise = await fetch(`${url}/category/list`, {     
     method: 'POST',

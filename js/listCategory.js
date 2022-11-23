@@ -198,7 +198,7 @@ async function registerCategory(){
   const button = document.querySelector('#btn-cadastrar-categoria');
   const codeCategory = document.querySelector("#codigoCategoria");
   const nameCategory = document.querySelector("#nomeCategoria");
-  
+
 
   await button.addEventListener("dblclick",  createCategory(codeCategory.value, nameCategory.value));
      //document.location.reload(true);
