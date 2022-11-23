@@ -106,15 +106,12 @@
         createIcon("delete");
         createIcon("draw");
       })();
-
-
     }
-
+    generateForm();
     generateTableShowsEstablishments();
   }
-
   generateEstablishmentsMain();
-  generateForm();
+
 
   function showEstablishments(Establishments) {
 
