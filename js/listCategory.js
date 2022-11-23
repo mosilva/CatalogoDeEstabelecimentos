@@ -204,10 +204,7 @@ async function registerCategory(){
      //document.location.reload(true);
 
 
-
 }
-
-})();
 
 })();
 
