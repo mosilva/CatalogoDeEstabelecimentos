@@ -49,11 +49,6 @@ button.addEventListener('click', function(event){
   showCategory(input);
 });
 
-
-
-
-  
-
  
 
 function createLinkApiGoogle(){
@@ -223,6 +218,26 @@ function captureDataRegister(){
 
 captureDataRegister();
 
+function hiddenFormRegister(){
+  const button = document.querySelector('#btn-nova-categoria');
+  const containerRegister = document.querySelector('.div-register');
+  const propriedadesContainerRegister = containerRegister.style;
+
+  button.addEventListener('click', function(event){
+    event.preventDefault();
+
+    if(propriedadesContainerRegister['display'] == 'none'){
+      containerRegister.style.display = "block";
+    }
+    else{
+      containerRegister.style.display = "none";
+    }
+      
+      
+  });
+
+}
+hiddenFormRegister();
 
 
 })();

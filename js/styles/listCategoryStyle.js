@@ -88,6 +88,10 @@
     display:none;
   }
 
+  .div-register{
+    display:none;
+  }
+
   @media(max-width: 700px) and (min-width: 360px){
             .title{
                 padding-top: 22vh;
