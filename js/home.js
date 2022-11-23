@@ -5,12 +5,27 @@
   })();
 
 function carouselGenerate(){
-    const main = document.createElement("main");
+
+    const home = document.createElement("section");
+    home.classList.add('homeContainer');
+
+    const main = document.querySelector("main");
+    if(main){
+        main.appendChild(home);
+    }
+    else{
+        const main = document.createElement('main');
+        document.body.appendChild(main);
+        main.appendChild(home);
+    }
+   
+
+
     const title = document.createElement("h1");
     title.textContent = "Últimos estabelecimentos adicionados";
-    main.appendChild(title);
+    home.appendChild(title);
     const firstDiv = document.createElement("div");
-    main.appendChild(firstDiv);
+    home.appendChild(firstDiv);
 
     const firstImg = document.createElement("img");
     firstDiv.appendChild(firstImg);
@@ -29,8 +44,6 @@ function carouselGenerate(){
          thirdImg.setAttribute("src", "../img/mcDonalds.jpg");
         thirdImg.setAttribute("class", "carouselImg");
     }
-
-    document.body.appendChild(main);
     setAttributesHome();
 }
 

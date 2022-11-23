@@ -14,18 +14,31 @@ const listCategory = await listCategories();
 
 const titlesTable = ["Codigo", "Nome", "Excluir" , "Editar"];
 
+    const categoryContainer = document.createElement("section");
+    categoryContainer.classList.add('categoryContainer');
+    categoryContainer.classList.add('hide');
 
-const main = document.createElement("main");
-document.body.appendChild(main);
+
+    const main = document.querySelector("main");
+    if(main){
+        main.appendChild(categoryContainer);
+    }
+    else{
+        const main = document.createElement('main');
+        document.body.appendChild(main);
+        main.appendChild(categoryContainer);
+    }
+
+
 
 const titlePage = document.createElement('h1');
 titlePage.textContent = 'Categorias';
-main.appendChild(titlePage);
+categoryContainer.appendChild(titlePage);
 
 const buttonCadastrar = document.createElement('button');
 buttonCadastrar.textContent = "Criar Nova Categoria";
 buttonCadastrar.setAttribute('id', 'btn-nova-categoria');
-main.appendChild(buttonCadastrar);
+categoryContainer.appendChild(buttonCadastrar);
 
 createFormRegisterCategory();
 
@@ -35,7 +48,7 @@ const newTable = document.createElement("table");
 const headerTable = newTable.createTHead();
 const tableBody = newTable.createTBody();
 const footerTable = newTable.createTFoot();
-main.appendChild(newTable);
+categoryContainer.appendChild(newTable);
 
 insertTitlesTable(headerTable, titlesTable);
 
@@ -44,12 +57,10 @@ insertContentTable(listCategory);
 const button = document.querySelector('#btn_busca');
 const input = document.querySelector("#busca");
 
-button.addEventListener('click', function(event){
+button.addEventListener('click', async function(event){
   event.preventDefault()
-  showCategory(input);
+  await showCategory(input);
 });
-
- 
 
 function createLinkApiGoogle(){
   const newlink = document.createElement('link');
@@ -62,7 +73,7 @@ function createFormRegisterCategory(){
 
   const divRegister = document.createElement('div');
   divRegister.classList.add('div-register');
-  main.appendChild(divRegister);
+  categoryContainer.appendChild(divRegister);
 
   const form = document.createElement('form');
   form.setAttribute('action', '');
@@ -106,7 +117,7 @@ function createFormSearchCategory(){
   button.textContent = "Buscar";
   button.setAttribute('id', 'btn_busca');
 
-  main.appendChild(form);
+  categoryContainer.appendChild(form);
   form.appendChild(input);
   form.appendChild(button);
 
@@ -154,10 +165,7 @@ function createIcon(icon, rowTable){
 
   }else{
 
-    iconGoogle.addEventListener("dblclick",function(event){
-      console.log("Clicou no lapis");
-      console.log(event);
-     
+    iconGoogle.addEventListener("dblclick",function(event){    
     });
   }
 
@@ -178,8 +186,7 @@ async function deleteCategory(event){
   document.location.reload(true);
 }
 
-async function showCategory(input){
-
+window.showCategory = async function (input){
   clearTable();
 
   const result = await listCategoriesByName(input.value);

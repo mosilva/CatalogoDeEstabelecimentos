@@ -1,13 +1,6 @@
 (() => {
     const headerStyle = document.createElement("style");
-    headerStyle.innerHTML += `
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Source Sans Pro', sans-serif;
-      }
-      
+    headerStyle.innerHTML += `    
       .containerHeader{
         background-color: #a4133c;
         width: 100%;

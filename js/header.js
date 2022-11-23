@@ -7,13 +7,10 @@
 const headerLinks = [
     {
         nome: 'Home',
-        link: '../index.html'
     },{
         nome: 'Estabelecimentos',
-        link: '../establishments.html'
     },{
         nome: 'Categorias',
-        link: '../categories.html'
     }
 ]
 
@@ -30,7 +27,10 @@ function generateHeader()
             const list = document.createElement("li");
             const link = document.createElement("a");
             list.setAttribute("class", "navList");
-            link.setAttribute("class", "link");
+            list.setAttribute("class", `${item.nome}`)
+            
+
+            link.addEventListener('click', hiddenSection);
             link.innerText = item.nome;
             link.setAttribute("href", item.link);
             navList.appendChild(list);

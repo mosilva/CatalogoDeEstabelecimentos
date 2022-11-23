@@ -1,13 +1,11 @@
 (() => { 
     const style = document.createElement('style');
     style.innerHTML = `
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .categoryContainer .hide{
+      display: none
     }
 
-    main{
+    .categoryContainer main{
       width: 100%;
       min-height: 100vh;
       margin-top: 25vh;
@@ -16,7 +14,7 @@
       align-items: center;
     }
 
-    form{
+    .categoryContainer form{
       margin-top: 5vh;
       display: flex; 
       flex-direction: row;
@@ -24,36 +22,36 @@
       align-items: center;
     }
 
-    h1{
+    .categoryContainer h1{
       margin-top: 3vh;
       margin-bottom: 5vh;
       text-align: center;
     }
 
-    span{
+    .categoryContainer span{
       color: #A4133C;
       padding: 10px;
     }
-    span:hover{
+    .categoryContainer span:hover{
       cursor: pointer;
       background-color: #A4133C;
       color: #fff;
       border-radius: 100%;
     }
 
-    table{
+    .categoryContainer table{
       width: 100%;
       padding-left: 2vw;
       line-height: 5vh;
       margin-right: 7vh; 
   }
 
-  table td{
+  .categoryContainer table td{
       text-align: center;
   }
 
 
-  .campo{
+  .categoryContainer .campo{
       width: 25vw;
       height: 5vh;
       background-color: #D9D9D9;
@@ -61,12 +59,12 @@
       border: none;
       margin: 10px;
   }
-  .campo::placeholder{
+  .categoryContainer .campo::placeholder{
       font-size: 15px;
       text-align: center;
   }
 
-  button{
+  .categoryContainer button{
       width: 17vw;
       margin: 10px;
       padding: 1vh 2vh;
@@ -79,21 +77,21 @@
       background-color: #C9184A;
   }
 
-  button:hover{
+  .categoryContainer button:hover{
     cursor: pointer;
     font-weight: bold;
   }
 
-  .idCategory{
+  .categoryContainer .idCategory{
     display:none;
   }
 
-  .div-register{
+  .categoryContainer .div-register{
     display:none;
   }
 
   @media(max-width: 700px) and (min-width: 360px){
-            .title{
+            .categoryContainer .title{
                 padding-top: 22vh;
             }
             
