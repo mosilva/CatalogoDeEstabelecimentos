@@ -1,5 +1,7 @@
 const url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services';
 
+const uidGroup = '837c74f0-609f-44ef-a2c1-53c8df8993c4';
+
 window.catalogEstablishments = async function() {
   const promise = await fetch(`${url}/category/list`, {   
     method: 'POST',
@@ -9,7 +11,7 @@ window.catalogEstablishments = async function() {
   body: JSON.stringify({
     "text": "",
     "group": {
-      "uid": "837c74f0-609f-44ef-a2c1-53c8df8993c4"
+      "uid": uidGroup
     }
   })
 })
@@ -30,7 +32,7 @@ window.catalogEstablishmentsByName = async function(nameCategory) {
   body: JSON.stringify({
     "text": `${nameCategory}`,
     "group": {
-      "uid": "837c74f0-609f-44ef-a2c1-53c8df8993c4"
+      "uid": uidGroup
     }
   })
   }).catch((error) => {
@@ -69,7 +71,7 @@ window.deleteCategories = async function (idCategory) {
   body: JSON.stringify({
     "uid": `${idCategory}`,
     "group": {
-      "uid": "837c74f0-609f-44ef-a2c1-53c8df8993c4"
+      "uid": uidGroup
     }
   })
 }).catch((error) => {
@@ -94,7 +96,7 @@ window.listCategoriesByName = async function (nameCategory) {
 body: JSON.stringify({
   "text": `${nameCategory}`,
   "group": {
-    "uid": "837c74f0-609f-44ef-a2c1-53c8df8993c4"
+    "uid": uidGroup
   }
 })
 }).catch((error) => {
@@ -118,7 +120,7 @@ async function listEstablishments(){
     body: JSON.stringify({
       "text": "",
       "group": {
-        "uid": "837c74f0-609f-44ef-a2c1-53c8df8993c4"
+        "uid": uidGroup
       }
     })
   })

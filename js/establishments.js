@@ -8,7 +8,7 @@
     createLinkApiGoogle();
 
     const catalogEstablishment = await catalogEstablishments();
-    const headerEstablishments = ["Categoria", "Nome", "Endereço", "CEP", "Telefone", "Email"];
+    const headerEstablishments = ["Endereço", "Telefone", "Nome","Categoria", "CEP", "Email"];
     const tableMainTbody = document.createElement("tbody");
     const tableMainCatalogo = document.createElement("table");
     const rowTable = tableMainTbody.insertRow();
@@ -33,7 +33,8 @@
         const boxSearch = document.createElement("div");
         const lupaImg = document.createElement("img");
     
-        function setAttributesRegister(){
+        function setAttributesRegister()
+        {
             boxRegister.setAttribute("class", "boxRegister");
             tableMainTbody.setAttribute("class","establishment-table");
             containerEstablishments.setAttribute("class", "containerEstablishment");
@@ -58,7 +59,8 @@
 
         tableMainTbody.setAttribute("class","establishment-table");
 
-        function generateTableShowsEstablishments(){
+        function generateTableShowsEstablishments()
+        {
             const sectionCatalogo = document.createElement("section");
             sectionCatalogo.setAttribute("class","section-main");
             mainCatalogo.appendChild(sectionCatalogo);
@@ -93,11 +95,18 @@
                 tableMainTheadTr.appendChild(tableMainTheadTh);
                 tableMainThead.appendChild(tableMainTheadTr);
             }
+
+            (async () => {
+
+                const listEstablishmentsConverted = await listEstablishments();     
         
-            for (const element of catalogEstablishment) 
-            {
-                showEstablishments(element);
-            }
+                showEstablishments(listEstablishmentsConverted);      
+            })();  
+
+            // for (const element of catalogEstablishment) 
+            // {
+            //     showEstablishments(element);
+            // }
         setAttributeShowsEstablishments();
         }
     generateTableShowsEstablishments();
@@ -111,23 +120,52 @@
     }   
     generateEstablishmentsMain();
 
-    function showEstablishments(establishment){
+    function showEstablishments(Establishments){
+    
         const tableMainTbodyTr = document.createElement("tr");
-        tableMainTbodyTr.setAttribute("class","establishment");
-        tableMainTbodyTr.setAttribute("class", "body__information");
+        tableMainTbodyTr.setAttribute("class","book");
+        tableMainTbodyTr.setAttribute("class","body-information");
 
-        for (let k = 0; k < headerEstablishments.length; k++) {
-            const tableMainTbodyTd = document.createElement("td");
-            tableMainTbodyTd.textContent = Object.values(establishment)[k];
-            tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(establishment)[k]);
-            tableMainTbodyTr.appendChild(tableMainTbodyTd);
-            tableMainTbody.appendChild(tableMainTbodyTr);
-            tableMainCatalogo.appendChild(tableMainTbody);
-            
-            createIcon('delete', 'rowTable');
-            createIcon('draw', 'rowTable');
-        }
-    }
+        for (let i = 0; i < Establishments.length; i++) 
+            {   
+                Object.entries(Establishments[i]).forEach((entry) => 
+                // Object.values(Establishments[i]).forEach((item) => 
+                {                    
+                    const [key, value] = entry;
+                    
+                    if(key != "uid")
+                    {
+                        const tableMainTbodyTd = document.createElement("td");
+                        tableMainTbodyTd.textContent = value;
+                        tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(headerEstablishments)[i]);
+                        tableMainTbodyTr.appendChild(tableMainTbodyTd);
+                        console.log(key);
+                    }
+
+                    else if(key == "category")
+                    {
+                        const tableMainTbodyTd = document.createElement("td");
+                        tableMainTbodyTd.textContent = value;
+                        tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(headerEstablishments)[i]);
+                        tableMainTbodyTr.appendChild(tableMainTbodyTd);
+                        console.log(key);
+                    }
+
+                    
+                    tableMainTbody.appendChild(tableMainTbodyTr);
+                    tableMainCatalogo.appendChild(tableMainTbody);
+
+                });
+            }     
+        //   const tableMainTbodyTd = document.createElement("td");
+        //   tableMainTbodyTd.textContent = Object.values(book)[k];
+        //   tableMainTbodyTd.setAttribute("class","info-"+ Object.keys(book)[k]);
+        //   tableMainTbodyTr.appendChild(tableMainTbodyTd);
+
+        //   tableMainTbody.appendChild(tableMainTbodyTr);
+        //   tableMainCatalogo.appendChild(tableMainTbody);
+        
+}
 
     function createIcon(icon, rowTable){
  
