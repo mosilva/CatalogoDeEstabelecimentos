@@ -318,7 +318,6 @@ function generateForm() {
 
   async function editEstablishmentEvent(event) {
     const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
-    consol
     await editEstablishment();
     document.location.reload(true);
   }
@@ -337,10 +336,10 @@ function generateForm() {
       if (icon == "delete") {
         iconGoogle.addEventListener("dblclick", deleteEstablishmentEvent);
       } else {
-        iconGoogle.addEventListener("dblclick", editEstablishmentEvent{
-        });
+        iconGoogle.addEventListener("dblclick", editEstablishmentEvent)
+        };
       }
-    });
+    )
 
 
     async function CreateEstablishmentEvent(event) {
