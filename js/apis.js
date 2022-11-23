@@ -160,6 +160,7 @@ return promise.json();
 
 window.deleteEstablishment = async function (idEstab) {
 
+  console.log(idEstab);
   const promise = await fetch(`${url}//establishment`, {   
   method: 'DELETE',
   headers: {

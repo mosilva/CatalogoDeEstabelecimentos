@@ -105,7 +105,7 @@
         showEstablishments(listEstablishmentsConverted);
         createIcon("delete");
         createIcon("draw");
-<<<<<<< HEAD
+
 
         let tableEstablishments = await document.querySelector("table");
 
@@ -117,12 +117,12 @@
           }, 500);
         });
         
-=======
->>>>>>> c6f46bb562a6e05c05eee127565140eff3b73d3f
+
       })();
     }
-    generateForm();
+
     generateTableShowsEstablishments();
+    generateForm();
   }
   generateEstablishmentsMain();
 
@@ -136,10 +136,13 @@
       Object.entries(Establishments[index]).forEach((entry) => {
         const [key, value] = entry;
 
-        if (key != "uid" && key != "category") {
+        if (key != "category") {
           const tableMainTbodyTd = document.createElement("td");
           tableMainTbodyTd.textContent = value;
           tableMainTbodyTd.setAttribute("class", `info-${key}`);
+          if (key == "uid"){
+                tableMainTbodyTd.style.display="none";
+          }
           tableMainTbodyTr.appendChild(tableMainTbodyTd);
         } else if (key == "category") {
           const tableMainTbodyTd = document.createElement("td");
@@ -156,6 +159,7 @@
 
   async function deleteEstablishmentEvent(event) {
     const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
+    console.log(itemDelete);
     await deleteEstablishment(itemDelete[0].textContent);
     document.location.reload(true);
   }
