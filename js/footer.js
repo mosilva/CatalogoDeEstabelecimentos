@@ -11,19 +11,21 @@ async function generateFooter(){
   const list = document.createElement("list");
   const listUnordered = document.createElement("ul");
 
-  categories.forEach((item) => {
+  categories.forEach((category) => {
     let count = 0;
-    establishments.forEach(element => {
-      if(element.category.code === item.code){
+    establishments.forEach(establishment => {
+      if(establishment.category.uid === category.uid){
         count++;
       }
     })
-    const listItem = document.createElement("li");
-    const listLink = document.createElement("a");
-    listLink.href = "#";
-    listLink.textContent = `${item.name} (${count})`;
-    listItem.appendChild(listLink);
-    listUnordered.appendChild(listItem);
+    if(count != 0){
+      const listItem = document.createElement("li");
+      const listLink = document.createElement("a");
+      listLink.href = "#";
+      listLink.textContent = `${category.name} (${count})`;
+      listItem.appendChild(listLink);
+      listUnordered.appendChild(listItem);
+    }
   })
   list.appendChild(listUnordered);
   footer.appendChild(list);
