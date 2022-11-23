@@ -4,30 +4,30 @@
       .containerHeader{
         background-color: #a4133c;
         width: 100%;
-        height:20vh;
+        height:15vh;
         display: flex;
         justify-content:space-evenly;
         align-items: center;
         position: fixed;
         z-index: 1;
         top: 0;
+        font-family: 'Source Sans Pro', sans-serif;
       }
       
       .logoHeader{
-        height:20vh;
+        height:15vh;
         margin-left: 5vw;
       }
 
-      .navList{
+      nav li{
         width: 20vw;
         color: white;
-        font-size:25px;
+        font-size:22px;
         font-weight: 300;
         text-align:center;
         border: none;
       }
-
-      .navList:hover{
+      nav li:hover{
         cursor: pointer;
         font-weight: bolder;
       }
@@ -44,13 +44,13 @@
           width: 80vw;
           margin-left: -10vw;
         }
-        .navList{
+        nav li{
             display:flex;
             justify-content: space-around;
             width: 30vw;
         }
-        .link{
-          font-size: 1.2rem;
+        nav a{
+          font-size: 20px;
         }
       }
     `;
