@@ -10,7 +10,7 @@
 
         main{
             width: 100%;
-            height: 185vh;
+            height: 160vh;
         }
 
         .title{
@@ -70,6 +70,10 @@
             cursor: pointer;
         }
 
+        .section-main{
+            margin-top: 5vh;
+        }
+
         table{
             width: 100%;
             padding-left: 2vw;
@@ -82,12 +86,23 @@
 
         .registry-form{
             width: 100%;
-            height: 60vh;
+            height:55vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
+        }
+
+        .title-form{
+            text-align: center;
+        }
+
+        .form-add{
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
             align-items: center;
-            margin-top: 22vh;
         }
 
         .group-input{
@@ -125,7 +140,7 @@
             border-radius: 10px;
             color: #fff; 
             margin-top: 5vh;
-            margin-left: 12vw;
+            margin-right: 12vw;
         }
         .main-button:hover{
             cursor: pointer;

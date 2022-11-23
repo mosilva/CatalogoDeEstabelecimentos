@@ -105,6 +105,7 @@
         showEstablishments(listEstablishmentsConverted);
         createIcon("delete");
         createIcon("draw");
+<<<<<<< HEAD
 
         let tableEstablishments = await document.querySelector("table");
 
@@ -116,14 +117,15 @@
           }, 500);
         });
         
+=======
+>>>>>>> c6f46bb562a6e05c05eee127565140eff3b73d3f
       })();
     }
-
+    generateForm();
     generateTableShowsEstablishments();
   }
-
   generateEstablishmentsMain();
-  generateForm();
+
 
   function showEstablishments(Establishments) {
     for (let index = 0; index < Establishments.length; index++) {
