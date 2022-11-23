@@ -2,6 +2,7 @@
     const headerStyle = document.createElement("style");
     headerStyle.innerHTML += `    
       .containerHeader{
+        font-family: 'Source Sans Pro', sans-serif;
         background-color: #a4133c;
         width: 100%;
         height:15vh;
@@ -11,7 +12,6 @@
         position: fixed;
         z-index: 1;
         top: 0;
-        font-family: 'Source Sans Pro', sans-serif;
       }
       
       .logoHeader{
@@ -22,7 +22,7 @@
       nav li{
         width: 20vw;
         color: white;
-        font-size:22px;
+        font-size: 1.5rem;
         font-weight: 300;
         text-align:center;
         border: none;

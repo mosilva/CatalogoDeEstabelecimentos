@@ -2,6 +2,7 @@
   const style = document.createElement("style");
   style.innerHTML += `
     footer {
+      font-family: 'Source Sans Pro', sans-serif;
       margin-top: 1rem;
       width: 100%;
       height:10vh;
@@ -24,7 +25,7 @@
     }
     li a{
         text-decoration: none;
-        font-size: 1rem;
+        font-size: 1.5rem;
         color: #ffffff;
     }
     li:hover{
@@ -32,15 +33,14 @@
       font-weight: bolder;
     }
 
-    @media screen and (min-width: 600px)
-    {
+    @media(max-width: 700px) and (min-width: 360px){
     li{
       padding: 0.2rem;
       margin: 0.2rem;
     }
     li a{
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
     }
   `;

@@ -1,41 +1,53 @@
 (() => {
     const homeStyle = document.createElement("style");
     homeStyle.innerHTML += `
-      .establishmentContainer section{
-        height: 150vh;
+      .homeContainer{
+        font-family: 'Source Sans Pro', sans-serif;
+        height: 110vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: -6vh;
       }
 
-      establishmentContainer .title{
+      .title{
+        width: 100%;
         margin-bottom: 6vh;
-        font-weight: 300;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 2rem;
       }
 
-      establishmentContainer .container{
-        width: 80%;
+      .homeContainer .container{
+        width: 98vw;
         height:80vh;
         position: relative;
         display:flex;
         justify-content: center;
+        align-items: center;
       }
 
-      establishmentContainer .carouselImg{
+      .homeContainer .carouselImg{
         position: absolute;
         width: 80%;
         height:80vh;
+        border-radius: 10px;
       }
       
       @media(max-width: 700px) and (min-width: 360px){
-        establishmentContainer .title{
-          text-align: center;
+        .homeContainer{
+          height: 80vh;
+        }
+        .homeContainer .title{
+          padding-top: 10vh;
+          font-size: 1.7rem;
         }
 
-        establishmentContainer .carouselImg{
+        .homeContainer .carouselImg{
+          margin-top: -7vh;
           width: 100vw;
-          height: 50vh;
+          height: 45vh;
         }
       }
     `;
