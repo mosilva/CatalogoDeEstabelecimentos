@@ -18,6 +18,7 @@
     "Deletar",
     "Editar"
   ];
+
   const tableMainTbody = document.createElement("tbody");
   const tableMainCatalogo = document.createElement("table");
   window.mainCatalogo = document.createElement("main");
@@ -198,34 +199,38 @@
 
   function createInputs() {
     for (let i = 0; i < headerEstablishments.length; i++) {
-      element = headerEstablishments[i];
-      const divForm = document.createElement("div");
-      divForm.setAttribute("class", "group-input");
-      styleSpace(divForm);
 
-      const labelForm = document.createElement("label");
-      labelForm.setAttribute("class", "label-form");
-      labelForm.setAttribute("for", element);
-      labelForm.textContent = element + ": ";
-      divForm.appendChild(labelForm);
+        if(headerEstablishments[i] != "Deletar" && headerEstablishments[i] != "Editar")
+        {    
+            element = headerEstablishments[i];
+            const divForm = document.createElement("div");
+            divForm.setAttribute("class", "group-input");
+            styleSpace(divForm);
 
-      const inputForm = document.createElement("input");
-      inputForm.setAttribute("id", element);
-      inputForm.setAttribute("name", element);
-      const article = element[element.length - 1] == "a" ? "a " : "o ";
-      inputForm.setAttribute(
-        "placeholder",
-        "Digite aqui " + article + element.toLowerCase() + "..."
-      );
-      inputForm.setAttribute("type", "text");
-      inputForm.setAttribute("class", "campo");
-      divForm.appendChild(inputForm);
-      mainFormMain.appendChild(divForm);
+            const labelForm = document.createElement("label");
+            labelForm.setAttribute("class", "label-form");
+            labelForm.setAttribute("for", element);
+            labelForm.textContent = element + ": ";
+            divForm.appendChild(labelForm);
+
+            const inputForm = document.createElement("input");
+            inputForm.setAttribute("id", element);
+            inputForm.setAttribute("name", element);
+            const article = element[element.length - 1] == "a" ? "a " : "o ";
+            inputForm.setAttribute(
+                "placeholder",
+                "Digite aqui " + article + element.toLowerCase() + "..."
+            );
+            inputForm.setAttribute("type", "text");
+            inputForm.setAttribute("class", "campo");
+            divForm.appendChild(inputForm);
+            mainFormMain.appendChild(divForm);
+        }
     }
-  }
+}
 
-  function generateForm() {
-    console.log("teste");
+function generateForm() {
+
     const mainFormSection = document.createElement("section");
     mainFormSection.setAttribute("class", "registry-form");
     console.log(mainCatalogo);
@@ -353,4 +358,8 @@
       }
     }
   });
+
+  hiddenFormRegister(document.querySelector('#btn-register'), document.querySelector('.registry-form'), "Cadastrar");
+
 })();
+
