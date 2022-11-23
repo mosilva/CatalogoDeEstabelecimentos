@@ -15,12 +15,11 @@
     "Categoria",
     "CEP",
     "Email",
-    "Delete",
+    "Deletar",
     "Editar"
   ];
   const tableMainTbody = document.createElement("tbody");
   const tableMainCatalogo = document.createElement("table");
-  const rowTable = tableMainTbody.insertRow();
   window.mainCatalogo = document.createElement("main");
   document.body.appendChild(mainCatalogo);
 
