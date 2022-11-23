@@ -156,3 +156,32 @@ return []
 
 return promise.json();
 };
+
+
+window.deleteEstablishment = async function (idEstab) {
+
+  const promise = await fetch(`${url}//establishment`, {   
+  method: 'DELETE',
+  headers: {
+    "Content-Type": "application/json"
+},
+body: JSON.stringify({
+  "uid": `${idEstab}`,
+  "group": {
+    "uid": uidGroup
+  }
+})
+}).catch((error) => {
+console.log("Erro na comunicação:", error);
+});
+
+
+if(!promise){
+return []
+}
+
+return promise.json();
+};
+
+
+

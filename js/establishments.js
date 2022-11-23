@@ -16,7 +16,7 @@
     "CEP",
     "Email",
     "Deletar",
-    "Editar"
+    "Editar",
   ];
 
   const tableMainTbody = document.createElement("tbody");
@@ -105,9 +105,18 @@
         showEstablishments(listEstablishmentsConverted);
         createIcon("delete");
         createIcon("draw");
+
+        let tableEstablishments = await document.querySelector("table");
+
+        tableEstablishments.addEventListener("dblclick", function (event) {
+          deleteEstab(event.target.parentNode.parentNode);
+
+          setTimeout(function () {
+            event.target.parentNode.parentNode.remove();
+          }, 500);
+        });
+        
       })();
-
-
     }
 
     generateTableShowsEstablishments();
@@ -117,70 +126,65 @@
   generateForm();
 
   function showEstablishments(Establishments) {
-
-    for (let index = 0; index < Establishments.length; index++) {        
-
+    for (let index = 0; index < Establishments.length; index++) {
       const tableMainTbodyTr = document.createElement("tr");
       tableMainTbodyTr.setAttribute("class", "book");
       tableMainTbodyTr.setAttribute("class", "body-information");
 
-      Object.entries(Establishments[index]).forEach((entry) =>
-        {
-          const [key, value] = entry;
+      Object.entries(Establishments[index]).forEach((entry) => {
+        const [key, value] = entry;
 
-          if (key != "uid" && key != "category") {
-            const tableMainTbodyTd = document.createElement("td");
-            tableMainTbodyTd.textContent = value;
-            tableMainTbodyTd.setAttribute("class", `info-${key}`);
-            tableMainTbodyTr.appendChild(tableMainTbodyTd);
-
-          } else if (key == "category") {
-            const tableMainTbodyTd = document.createElement("td");
-            tableMainTbodyTd.textContent = value.name;
-            tableMainTbodyTd.setAttribute("class", `info-${key}`);
-            tableMainTbodyTr.appendChild(tableMainTbodyTd);
-
-          }
-
-          tableMainTbody.appendChild(tableMainTbodyTr);
-          tableMainCatalogo.appendChild(tableMainTbody);
+        if (key != "uid" && key != "category") {
+          const tableMainTbodyTd = document.createElement("td");
+          tableMainTbodyTd.textContent = value;
+          tableMainTbodyTd.setAttribute("class", `info-${key}`);
+          tableMainTbodyTr.appendChild(tableMainTbodyTd);
+        } else if (key == "category") {
+          const tableMainTbodyTd = document.createElement("td");
+          tableMainTbodyTd.textContent = value.name;
+          tableMainTbodyTd.setAttribute("class", `info-${key}`);
+          tableMainTbodyTr.appendChild(tableMainTbodyTd);
         }
-      );
-    }
-  }
 
-  function createIcon(icon) {
-
-    const allTr = document.querySelectorAll('.body-information');
-
-    allTr.forEach((tr) => {
-        const iconElement = document.createElement("td");
-        const iconGoogle = document.createElement("span");
-        iconGoogle.textContent = icon;
-        iconGoogle.setAttribute("class", "material-symbols-outlined");
-        iconElement.appendChild(iconGoogle);
-        tr.appendChild(iconElement);
+        tableMainTbody.appendChild(tableMainTbodyTr);
+        tableMainCatalogo.appendChild(tableMainTbody);
       });
-
-
-    if (icon == "delete") {
-    //   iconGoogle.addEventListener("dblclick", );
-    } else {
-    //   iconGoogle.addEventListener("dblclick", function (event) {
-    //     console.log("Clicou no lapis");
-    //     console.log(event);
-    //   });
     }
-
-
-
   }
 
-  async function deleteCategory(event) {
+  async function deleteEstablishmentEvent(event) {
     const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
-    await deleteCategories(itemDelete[0].textContent);
+    await deleteEstablishment(itemDelete[0].textContent);
     document.location.reload(true);
   }
+
+  async function createIcon(icon) {
+    const allTr = document.querySelectorAll(".body-information");
+
+    allTr.forEach((tr) => {
+      const iconElement = document.createElement("td");
+      const iconGoogle = document.createElement("span");
+      iconGoogle.textContent = icon;
+      iconGoogle.setAttribute("class", "material-symbols-outlined");
+      iconElement.appendChild(iconGoogle);
+      tr.appendChild(iconElement);
+
+      if(icon == 'delete'){
+
+        iconGoogle.addEventListener("dblclick", deleteEstablishmentEvent);
+    
+      }else{
+    
+        iconGoogle.addEventListener("dblclick",function(event){
+          console.log("Clicou no lapis");
+          console.log(event);
+        });
+    };
+
+
+  });
+
+
 
   async function showCategory(input) {
     clearTable();
@@ -199,38 +203,38 @@
 
   function createInputs() {
     for (let i = 0; i < headerEstablishments.length; i++) {
+      if (
+        headerEstablishments[i] != "Deletar" &&
+        headerEstablishments[i] != "Editar"
+      ) {
+        element = headerEstablishments[i];
+        const divForm = document.createElement("div");
+        divForm.setAttribute("class", "group-input");
+        styleSpace(divForm);
 
-        if(headerEstablishments[i] != "Deletar" && headerEstablishments[i] != "Editar")
-        {    
-            element = headerEstablishments[i];
-            const divForm = document.createElement("div");
-            divForm.setAttribute("class", "group-input");
-            styleSpace(divForm);
+        const labelForm = document.createElement("label");
+        labelForm.setAttribute("class", "label-form");
+        labelForm.setAttribute("for", element);
+        labelForm.textContent = element + ": ";
+        divForm.appendChild(labelForm);
 
-            const labelForm = document.createElement("label");
-            labelForm.setAttribute("class", "label-form");
-            labelForm.setAttribute("for", element);
-            labelForm.textContent = element + ": ";
-            divForm.appendChild(labelForm);
-
-            const inputForm = document.createElement("input");
-            inputForm.setAttribute("id", element);
-            inputForm.setAttribute("name", element);
-            const article = element[element.length - 1] == "a" ? "a " : "o ";
-            inputForm.setAttribute(
-                "placeholder",
-                "Digite aqui " + article + element.toLowerCase() + "..."
-            );
-            inputForm.setAttribute("type", "text");
-            inputForm.setAttribute("class", "campo");
-            divForm.appendChild(inputForm);
-            mainFormMain.appendChild(divForm);
-        }
+        const inputForm = document.createElement("input");
+        inputForm.setAttribute("id", element);
+        inputForm.setAttribute("name", element);
+        const article = element[element.length - 1] == "a" ? "a " : "o ";
+        inputForm.setAttribute(
+          "placeholder",
+          "Digite aqui " + article + element.toLowerCase() + "..."
+        );
+        inputForm.setAttribute("type", "text");
+        inputForm.setAttribute("class", "campo");
+        divForm.appendChild(inputForm);
+        mainFormMain.appendChild(divForm);
+      }
     }
-}
+  }
 
-function generateForm() {
-
+  function generateForm() {
     const mainFormSection = document.createElement("section");
     mainFormSection.setAttribute("class", "registry-form");
     console.log(mainCatalogo);
@@ -325,16 +329,6 @@ function generateForm() {
     });
   }
 
-  let tableEstablishments = await document.querySelector("table");
-
-  tableEstablishments.addEventListener("dblclick", function (event) {
-    deleteEstab(event.target.parentNode);
-
-    setTimeout(function () {
-      event.target.parentNode.remove();
-    }, 500);
-  });
-
   const filterField = document.querySelector("#filter__table");
 
   filterField.addEventListener("input", function () {
@@ -359,7 +353,9 @@ function generateForm() {
     }
   });
 
-  hiddenFormRegister(document.querySelector('#btn-register'), document.querySelector('.registry-form'), "Cadastrar");
-
-})();
-
+  hiddenFormRegister(
+    document.querySelector("#btn-register"),
+    document.querySelector(".registry-form"),
+    "Cadastrar"
+  );
+}})();
