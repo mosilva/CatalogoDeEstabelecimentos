@@ -3,40 +3,47 @@ const url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services';
 const uidGroup = '837c74f0-609f-44ef-a2c1-53c8df8993c4';
 
 window.catalogEstablishments = async function() {
-  const promise = await fetch(`${url}/category/list`, {   
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    "text": "",
-    "group": {
-      "uid": uidGroup
-    }
-  })
-})
+  try{
+    const promise = await fetch(`${url}/category/list`, {   
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "text": "",
+      "group": {
+        "uid": uidGroup
+      }
+    })
+    })
 
-if(!promise){
-  return []
+    if(!promise){
+      return []
+    }
+
+    return promise.json();
+}catch(error){
+  console.error("Erro na comunicação: ", error);
+}
 }
 
-return promise.json();
-};
-
 window.catalogEstablishmentsByName = async function(nameCategory) {
-  const promise = await fetch(`${url}/establishment/list`, {   
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    "text": `${nameCategory}`,
-    "group": {
-      "uid": uidGroup
+  try{
+    const promise = await fetch(`${url}/establishment/list`, {   
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "text": `${nameCategory}`,
+      "group": {
+        "uid": uidGroup
+      }
+    })
+    })}
+    catch(error){
+      console.error("Erro na comunicação: ", error);
     }
-  })
-  }).catch((error) => {
-  });
 }
 
 window.listEstablishments = async function (){
@@ -52,11 +59,12 @@ window.listEstablishments = async function (){
       }
     })
   })
-
   if(!promise){
     return []
   }
   return promise.json();
+
+  
 }
 
 window.createCategory = async function (codeCategory, nameCategory) {
