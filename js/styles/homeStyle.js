@@ -8,7 +8,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: -8vh;
+        margin-top: -6vh;
       }
 
       .title{
