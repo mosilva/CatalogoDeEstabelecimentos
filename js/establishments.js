@@ -317,6 +317,12 @@ function generateForm() {
     document.location.reload(true);
   }
 
+  async function editEstablishmentEvent(event) {
+    const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
+    await editEstablishment();
+    document.location.reload(true);
+  }
+
   async function createIcon(icon) {
     const allTr = document.querySelectorAll(".body-information");
 
@@ -331,8 +337,8 @@ function generateForm() {
       if (icon == "delete") {
         iconGoogle.addEventListener("dblclick", deleteEstablishmentEvent);
       } else {
-        iconGoogle.addEventListener("dblclick", function (event) {
-        });
+        iconGoogle.addEventListener("dblclick", editEstablishmentEvent)
+        };
       }
       
     });
