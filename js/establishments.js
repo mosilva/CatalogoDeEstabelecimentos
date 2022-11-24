@@ -135,22 +135,11 @@ function generateForm() {
 
 
 (async () => {
-  createLinkApiGoogle();
 
   const catalogEstablishment = await catalogEstablishments();
 
   const tableMainTbody = document.createElement("tbody");
   const tableMainCatalogo = document.createElement("table");
-
-  function createLinkApiGoogle() {
-    const linkGoogleApi = document.createElement("link");
-    linkGoogleApi.setAttribute("rel", "stylesheet");
-    linkGoogleApi.setAttribute(
-      "href",
-      "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    );
-    document.head.appendChild(linkGoogleApi);
-  }
 
   function generateEstablishmentsMain() {
     const containerEstablishments = document.createElement("span");
@@ -323,22 +312,27 @@ function generateForm() {
     document.location.reload(true);
   }
 
-  function createIcon(icon) {
+  async function createIcon(icon) {
     const allTr = document.querySelectorAll(".body-information");
 
     allTr.forEach((tr) => {
       const iconElement = document.createElement("td");
-      const iconGoogle = document.createElement("span");
-      iconGoogle.textContent = icon;
-      iconGoogle.setAttribute("class", "material-symbols-outlined");
-      iconElement.appendChild(iconGoogle);
-      tr.appendChild(iconElement);
+      const iconGoogle = document.createElement("img");
+
+      //iconGoogle.setAttribute("class", "material-symbols-outlined");
+
 
       if (icon == "delete") {
+        iconGoogle.setAttribute("src", "../img/delete.png");
         iconGoogle.addEventListener("dblclick", deleteEstablishmentEvent);
       } else {
+        iconGoogle.setAttribute("src", "../img/draw.png");
         iconGoogle.addEventListener("dblclick", editEstablishmentEvent)
         };
+
+
+      iconElement.appendChild(iconGoogle);
+      tr.appendChild(iconElement);
       }
   )};
 
