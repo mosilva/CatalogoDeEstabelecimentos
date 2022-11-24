@@ -184,10 +184,10 @@
                 height: 5vh;
             }
             .establishmentContainer table{
-                margin-top: 8vh;
                 height: 65vh;
                 display: flex;
                 font-size: 1.2rem;
+                margin-top: 8vh;
             }
             .establishment-table{
                 display: flex;
