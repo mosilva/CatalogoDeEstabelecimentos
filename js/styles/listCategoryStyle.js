@@ -13,6 +13,13 @@
       align-items: center;
     }
 
+    .categoryContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     .categoryContainer form{
       width: 80vw;
       height: 10vh;
