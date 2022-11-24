@@ -330,6 +330,7 @@ function generateForm() {
       const iconElement = document.createElement("td");
       const iconGoogle = document.createElement("img");
       iconGoogle.setAttribute("id","edit-image");
+      iconGoogle.setAttribute("class", "imageIcon");
 
       if (icon == "delete") {
         iconGoogle.setAttribute("src", "../img/delete.png");

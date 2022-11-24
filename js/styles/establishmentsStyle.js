@@ -153,6 +153,10 @@
             font-weight: bolder;
         }
 
+        .establishmentContainer .imageIcon:hover{
+            cursor: pointer;
+        }
+
         @media(max-width: 700px) and (min-width: 360px){
             .establishmentContainer .title{
                 padding-top: 2vh;
@@ -180,9 +184,11 @@
                 height: 5vh;
             }
             .establishmentContainer table{
+                width: 98vw;
                 margin-top: 8vh;
                 height: 65vh;
                 display: flex;
+                wrap: wrap;
                 font-size: 1.2rem;
             }
             .establishment-table{
@@ -226,23 +232,28 @@
             }
             .establishmentContainer .label-form{
                 padding-top: 0.9vh;
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             .establishmentContainer .select-list{
                 width: 70vw;
                 margin-left: 20vw;
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             .establishmentContainer .campo{
                 width: 70vw;
                 margin-left: 20vw;
             }
             .establishmentContainer .campo::placeholder{
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             .establishmentContainer .main-button{
                 width: 65vw;
                 margin-right: 10vw;
+            }
+            .establishmentContainer .imageIcon{
+                height: 4vh;
+                width: 6vw;
+                margin-left: 20vw;
             }
         }
     `;
