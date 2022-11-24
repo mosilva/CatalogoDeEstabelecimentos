@@ -340,8 +340,7 @@ function generateForm() {
         iconGoogle.addEventListener("dblclick", editEstablishmentEvent)
         };
       }
-      
-    });
+  )};
 
 
     async function CreateEstablishmentEvent(event) {
@@ -430,5 +429,4 @@ function generateForm() {
         }
       }
     });
-  }
-})();
+  })();
