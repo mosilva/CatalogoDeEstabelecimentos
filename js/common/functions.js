@@ -1,4 +1,4 @@
-window.hiddenFormRegister = function (buttonSelect, container, item) {
+window.hiddenFormRegister = function (buttonSelect, buttonSecondary, container, item) {
   const button = buttonSelect;
   const containerRegister = container;
   const propriedadesContainerRegister = containerRegister.style;
@@ -9,7 +9,8 @@ window.hiddenFormRegister = function (buttonSelect, container, item) {
 
     if (propriedadesContainerRegister["display"] == "none") {
       containerRegister.style.display = "block";
-      button.textContent = "Esconder form";
+      button.textContent = "Voltar";
+      buttonSecondary.textContent = "Salvar Estabelecimento";
     } else {
       containerRegister.style.display = "none";
       button.textContent = item;
@@ -36,6 +37,23 @@ window.hiddenSection = (event) => {
     establishment.classList.add("hide");
     home.classList.add("hide");
   }
+};
+
+window.hiddenFormEdit = function (buttonPrincipal, buttonSecondary, container, ) {
+  const containerEdit = container;
+  const propriedadesContainerEdit = containerEdit.style;
+
+  if (propriedadesContainerEdit["display"] == "none") {
+      containerEdit.style.display = "block";
+      buttonPrincipal.textContent = "Voltar";
+      buttonSecondary.textContent = "Editar Estabelecimento";
+
+    } else {
+      containerEdit.style.display = "none";
+      buttonPrincipal.style.display = "block"; 
+
+    };
+  
 };
 
 

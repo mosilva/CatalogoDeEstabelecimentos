@@ -46,7 +46,6 @@ async function searchCategories(myParent) {
     selectList.setAttribute("id","select-list")
     selectList.setAttribute("class", "select-list");
     myParent.appendChild(selectList);
-    console.log(selectList);
 
     for (var i = 0; i < categories.length; i++) {
       var option = document.createElement("option");
@@ -214,15 +213,6 @@ function generateForm() {
         createIcon("delete");
         createIcon("draw");
 
-        // let tableEstablishments = await document.querySelector("table");
-
-        // tableEstablishments.addEventListener("dblclick", function (event) {
-        //   deleteEstab(event.target.parentNode.parentNode);
-
-        //   setTimeout(function () {
-        //     event.target.parentNode.parentNode.remove();
-        //   }, 500);
-        // });
       })();
     }
 
@@ -302,27 +292,35 @@ function generateForm() {
 
   hiddenFormRegister(
     document.querySelector("#btn-register"),
+    document.querySelector("#add-establishment"),
     document.querySelector(".registry-form"),
     "Cadastrar"
   );
 
   async function deleteEstablishmentEvent(event) {
-    const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
-          deleteEstab(event.target.parentNode.parentNode);
 
-          setTimeout(function () {
-            event.target.parentNode.parentNode.remove();
-          }, 500);      
+    const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
+    deleteEstab(event.target.parentNode.parentNode);
+
+    setTimeout(function () {
+      event.target.parentNode.parentNode.remove();
+      }, 500);      
 
     await deleteEstablishment(itemDelete[0].textContent);
     document.location.reload(true);
+  
   }
 
   async function editEstablishmentEvent(event) {
     const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
-    console.log(itemUpdate);
+    console.log(itemUpdate[1].textContent);
+    hiddenFormEdit(
+    document.querySelector("#btn-register"),
+    document.querySelector("#add-establishment"),
+    document.querySelector(".registry-form")
+    );
     // await editEstablishment();
-    // document.location.reload(true);
+
   }
 
   async function createIcon(icon) {
@@ -331,9 +329,7 @@ function generateForm() {
     allTr.forEach((tr) => {
       const iconElement = document.createElement("td");
       const iconGoogle = document.createElement("img");
-
-      //iconGoogle.setAttribute("class", "material-symbols-outlined");
-
+      iconGoogle.setAttribute("id","edit-image");
 
       if (icon == "delete") {
         iconGoogle.setAttribute("src", "../img/delete.png");
@@ -341,50 +337,13 @@ function generateForm() {
       } else {
         iconGoogle.setAttribute("src", "../img/draw.png");
         iconGoogle.addEventListener("dblclick", editEstablishmentEvent)
-        };
+      };
 
 
       iconElement.appendChild(iconGoogle);
       tr.appendChild(iconElement);
       }
   )};
-
-    async function CreateEstablishmentEvent(event) {
-
-        select = document.getElementById("select-list");
-
-        let codeCategory;
-
-        listCategoryReturn.forEach((item) => {
-            if(item.name = select.options[select.selectedIndex].value)
-            {
-                codeCategory = item.uid;
-            }
-          });
-      
-
-        select.options[select.selectedIndex].value
-
-        const newEstablishment = {
-            "address": document.getElementById("Endereço").value,
-            "phone": document.getElementById("Telefone").value,
-            "name": document.getElementById("Nome").value,
-            "category": codeCategory,
-            "postal_code": document.getElementById("CEP").value,
-            "email": document.getElementById("Email").value
-        }
-
-        await createEstablishment(newEstablishment);
-        document.location.reload(true);
-    }
-
-    function clearTable() {
-      const trs = tableMainTbody.querySelectorAll("tr");
-      for (i = 0; i < trs.length; i++) {
-        trs[i].remove();
-      }
-    }
-
 
     function validateEstablishment(establishment) {
       let allErrors = [];
