@@ -265,7 +265,7 @@ function generateForm() {
   
       await createEstablishment(newEstablishment);
 
-      //   document.location.reload(true);
+      document.location.reload(true);
   });
   
 
