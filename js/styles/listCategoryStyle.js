@@ -2,19 +2,20 @@
     const style = document.createElement('style');
     style.innerHTML = `
     .categoryContainer .hide{
-      display: none
+      display: none;
     }
 
     .categoryContainer main{
+      font-family: 'Source Sans Pro', sans-serif;
       width: 100%;
       min-height: 100vh;
-      margin-top: 25vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     .categoryContainer form{
+      width: 80vw;
       margin-top: 5vh;
       display: flex; 
       flex-direction: row;
@@ -23,7 +24,7 @@
     }
 
     .categoryContainer h1{
-      margin-top: 3vh;
+      font-size: 2rem;
       margin-bottom: 5vh;
       text-align: center;
     }
@@ -50,7 +51,6 @@
       text-align: center;
   }
 
-
   .categoryContainer .campo{
       width: 25vw;
       height: 5vh;
@@ -60,7 +60,7 @@
       margin: 10px;
   }
   .categoryContainer .campo::placeholder{
-      font-size: 15px;
+      font-size: 1rem;
       text-align: center;
   }
 
@@ -68,7 +68,7 @@
       width: 17vw;
       margin: 10px;
       padding: 1vh 2vh;
-      font-size: 18px;
+      font-size: 1.2rem;
       text-align: center;
       background-color: #449C5C;
       border: none;
@@ -76,7 +76,6 @@
       color: #fff; 
       background-color: #C9184A;
   }
-
   .categoryContainer button:hover{
     cursor: pointer;
     font-weight: bold;
@@ -91,13 +90,12 @@
   }
 
   @media(max-width: 700px) and (min-width: 360px){
-            .categoryContainer .title{
-                padding-top: 22vh;
-            }
-            
-
-        }
-
+    .categoryContainer .title{
+      padding-top: 22vh;
+    }
+    .categoryContainer button{
+      width: 70vw;
+    }
     `;
 
     document.body.appendChild(style);

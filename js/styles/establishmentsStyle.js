@@ -181,7 +181,7 @@
             }
             .establishmentContainer table{
                 margin-top: 8vh;
-                height: 50vh;
+                height: 65vh;
                 display: flex;
                 font-size: 1.2rem;
             }
@@ -204,7 +204,7 @@
                 height: 8vh;
             }
             .establishmentContainer .registry-form{
-                width: 100%;
+                width: 97vw;
                 height: 92vh;
                 margin-top: -8vh;
                 display: flex;
@@ -215,10 +215,9 @@
                 margin-bottom: 2vh;
                 text-align: center;
                 font-size: 1.7rem;
-                margin-left: 4vw;
             }
             .establishmentContainer .group-input{
-                width: 100%;
+                width: 97vw;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
@@ -231,7 +230,7 @@
             }
             .establishmentContainer .select-list{
                 width: 70vw;
-                margin-left: 22vw;
+                margin-left: 20vw;
                 font-size: 1.4rem;
             }
             .establishmentContainer .campo{
