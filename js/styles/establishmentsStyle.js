@@ -6,17 +6,15 @@
         }
 
         .establishmentContainer *{
+            font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        .establishmentContainer *{
-            font-family: 'Source Sans Pro', sans-serif;
-        }
 
         .establishmentContainer .title{   
             text-align: center;
-            font-size: 30px;
+            font-size: 2rem;
         }
 
         .establishmentContainer .boxRegister{
@@ -33,7 +31,7 @@
         .establishmentContainer .btnRegister{
             width: 12vw;
             height: 6vh;
-            font-size: 18px;
+            font-size: 1.2rem;
             background-color: #C9184A;
             border: none;
             border-radius: 10px;
@@ -59,7 +57,7 @@
             border: none;
         }
         .establishmentContainer .inputSearch::placeholder{
-            font-size: 18px;
+            font-size: 1.2rem;
             text-align: center;
         }
 
@@ -71,9 +69,12 @@
         }
 
         .establishmentContainer table{
-            width: 100%;
+            width: 98vw;
             padding-left: 2vw;
             line-height: 5vh;
+            margin-bottom: 5vh;
+            border: solid 10px #D9D9D9;
+            border-radius: 10px;
         }
 
         .establishmentContainer table td{
@@ -86,6 +87,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: -5vh;
         }
 
         .title-form{
@@ -110,9 +112,9 @@
         .establishmentContainer .label-form{
             width: 10vw;
             height: 5vh;
-            padding-top: 1vh;
+            padding-top: 0.5vh;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.2rem;
         }
 
         .establishmentContainer .campo{
@@ -123,20 +125,28 @@
             border: none;
         }
         .establishmentContainer .campo::placeholder{
-            font-size: 15px;
+            font-size: 1rem;
             text-align: center;
         }
 
+        .establishmentContainer .select-list{
+            width: 25vw;
+            height: 5vh;
+            background-color: #D9D9D9;
+            border-radius: 5px;
+            border: none;
+        }
+
         .establishmentContainer .main-button{
-            width: 17vw;
+            width: 22vw;
             height: 6vh;
-            font-size: 18px;
+            font-size: 1.2rem;
             background-color: #C9184A;
             border: none;
             border-radius: 10px;
             color: #fff; 
             margin-top: 5vh;
-            margin-right: 12vw;
+            margin-left: 12vw;
         }
         .establishmentContainer .main-button:hover{
             cursor: pointer;
@@ -144,11 +154,8 @@
         }
 
         @media(max-width: 700px) and (min-width: 360px){
-            .establishmentContainer main{
-                height: 195vh;
-            }
             .establishmentContainer .title{
-                padding-top: 22vh;
+                padding-top: 2vh;
             }
             .establishmentContainer .boxRegister{
                 height: 30vh;
@@ -158,10 +165,10 @@
                 width: 55vw;
             }
             .establishmentContainer .btnRegister{
-                width: 50vw;
+                width: 60vw;
             }
             .establishmentContainer .main-button{
-                width: 55vw;
+                width: 60vw;
             }
             .establishmentContainer .boxSearch{
                 width: 95vw;
@@ -173,10 +180,13 @@
                 height: 5vh;
             }
             .establishmentContainer table{
-                margin-top: -2vh;
+                margin-top: 8vh;
                 height: 50vh;
                 display: flex;
-                font-size: 20px;
+                font-size: 1.2rem;
+            }
+            .establishment-table{
+                display: flex;
             }
             .establishmentContainer thead{
                 width: 42vw;
@@ -194,19 +204,42 @@
                 height: 8vh;
             }
             .establishmentContainer .registry-form{
-                margin-top: 7vh;
+                width: 100%;
+                height: 92vh;
+                margin-top: -8vh;
+                display: flex;
+                flex-direction: column;
             }
             .establishmentContainer .title-form{
+                width: 52vh;
                 margin-bottom: 2vh;
                 text-align: center;
+                font-size: 1.7rem;
+                margin-left: 4vw;
             }
-            // 
+            .establishmentContainer .group-input{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                margin-right: 15vw;
+            }
             .establishmentContainer .label-form{
-                width: 60vw;
+                padding-top: 0.9vh;
+                font-size: 1.4rem;
+            }
+            .establishmentContainer .select-list{
+                width: 70vw;
+                margin-left: 22vw;
+                font-size: 1.4rem;
             }
             .establishmentContainer .campo{
-                width: 40vw;
+                width: 70vw;
                 margin-left: 20vw;
+            }
+            .establishmentContainer .campo::placeholder{
+                font-size: 1.4rem;
             }
             .establishmentContainer .main-button{
                 width: 65vw;

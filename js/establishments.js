@@ -44,6 +44,7 @@ async function searchCategories(myParent) {
 
     const selectList = document.createElement("select");
     selectList.setAttribute("id","select-list")
+    selectList.setAttribute("class", "select-list");
     myParent.appendChild(selectList);
 
     for (var i = 0; i < categories.length; i++) {
@@ -333,6 +334,7 @@ function generateForm() {
         iconGoogle.addEventListener("dblclick", function (event) {
         });
       }
+      
     });
 
 
