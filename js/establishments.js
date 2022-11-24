@@ -46,6 +46,7 @@ async function searchCategories(myParent) {
     selectList.setAttribute("id","select-list")
     selectList.setAttribute("class", "select-list");
     myParent.appendChild(selectList);
+    console.log(selectList);
 
     for (var i = 0; i < categories.length; i++) {
       var option = document.createElement("option");
@@ -237,12 +238,17 @@ function generateForm() {
     
       event.preventDefault()
 
-      select = document.getElementById("select-list");
+      let select = document.getElementById("select-list");
   
+      const selectedValue = [].filter
+      .call(select.options, option => option.selected)
+      .map(option => option.text);
+
       let codeCategory;
+
   
       listCategoryReturn.forEach((item) => {
-          if(item.name = select.options[select.selectedIndex].value)
+          if(item.name == selectedValue)
           {
               codeCategory = item.uid;
           }
