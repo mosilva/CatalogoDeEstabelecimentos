@@ -6,9 +6,8 @@
     }
 
     .categoryContainer main{
-      font-family: 'Source Sans Pro', sans-serif;
       width: 100%;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -16,6 +15,7 @@
 
     .categoryContainer form{
       width: 80vw;
+      height: 10vh;
       margin-top: 5vh;
       display: flex; 
       flex-direction: row;
@@ -24,6 +24,7 @@
     }
 
     .categoryContainer h1{
+      font-family: 'Source Sans Pro', sans-serif;
       font-size: 2rem;
       margin-bottom: 5vh;
       text-align: center;
@@ -41,14 +42,20 @@
     }
 
     .categoryContainer table{
-      width: 100%;
-      padding-left: 2vw;
-      line-height: 5vh;
-      margin-right: 7vh; 
+      width: 80vw;
+      height: 20vh;
+      border: solid 10px #D9D9D9;
+      border-radius: 10px;
+      margin-top: 15vh;
+      margin-bottom: 5vh;
+      padding top: 2vh;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.2rem;
   }
 
   .categoryContainer table td{
       text-align: center;
+      font-family: 'Source Sans Pro', sans-serif;
   }
 
   .categoryContainer .campo{

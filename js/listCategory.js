@@ -62,7 +62,12 @@ button.addEventListener('click', async function(event){
   await showCategory(input);
 });
 
-
+function createLinkApiGoogle(){
+  const newlink = document.createElement('link');
+  newlink.setAttribute('rel', 'stylesheet');
+  newlink.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+  document.head.appendChild(newlink);
+}
 
 function createFormRegisterCategory(){
 
@@ -246,6 +251,3 @@ hiddenFormRegister(document.querySelector('#btn-nova-categoria'),document.queryS
 
 
 })();
-
-
-
