@@ -214,15 +214,15 @@ function generateForm() {
         createIcon("delete");
         createIcon("draw");
 
-        let tableEstablishments = await document.querySelector("table");
+        // let tableEstablishments = await document.querySelector("table");
 
-        tableEstablishments.addEventListener("dblclick", function (event) {
-          deleteEstab(event.target.parentNode.parentNode);
+        // tableEstablishments.addEventListener("dblclick", function (event) {
+        //   deleteEstab(event.target.parentNode.parentNode);
 
-          setTimeout(function () {
-            event.target.parentNode.parentNode.remove();
-          }, 500);
-        });
+        //   setTimeout(function () {
+        //     event.target.parentNode.parentNode.remove();
+        //   }, 500);
+        // });
       })();
     }
 
@@ -308,14 +308,21 @@ function generateForm() {
 
   async function deleteEstablishmentEvent(event) {
     const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
+          deleteEstab(event.target.parentNode.parentNode);
+
+          setTimeout(function () {
+            event.target.parentNode.parentNode.remove();
+          }, 500);      
+
     await deleteEstablishment(itemDelete[0].textContent);
     document.location.reload(true);
   }
 
   async function editEstablishmentEvent(event) {
     const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
-    await editEstablishment();
-    document.location.reload(true);
+    console.log(itemUpdate);
+    // await editEstablishment();
+    // document.location.reload(true);
   }
 
   async function createIcon(icon) {
