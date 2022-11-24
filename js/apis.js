@@ -166,6 +166,33 @@ window.listCategoriesByName = async function (nameCategory) {
   }
 };
 
+window.editCategories = async function (idCategory, codeCategory, nameCategory) {
+  try{
+    const promise = await fetch(`${url}/category`, {   
+    method: 'PUT',
+    headers: {
+     "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+    "uid": `${idCategory}`,
+    "code": `${codeCategory}`,
+    "name": `${nameCategory}`,
+    "group": {
+        "uid": uidGroup
+      },
+   }),
+ }).catch((error) => {});
+
+    if (!promise) {
+      return [];
+    }
+
+    return promise.json();
+  } catch (error) {
+    console.error("Erro na comunicação: ", error);
+  }
+};
+
 window.deleteEstablishment = async function (idEstab) {
   try {
     const promise = await fetch(`${url}//establishment`, {
