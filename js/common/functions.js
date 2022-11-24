@@ -35,6 +35,7 @@ window.hiddenSection = (event) => {
     category.classList.remove("hide");
     establishment.classList.add("hide");
     home.classList.add("hide");
+    //document.querySelector('')
   }
 };
 
@@ -46,10 +47,3 @@ window.hiddenForFooter = async (event) => {
   document.querySelector(".categoryContainer").classList.remove("hide")
 
 };
-
-window.createLinkApiGoogle = function(){
-  const newlink = document.createElement('link');
-  newlink.setAttribute('rel', 'stylesheet');
-  newlink.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
-  document.head.appendChild(newlink);
-}
