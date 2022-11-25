@@ -17,6 +17,7 @@ window.catalogEstablishments = async function () {
       }),
     });
     if (!promise) {
+      alert("Algo deu errado na requisição! Tente novamente!");
       return [];
     }
     return promise.json();
@@ -59,6 +60,7 @@ window.listEstablishments = async function () {
       }),
     });
     if (!promise) {
+      alert("Algo deu errado na requisição! Tente novamente!");
       return [];
     }
     const establishments = await promise.json();
@@ -85,6 +87,7 @@ window.createCategory = async function (codeCategory, nameCategory) {
       }),
     });
     if (!promise) {
+      alert("Algo deu errado na requisição! Tente novamente!");
       return [];
     }
     return promise.json();
@@ -214,6 +217,7 @@ window.deleteEstablishment = async function (idEstab) {
     }).catch((error) => {});
 
     if (!promise) {
+      alert("Algo deu errado na requisição! Tente novamente!");
       return [];
     }
 
@@ -245,6 +249,7 @@ window.createEstablishment = async function (newEstablishment) {
       }),
     });
     if (!promise) {
+      alert("Algo deu errado na requisição! Tente novamente!");
       return [];
     }
 
