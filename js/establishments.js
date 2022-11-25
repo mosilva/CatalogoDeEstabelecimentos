@@ -288,6 +288,7 @@ window.establishment = async (status = "hide") => {
 
     const buttonEdit = document.querySelector("#edit-establishment");
 
+    // show edit form
     buttonEdit.addEventListener("click", async function (event) {
       event.preventDefault();
 
@@ -358,7 +359,7 @@ window.establishment = async (status = "hide") => {
       document.querySelector(".registry-form"),
       "Cadastrar"
     );
-
+    //delete establishment
     async function deleteEstablishmentEvent(event) {
       if (btnRegister.innerHTML == "Voltar") {
         alert(
@@ -377,7 +378,7 @@ window.establishment = async (status = "hide") => {
 
       }  
     }
-
+    //edit establishment
     async function editEstablishmentEvent(event) {
       hiddenFormEdit(
         document.querySelector("#btn-register"),
