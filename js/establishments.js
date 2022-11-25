@@ -2,7 +2,7 @@ window.establishment = async (status = "hide") => {
   const establishmentsStyle = document.createElement("script");
   establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
   document.body.appendChild(establishmentsStyle);
-
+  
   const mainCatalogo = document.createElement("section");
   mainCatalogo.classList.add("establishmentContainer");
   status === "hide"
@@ -38,7 +38,7 @@ window.establishment = async (status = "hide") => {
 
   async function searchCategories(myParent) {
     const requestCategory = await listCategories();
-    const listCategoryReturn =
+    listCategoryReturn =
       requestCategory.length != 0
         ? requestCategory
         : JSON.parse(localStorage.categories);
