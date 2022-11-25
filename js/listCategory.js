@@ -34,11 +34,13 @@ const titlesTable = ["Codigo", "Nome", "Excluir" , "Editar"];
 const titlePage = document.createElement('h1');
 titlePage.textContent = 'Categorias';
 categoryContainer.appendChild(titlePage);
-
+const divButton = document.createElement('div');
+divButton.classList.add("div-btn");
 const buttonCadastrar = document.createElement('button');
 buttonCadastrar.textContent = "Criar Nova Categoria";
 buttonCadastrar.setAttribute('id', 'btn-nova-categoria');
-categoryContainer.appendChild(buttonCadastrar);
+divButton.appendChild(buttonCadastrar);
+categoryContainer.appendChild(divButton);
 
 createFormRegisterCategory();
 

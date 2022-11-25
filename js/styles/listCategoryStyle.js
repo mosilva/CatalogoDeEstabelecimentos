@@ -13,13 +13,6 @@
       align-items: center;
     }
 
-    .categoryContainer{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
     .categoryContainer form{
       width: 80vw;
       height: 10vh;
@@ -101,6 +94,12 @@
 
   .categoryContainer .div-register{
     display:none;
+  }
+
+  .categoryContainer .div-btn{
+    display: flex;
+    justify-content: center;
+    align-itens: center;
   }
 
   @media(max-width: 700px) and (min-width: 360px){
