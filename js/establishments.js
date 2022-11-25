@@ -164,6 +164,7 @@ window.establishment = async (status = "hide") => {
 
     const tableMainTbody = document.createElement("tbody");
     const tableMainCatalogo = document.createElement("table");
+    tableMainCatalogo.setAttribute("id","table-main")
 
     function generateEstablishmentsMain() {
       const containerEstablishments = document.createElement("span");
@@ -203,7 +204,7 @@ window.establishment = async (status = "hide") => {
         const inputCatalogoSearch = document.createElement("input");
         inputCatalogoSearch.setAttribute("type", "text");
         inputCatalogoSearch.setAttribute("name", "filter");
-        inputCatalogoSearch.setAttribute("id", "filter__table");
+        inputCatalogoSearch.setAttribute("id", "filter-table");
         inputCatalogoSearch.setAttribute("class", "inputSearch");
         inputCatalogoSearch.setAttribute(
           "placeholder",
@@ -455,28 +456,34 @@ window.establishment = async (status = "hide") => {
       });
     };
 
-    const filterField = document.querySelector("#filter__table");
+    const filterField = document.querySelector("#filter-table");
 
     filterField.addEventListener("input", function () {
-      let establishments = document.querySelectorAll(".body__information");
 
-      if (this.value.length > 0) {
-        for (const element of establishments) {
-          const tdCategory = element.querySelector(".info-Categoria");
-          const category = tdCategory.textContent;
-          let expressionRegular = new RegExp(this.value, "i");
+      const categoryFilter = document.getElementsByClassName("info-category");
 
-          if (!expressionRegular.test(category)) {
-            invisibleEstab(element);
+      for (let i = 0; i < categoryFilter.length; i++) {
+
+          const element = categoryFilter[i].textContent;
+          let catorySelected = categoryFilter[i];
+          let catorySelectedParentNode = catorySelected.parentNode;
+
+          if (this.value.length > 0) {
+            let expressionRegular = new RegExp(this.value, "i");
+
+            if (!expressionRegular.test(element)) {
+
+              invisibleEstab(catorySelectedParentNode);
+
           } else {
-            visibleEstab(element);
+
+            visibleEstab(catorySelectedParentNode);
           }
-        }
-      } else {
-        for (const element of establishments) {
-          visibleEstab(element);
-        }
+        
+      } else {        
+          visibleEstab(catorySelectedParentNode);        
       }
+    }
     });
   })();
 
