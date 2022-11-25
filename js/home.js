@@ -36,12 +36,12 @@ function carouselGenerate(){
 
     function setAttributesHome(){
         title.setAttribute("class", "title");
-        firstImg.setAttribute("src", "../img/dalvaEDito.jpg");
+        firstImg.setAttribute("src", "../img/mcDonalds.jpg");
         firstImg.setAttribute("class", "carouselImg");
          firstDiv.setAttribute("class", "container");
          secondImg.setAttribute("src", "../img/palacioDeTangara.jpg");
          secondImg.setAttribute("class", "carouselImg");
-         thirdImg.setAttribute("src", "../img/mcDonalds.jpg");
+         thirdImg.setAttribute("src", "../img/dalvaEDito.jpg");
         thirdImg.setAttribute("class", "carouselImg");
     }
     setAttributesHome();

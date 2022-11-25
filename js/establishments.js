@@ -281,6 +281,7 @@ function generateForm() {
       }
   
       await createEstablishment(newEstablishment);
+      window.alert("Estabelecimento cadastrado com sucesso! \n Atualize a página.");
 
       // document.location.reload(true);
   });
@@ -318,7 +319,8 @@ function generateForm() {
       }
           
       await editEstablishmentAll(editEstablishment);
-
+      
+      window.alert("Estabelecimento editado com sucesso! \n Atualize a página.");
 
       // document.location.reload(true);
   });
@@ -485,6 +487,8 @@ window.titleRegistryForm = function () {
   const mainFormH2 = document.querySelector("#title-form");
   mainFormH2.textContent = "Cadastrar um novo estabelecimento";
 }
+
+window.btnDisable = document.getElementById("edit-image");
 
 
 
