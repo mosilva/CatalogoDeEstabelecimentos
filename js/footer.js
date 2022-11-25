@@ -44,6 +44,15 @@ window.generateFooter = async function () {
 
 generateFooter();
 
+async function renderCategorySelected(event) {
+  const categorySelect = event.path[0].name;
+  const input = document.createElement("input");
+  const footer = document.querySelector("footer");
+  input.value = categorySelect;
+  await hiddenForFooter(event);
+  await showCategory(input);
+}
+
 async function generateFooterRender() {
   const body = document.querySelector("body");
   const footer = body.querySelector("footer");
