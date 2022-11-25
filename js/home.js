@@ -61,10 +61,10 @@ function carouselGenerate() {
 carouselGenerate();
 
 let interval = 0;
-let maxImgs = document.querySelectorAll(".carouselImg").length - 1;
+const maxImgs = document.querySelectorAll(".carouselImg").length - 1;
 
 function carouselAction() {
-  let img = document.querySelectorAll(".carouselImg");
+  const img = document.querySelectorAll(".carouselImg");
 
   setInterval(function () {
     img[interval].style.display = "none";
