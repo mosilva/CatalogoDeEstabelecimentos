@@ -244,7 +244,7 @@ window.createEstablishment = async function (newEstablishment) {
           uid: uidGroup,
         },
       }),
-    });
+});
     if (!promise) {
       return [];
     }

@@ -17,12 +17,10 @@ window.hiddenFormRegister = function (buttonSelect, buttonSecondary, buttonEdit,
       buttonEditUpdate.style.display = "none";
       buttonSecondary.style.display = "block";
       button.textContent = "Voltar";
-      btnDisable.disabled = true;
     } else {
       containerRegister.style.display = "none";
       button.textContent = item;
       document.getElementById("edit-image").disabled = false;
-      btnDisable.disabled = false;
     }
   });
 };
@@ -61,11 +59,9 @@ window.hiddenFormEdit = function (buttonPrincipal, buttonSecondary, buttonEdit, 
   if (propriedadesContainerEdit["display"] == "none") {
       containerEdit.style.display = "block";
       buttonPrincipal.textContent = "Voltar";
-      btnDisable.disabled = true;
     } else {
       containerEdit.style.display = "none";
       buttonPrincipal.textContent = "Cadastrar";
-      btnDisable.disabled = false;
     };
   
 };

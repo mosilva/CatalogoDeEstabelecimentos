@@ -55,15 +55,18 @@ async function searchCategories(myParent) {
     const selectText = document.createElement("p");
     selectText.setAttribute("class", "selectText");
     selectText.textContent = "Não encontrou a categoria?";
+    const selectSpan = document.createElement("span");
+    selectSpan.setAttribute("class", "Categorias");
     const selectLink = document.createElement("a");
-    selectLink.setAttribute("href", "#div-btn");
     selectLink.setAttribute("class", "selectLink");
+    selectLink.addEventListener("click", hiddenSection);
     selectLink.textContent = "Crie uma!";
     myParent.appendChild(divSelect);
     divSelect.appendChild(selectList);
     divSelect.appendChild(divText);
     divText.appendChild(selectText);
-    divText.appendChild(selectLink);
+    divText.appendChild(selectSpan);
+    selectSpan.appendChild(selectLink);
 
     for (var i = 0; i < categories.length; i++) {
       var option = document.createElement("option");
@@ -114,7 +117,7 @@ function createInputs() {
       inputForm.setAttribute("name", element);
       inputForm.setAttribute(
         "placeholder",
-        "Digite aqui o campo " + element.toLowerCase() + "..."
+        "Digite aqui o " + element.toLowerCase() + "..."
       );
       inputForm.setAttribute("type", "text");
       inputForm.setAttribute("class", "campo");
@@ -380,6 +383,7 @@ function generateForm() {
   }
 
   async function editEstablishmentEvent(event) {
+    console.log("oi");
     
     hiddenFormEdit(
     document.querySelector("#btn-register"),
@@ -432,21 +436,30 @@ function generateForm() {
       }
   )};
 
-    function validateEstablishment(establishment) {
+    window.validateEstablishment = function(establishment) {
       let allErrors = [];
 
-      if (establishment.Categoria.length < 3) {
-        allErrors.push("A Categoria deve ter no mínimo 3 letras!");
+      if (establishment.endereco.length < 5) {
+        allErrors.push("O endereço deve ter no mínimo 5 letras!");
       }
+
+      if (establishment.telefone.length > 11){
+        allErrors.push("O telefone não pode ter mais que 11 números");
+      }
+
 
       if (establishment.Nome.length < 3) {
         allErrors.push("O Nome deve ter no mínimo 3 letras!");
       }
 
+      if (establishment.cep.length > 9){
+        allErrors.push("O CEP não deve conter mais que 9 números, contando com o ' - '");
+      }      
+
       return allErrors;
     }
 
-    function showErros(errors) {
+    window.showErros = function(errors) {
       let ulError = document.querySelector("#error-message");
       ulError.innerHTML = "";
 

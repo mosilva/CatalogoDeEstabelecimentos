@@ -17,6 +17,7 @@ const titlesTable = ["Codigo", "Nome", "Excluir" , "Editar"];
     const categoryContainer = document.createElement("section");
     categoryContainer.classList.add('categoryContainer');
     categoryContainer.classList.add('hide');
+    categoryContainer.setAttribute("id", "id-container");
 
 
     const main = document.querySelector("main");
