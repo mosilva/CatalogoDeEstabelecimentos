@@ -175,44 +175,46 @@ function createIcon(icon, rowTable){
 
   }else{
 
-    iconGoogle.addEventListener("dblclick",function(event){
-      const itemEdit = this.parentNode.parentNode.querySelectorAll('td');
-      const idCategoryTable = itemEdit[0].textContent;
-      const codigoCategoryTable = itemEdit[1].textContent;
-      const nameCategoryTable = itemEdit[2].textContent;
-      const nameCategoryInput = document.querySelector("#nomeCategoria");
-      const codigoCategoryInput = document.querySelector("#codigoCategoria");
-      const buttonCreateCategory = document.querySelector("#btn-cadastrar-categoria");
-      const buttonHide = document.querySelector("#btn-nova-categoria");
-      const divRegister = document.querySelector(".div-register");
-      const formRegister = document.querySelector("#form-register");
-      const buttonEdit = document.querySelector("#btn-alterar-categoria");
+    iconGoogle.addEventListener("dblclick",editCategoryLocal);
+  }
 
-      alert("O id da vez a ser editado é: "+idCategoryTable);
+  function editCategoryLocal(){
+    const itemEdit = this.parentNode.parentNode.querySelectorAll('td');
+    const idCategoryTable = itemEdit[0].textContent;
+    const codigoCategoryTable = itemEdit[1].textContent;
+    const nameCategoryTable = itemEdit[2].textContent;
+    const nameCategoryInput = document.querySelector("#nomeCategoria");
+    const codigoCategoryInput = document.querySelector("#codigoCategoria");
+    const buttonCreateCategory = document.querySelector("#btn-cadastrar-categoria");
+    const buttonHide = document.querySelector("#btn-nova-categoria");
+    const divRegister = document.querySelector(".div-register");
+    const formRegister = document.querySelector("#form-register");
+    const buttonEdit = document.querySelector("#btn-alterar-categoria");
 
-      buttonHide.textContent = "Esconder Form";
-      divRegister.style.display = "block";
-      buttonCreateCategory.style.display = "none";
+    
 
-      if(buttonEdit['display'] == 'block'){
-        buttonEdit.style.display = "none"; 
-      }
-      else{
-        buttonEdit.style.display = "block";
-      }
+    buttonHide.textContent = "Esconder Form";
+    divRegister.style.display = "block";
+    buttonCreateCategory.style.display = "none";
 
-      codigoCategoryInput.value= codigoCategoryTable;
-      nameCategoryInput.value = nameCategoryTable;
+    if(buttonEdit['display'] == 'block'){
+      buttonEdit.style.display = "none"; 
+    }
+    else{
+      buttonEdit.style.display = "block";
+    }
 
-      buttonEdit.addEventListener('click', async function(event){
-        event.preventDefault();
-        await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
-        await clearTable();
-        result = await listCategoriesByName("");
-        insertContentTable(result);
-       
-      });
+    codigoCategoryInput.value= codigoCategoryTable;
+    nameCategoryInput.value = nameCategoryTable;
 
+    buttonEdit.addEventListener('click', async function(event){
+      event.preventDefault();
+      await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
+      await clearTable();
+      result = await listCategories();
+      await alert("Categoria cadastrada com sucesso.");
+      insertContentTable(result);
+     
     });
   }
 
