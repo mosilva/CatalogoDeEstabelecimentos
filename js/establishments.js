@@ -275,8 +275,9 @@ window.establishment = async (status = "hide") => {
 
       await createEstablishment(newEstablishment);
       alert(
-        "Estabelecimento cadastrado com sucesso! \n Atualize a página."
+        "Estabelecimento cadastrado com sucesso!"
       );
+      establishmentRenderAux();
     });
 
     const buttonEdit = document.querySelector("#edit-establishment");
@@ -311,8 +312,9 @@ window.establishment = async (status = "hide") => {
       await editEstablishmentAll(editEstablishment);
 
       alert(
-        "Estabelecimento editado com sucesso! \n Atualize a página."
+        "Estabelecimento editado com sucesso!"
       );
+      establishmentRenderAux();
     });
 
     function showEstablishments(Establishments) {
@@ -366,6 +368,7 @@ window.establishment = async (status = "hide") => {
         }, 500);
   
         await deleteEstablishment(itemDelete[0].textContent);
+        alert("Estabelecimento deletado com sucesso");
         establishmentRenderAux();
       }  
     }
