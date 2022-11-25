@@ -70,7 +70,9 @@
 
         .establishmentContainer table{
             width: 98vw;
+            padding-top: 2vh;
             padding-left: 2vw;
+            padding-bottom: 2vh;
             line-height: 5vh;
             margin-bottom: 5vh;
             border: solid 10px #D9D9D9;
@@ -83,7 +85,7 @@
 
         .establishmentContainer .registry-form{
             width: 100%;
-            height:55vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -129,12 +131,34 @@
             text-align: center;
         }
 
-        .establishmentContainer .select-list{
+        .establishmentContainer .divSelect{
             width: 25vw;
+            display: flex;
+            text-align: center;
+        }
+
+        .establishmentContainer .select-list{
+            width: 15vw;
             height: 5vh;
             background-color: #D9D9D9;
             border-radius: 5px;
             border: none;
+        }
+
+        .establishmentContainer .divText{
+            width: 7vw;
+            margin-left: 1vh;
+        }
+
+        .establishmentContainer .selectText{
+            font-size: 0.8rem;
+        }
+
+        .establishmentContainer .selectLink{
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #C9184A;
+            font-weight: bolder;
         }
 
         .establishmentContainer .main-button{
@@ -146,7 +170,7 @@
             border-radius: 10px;
             color: #fff; 
             margin-top: 5vh;
-            margin-left: 12vw;
+            margin-left: 56vw;
         }
         .establishmentContainer .main-button:hover{
             cursor: pointer;

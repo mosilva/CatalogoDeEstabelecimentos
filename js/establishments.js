@@ -45,10 +45,25 @@ async function searchCategories(myParent) {
       categories.push(item.name);
     });
 
+    const divSelect = document.createElement("div");
+    divSelect.setAttribute("class", "divSelect");
     const selectList = document.createElement("select");
     selectList.setAttribute("id","select-list")
     selectList.setAttribute("class", "select-list");
-    myParent.appendChild(selectList);
+    const divText = document.createElement("div");
+    divText.setAttribute("class", "divText");
+    const selectText = document.createElement("p");
+    selectText.setAttribute("class", "selectText");
+    selectText.textContent = "Não encontrou a categoria?";
+    const selectLink = document.createElement("a");
+    selectLink.setAttribute("href", "#div-btn");
+    selectLink.setAttribute("class", "selectLink");
+    selectLink.textContent = "Crie uma!";
+    myParent.appendChild(divSelect);
+    divSelect.appendChild(selectList);
+    divSelect.appendChild(divText);
+    divText.appendChild(selectText);
+    divText.appendChild(selectLink);
 
     for (var i = 0; i < categories.length; i++) {
       var option = document.createElement("option");

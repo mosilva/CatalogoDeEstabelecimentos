@@ -36,6 +36,7 @@ titlePage.textContent = 'Categorias';
 categoryContainer.appendChild(titlePage);
 const divButton = document.createElement('div');
 divButton.classList.add("div-btn");
+divButton.setAttribute("id", "div-btn");
 const buttonCadastrar = document.createElement('button');
 buttonCadastrar.textContent = "Criar Nova Categoria";
 buttonCadastrar.setAttribute('id', 'btn-nova-categoria');
