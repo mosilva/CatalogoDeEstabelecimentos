@@ -6,6 +6,7 @@ window.category = async (status = "hide") => {
   })();
 
   (async () => {
+   
     createLinkApiGoogle();
 
 
@@ -212,25 +213,6 @@ window.category = async (status = "hide") => {
         });
       }
 
-      function selectBtnNovaCategoria() {
-        const btnNovaCategoria = document.querySelector("#btn-nova-categoria");
-        const btnEditCategoria = document.querySelector(
-          "#btn-alterar-categoria"
-        );
-        const btnCadastrarCategoria = document.querySelector(
-          "#btn-cadastrar-categoria"
-        );
-
-        btnNovaCategoria.addEventListener("click", function (event) {
-          event.preventDefault();
-
-          if (btnCadastrarCategoria.style.display == "none") {
-            btnCadastrarCategoria.style.display = "block";
-            btnEditCategoria.style.display = "none";
-          }
-        });
-      }
-      selectBtnNovaCategoria();
 
       iconGoogle.textContent = icon;
       iconGoogle.setAttribute("class", "material-symbols-outlined");
@@ -239,21 +221,43 @@ window.category = async (status = "hide") => {
       rowTable.appendChild(cell);
     }
 
+    
+    function selectBtnNovaCategoria() {
+      const btnNovaCategoria = document.querySelector("#btn-nova-categoria");
+      const btnEditCategoria = document.querySelector("#btn-alterar-categoria");
+      const btnCadastrarCategoria = document.querySelector("#btn-cadastrar-categoria");
+
+      btnNovaCategoria.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        if (btnCadastrarCategoria.style.display == "none") {
+          btnCadastrarCategoria.style.display = "block";
+          btnEditCategoria.style.display = "none";
+        }
+      });
+    }
+
+    selectBtnNovaCategoria();
+
     async function deleteCategory(event) {
       const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
       const nameCategoryTable = itemDelete[2].textContent;
+
+      let valid = true;
 
       const requestEstablishments = await listEstablishments();
    
       requestEstablishments.forEach((item) => {
         if (nameCategoryTable == item.category.name) {
+            valid = false;
             alert("A categoria está sendo usada em algum estabelecimento. Não é possível deletá-lo!");
         }})
 
-    
-      await deleteCategories(itemDelete[0].textContent);
-    
-      categoriesRenderAux();
+        if(valid){
+          await deleteCategories(itemDelete[0].textContent);
+          categoriesRenderAux();
+        }
+      
     }
 
     window.showCategory = async function (input) {
