@@ -193,8 +193,7 @@ window.editCategories = async function (
     if (!promise) {
       return [];
     }
-
-    return promise.json();
+    
   } catch (error) {
     console.error("Erro na comunicação: ", error);
   }
