@@ -249,25 +249,25 @@ window.createEstablishment = async function (newEstablishment) {
   }
 };
 
-window.editEstablishment = async function (newEstablishment) {
+window.editEstablishmentAll = async function (editEstablishment) {
   try {
     const promise = await fetch(`${url}/establishment`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        uid: "string",
-        address: "string",
-        phone: "string",
-        name: "string",
+        uid: editEstablishment.uid,
+        address: editEstablishment.address,
+        phone: editEstablishment.phone,
+        name: editEstablishment.name,
         category: {
-          uid: "string",
+          uid: editEstablishment.category,
         },
-        postal_code: "string",
-        email: "user@example.com",
+        postal_code: editEstablishment.postal_code,
+        email: editEstablishment.email,
         group: {
-          uid: "string",
+          uid: uidGroup,
         },
       }),
     }).catch((error) => {
