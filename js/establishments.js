@@ -369,7 +369,6 @@ window.establishment = async (status = "hide") => {
   
         await deleteEstablishment(itemDelete[0].textContent);
         alert("Estabelecimento deletado com sucesso");
-        establishmentRenderAux();
       }  
     }
     
