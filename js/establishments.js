@@ -283,7 +283,7 @@ window.establishment = async (status = "hide") => {
 
       await createEstablishment(newEstablishment);
       alert("Estabelecimento cadastrado com sucesso!");
-      establishmentRenderAux();
+      document.location.reload(true);
     });
 
     const buttonEdit = document.querySelector("#edit-establishment");
@@ -318,7 +318,7 @@ window.establishment = async (status = "hide") => {
       await editEstablishmentAll(editEstablishment);
 
       alert("Estabelecimento editado com sucesso!");
-      establishmentRenderAux();
+      document.location.reload(true);
     });
 
     function showEstablishments(Establishments) {
