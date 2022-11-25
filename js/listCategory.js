@@ -210,10 +210,8 @@ function createIcon(icon, rowTable){
     buttonEdit.addEventListener('click', async function(event){
       event.preventDefault();
       await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
-      await clearTable();
-      result = await listCategories();
-      await alert("Categoria cadastrada com sucesso.");
-      insertContentTable(result);
+      
+      alert("");
      
     });
   }
@@ -517,10 +515,10 @@ function createIcon(icon, rowTable){
 
 
       buttonEdit.addEventListener('click', async function(event){
-        event.preventDefault();
-        await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value)
-        clearTable();
-        insertContentTable(await listCategories());
+
+        await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
+
+        categoriesRenderAux();
        
       });
 
@@ -528,6 +526,7 @@ function createIcon(icon, rowTable){
 
     });
   }
+
 
   iconGoogle.textContent = icon;
   iconGoogle.setAttribute('class', 'material-symbols-outlined');
