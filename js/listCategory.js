@@ -188,6 +188,11 @@ function createIcon(icon, rowTable){
       const formRegister = document.querySelector("#form-register");
       const buttonEdit = document.querySelector("#btn-alterar-categoria");
 
+      alert("O id da vez a ser editado é: "+idCategoryTable);
+
+      buttonHide.textContent = "Esconder Form";
+      divRegister.style.display = "block";
+      buttonCreateCategory.style.display = "none";
 
       if(buttonEdit['display'] == 'block'){
         buttonEdit.style.display = "none"; 
@@ -199,16 +204,13 @@ function createIcon(icon, rowTable){
       codigoCategoryInput.value= codigoCategoryTable;
       nameCategoryInput.value = nameCategoryTable;
 
-      buttonHide.textContent = "Esconder Form";
-      divRegister.style.display = "block";
-      buttonCreateCategory.style.display = "none";
-
-
       buttonEdit.addEventListener('click', async function(event){
         event.preventDefault();
-        await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value)
-        clearTable();
-        insertContentTable(await listCategories());
+        await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
+        await clearTable();
+        result = await listCategories();
+        await insertContentTable(result);
+  
        
       });
 

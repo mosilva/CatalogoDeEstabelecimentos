@@ -186,8 +186,7 @@ window.editCategories = async function (idCategory, codeCategory, nameCategory) 
     if (!promise) {
       return [];
     }
-
-    return promise.json();
+    
   } catch (error) {
     console.error("Erro na comunicação: ", error);
   }
