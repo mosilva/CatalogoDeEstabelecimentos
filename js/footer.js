@@ -4,7 +4,7 @@
   document.body.appendChild(styleJs);
 })();
 
-async function generateFooter() {
+window.generateFooter = async function() {
   const categories = await listCategories();
   const establishments = await listEstablishments();
   const footer = document.createElement("footer");
@@ -35,14 +35,10 @@ async function generateFooter() {
 
 generateFooter();
 
-async function renderCategorySelected(event) {
-  const categorySelect = event.path[0].name;
-  const input = document.createElement("input");
-  const footer = document.querySelector("footer");
-  input.value = categorySelect;
-  //footer.appendChild(input);
-  //input.style.display = "none";
-  await hiddenForFooter(event);
-  await showCategory(input);
-  //footer.removeChild(input);
+async function  generateFooterRender(){
+  const body = document.querySelector('body');
+  const footer = body.querySelector('footer');
+  body.removeChild(footer)
+  await generateFooter();
 }
+

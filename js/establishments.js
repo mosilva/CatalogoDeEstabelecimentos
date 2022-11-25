@@ -510,6 +510,7 @@ async function  establishmentRenderAux(){
   const section = document.querySelector('section.establishmentContainer');
   main.removeChild(section)
   await establishment("no hide");
+  await generateFooterRender();
 }
 
 
