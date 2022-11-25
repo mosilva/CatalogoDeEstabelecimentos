@@ -1,16 +1,23 @@
-window.hiddenFormRegister = function (buttonSelect, buttonSecondary, container, item) {
+window.hiddenFormRegister = function (buttonSelect, buttonSecondary, buttonEdit, container, item) {
   const button = buttonSelect;
   const containerRegister = container;
+  const buttonEditUpdate = buttonEdit;
   const propriedadesContainerRegister = containerRegister.style;
   containerRegister.style.display = "none";
+  buttonEditUpdate.style.display = "none";
+  buttonSecondary.style.display = "block";
 
   button.addEventListener("click", function (event) {
     event.preventDefault();
+    clearForm();
+    titleRegistryForm();
 
     if (propriedadesContainerRegister["display"] == "none") {
       containerRegister.style.display = "block";
+      buttonEditUpdate.style.display = "none";
+      buttonSecondary.style.display = "block";
       button.textContent = "Voltar";
-      buttonSecondary.textContent = "Salvar Estabelecimento";
+
     } else {
       containerRegister.style.display = "none";
       button.textContent = item;
@@ -40,18 +47,22 @@ window.hiddenSection = (event) => {
   }
 };
 
-window.hiddenFormEdit = function (buttonPrincipal, buttonSecondary, container, ) {
+
+
+window.hiddenFormEdit = function (buttonPrincipal, buttonSecondary, buttonEdit, container) {
   const containerEdit = container;
+  const buttonEditUpdate = buttonEdit;
   const propriedadesContainerEdit = containerEdit.style;
+  buttonSecondary.style.display = "none";
+  buttonEditUpdate.style.display = "block";
 
   if (propriedadesContainerEdit["display"] == "none") {
       containerEdit.style.display = "block";
       buttonPrincipal.textContent = "Voltar";
-      buttonSecondary.textContent = "Editar Estabelecimento";
 
     } else {
       containerEdit.style.display = "none";
-      buttonPrincipal.style.display = "block"; 
+      buttonPrincipal.textContent = "Cadastrar";
 
     };
   
@@ -65,3 +76,11 @@ window.hiddenForFooter = async (event) => {
   document.querySelector(".categoryContainer").classList.remove("hide")
 
 };
+
+window.clearForm = function () {
+  const trs = document.querySelectorAll(".campo");
+  for (let i = 0; i < trs.length; i++) {
+    trs[i].value =""
+  }
+} 
+

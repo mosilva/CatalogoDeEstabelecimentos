@@ -21,6 +21,7 @@ mainFormMain.setAttribute("class", "form-add");
 mainFormMain.setAttribute("action", "");
 mainFormMain.setAttribute("method", "POST");
 let listCategoryReturn;
+let uidEdit=null;
 
 const headerEstablishments = [
   "Endereço",
@@ -33,6 +34,8 @@ const headerEstablishments = [
   "Editar",
 ];
 
+
+
 async function searchCategories(myParent) {
     listCategoryReturn = await listCategories();
 
@@ -42,10 +45,25 @@ async function searchCategories(myParent) {
       categories.push(item.name);
     });
 
+    const divSelect = document.createElement("div");
+    divSelect.setAttribute("class", "divSelect");
     const selectList = document.createElement("select");
     selectList.setAttribute("id","select-list")
     selectList.setAttribute("class", "select-list");
-    myParent.appendChild(selectList);
+    const divText = document.createElement("div");
+    divText.setAttribute("class", "divText");
+    const selectText = document.createElement("p");
+    selectText.setAttribute("class", "selectText");
+    selectText.textContent = "Não encontrou a categoria?";
+    const selectLink = document.createElement("a");
+    selectLink.setAttribute("href", "#div-btn");
+    selectLink.setAttribute("class", "selectLink");
+    selectLink.textContent = "Crie uma!";
+    myParent.appendChild(divSelect);
+    divSelect.appendChild(selectList);
+    divSelect.appendChild(divText);
+    divText.appendChild(selectText);
+    divText.appendChild(selectLink);
 
     for (var i = 0; i < categories.length; i++) {
       var option = document.createElement("option");
@@ -131,6 +149,13 @@ function generateForm() {
   buttonForm.setAttribute("class", "main-button");
   buttonForm.textContent = "Salvar estabelecimento";
   mainFormMain.appendChild(buttonForm);
+
+  const buttonFormEdit = document.createElement("button");
+  buttonFormEdit.setAttribute("id", "edit-establishment");
+  buttonFormEdit.setAttribute("class", "main-button");
+  buttonFormEdit.textContent = "Editar estabelecimento";
+  buttonForm.style.display ="none"
+  mainFormMain.appendChild(buttonFormEdit);
 }
 
 
@@ -218,6 +243,9 @@ function generateForm() {
 
     generateForm();
     generateTableShowsEstablishments();
+
+
+
   }
 
   generateEstablishmentsMain();
@@ -225,7 +253,7 @@ function generateForm() {
   const buttonForm = document.querySelector("#add-establishment");
 
   buttonForm.addEventListener("click", async function (event) {
-    
+     
       event.preventDefault()
 
       let select = document.getElementById("select-list");
@@ -235,7 +263,6 @@ function generateForm() {
       .map(option => option.text);
 
       let codeCategory;
-
   
       listCategoryReturn.forEach((item) => {
           if(item.name == selectedValue)
@@ -255,9 +282,47 @@ function generateForm() {
   
       await createEstablishment(newEstablishment);
 
-      document.location.reload(true);
+      // document.location.reload(true);
   });
   
+
+  const buttonEdit = document.querySelector("#edit-establishment");
+
+  buttonEdit.addEventListener("click", async function (event) {
+    
+      event.preventDefault()
+
+      let select = document.getElementById("select-list");
+  
+      const selectedValue = [].filter
+      .call(select.options, option => option.selected)
+      .map(option => option.text);
+
+      let codeCategory;
+  
+      listCategoryReturn.forEach((item) => {
+          if(item.name == selectedValue)
+          {
+              codeCategory = item.uid;
+          }
+        });
+     
+        const editEstablishment = {
+          "uid": uidEdit,
+          "address": document.getElementById("Endereço").value,
+          "phone": document.getElementById("Telefone").value,
+          "name": document.getElementById("Nome").value,
+          "category": codeCategory,
+          "postal_code": document.getElementById("CEP").value,
+          "email": document.getElementById("Email").value
+      }
+          
+      await editEstablishmentAll(editEstablishment);
+
+
+      // document.location.reload(true);
+  });
+
 
 
   function showEstablishments(Establishments) {
@@ -293,6 +358,7 @@ function generateForm() {
   hiddenFormRegister(
     document.querySelector("#btn-register"),
     document.querySelector("#add-establishment"),
+    document.querySelector("#edit-establishment"),
     document.querySelector(".registry-form"),
     "Cadastrar"
   );
@@ -307,19 +373,37 @@ function generateForm() {
       }, 500);      
 
     await deleteEstablishment(itemDelete[0].textContent);
-    document.location.reload(true);
+    // document.location.reload(true);
   
   }
 
   async function editEstablishmentEvent(event) {
-    const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
-    console.log(itemUpdate[1].textContent);
+    
     hiddenFormEdit(
     document.querySelector("#btn-register"),
     document.querySelector("#add-establishment"),
-    document.querySelector(".registry-form")
-    );
-    // await editEstablishment();
+    document.querySelector("#edit-establishment"),
+    document.querySelector(".registry-form"));
+
+    const h2TitleForm =document.querySelector("#title-form");
+    h2TitleForm.textContent = "Editar estabelecimento";
+
+    const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
+
+    uidEdit = itemUpdate[0].textContent;
+
+    const endereco = document.querySelector("#Endereço");
+    endereco.value = itemUpdate[1].textContent;
+    const telefone = document.querySelector("#Telefone");
+    telefone.value = itemUpdate[2].textContent;    
+    const nome = document.querySelector("#Nome");
+    nome.value = itemUpdate[3].textContent;
+    const category = document.querySelector("#select-list");
+    category.value = itemUpdate[4].textContent;
+    const cep = document.querySelector("#CEP");
+    cep.value = itemUpdate[5].textContent;
+    const email = document.querySelector("#Email");
+    email.value = itemUpdate[6].textContent;
 
   }
 
@@ -395,3 +479,14 @@ function generateForm() {
       }
     });
   })();
+
+  
+window.titleRegistryForm = function () {
+  const mainFormH2 = document.querySelector("#title-form");
+  mainFormH2.textContent = "Cadastrar um novo estabelecimento";
+}
+
+
+
+
+
