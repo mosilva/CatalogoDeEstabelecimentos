@@ -1,4 +1,4 @@
-window.listCategory = async(status="hide") => {
+window.category = async(status="hide") => {
   (() => {
     const styleJS = document.createElement("script");
     styleJS.setAttribute("src", "js/styles/listCategoryStyle.js");
@@ -302,11 +302,11 @@ window.listCategory = async(status="hide") => {
   })();
 };
 
-listCategory();
+category();
 
 async function  categoriesRenderAux(){
   const main = document.querySelector('main');
   const section = document.querySelector('section.categoryContainer');
   main.removeChild(section)
-  await listCategory("no hide");
+  await category("no hide");
 }

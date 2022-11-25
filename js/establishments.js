@@ -1,10 +1,11 @@
+window.establishment = async(status="hide") => {
 const establishmentsStyle = document.createElement("script");
 establishmentsStyle.setAttribute("src", "js/styles/establishmentsStyle.js");
 document.body.appendChild(establishmentsStyle);
 
 const mainCatalogo = document.createElement("section");
   mainCatalogo.classList.add('establishmentContainer');
-  mainCatalogo.classList.add('hide');
+  status === 'hide'? mainCatalogo.classList.add(status) : mainCatalogo.classList.remove('hide'); 
   
     const main = document.querySelector("main");
     if(main){
@@ -286,7 +287,7 @@ function generateForm() {
       await createEstablishment(newEstablishment);
       window.alert("Estabelecimento cadastrado com sucesso! \n Atualize a página.");
 
-      // document.location.reload(true);
+      establishmentRenderAux()
   });
   
 
@@ -325,7 +326,7 @@ function generateForm() {
       
       window.alert("Estabelecimento editado com sucesso! \n Atualize a página.");
 
-      // document.location.reload(true);
+      establishmentRenderAux()
   });
 
 
@@ -378,13 +379,11 @@ function generateForm() {
       }, 500);      
 
     await deleteEstablishment(itemDelete[0].textContent);
-    // document.location.reload(true);
+    establishmentRenderAux()
   
   }
 
-  async function editEstablishmentEvent(event) {
-    console.log("oi");
-    
+  async function editEstablishmentEvent(event) {   
     hiddenFormEdit(
     document.querySelector("#btn-register"),
     document.querySelector("#add-establishment"),
@@ -502,7 +501,16 @@ window.titleRegistryForm = function () {
 }
 
 window.btnDisable = document.getElementById("edit-image");
+}
 
+establishment();
+
+async function  establishmentRenderAux(){
+  const main = document.querySelector('main');
+  const section = document.querySelector('section.establishmentContainer');
+  main.removeChild(section)
+  await establishment("no hide");
+}
 
 
 
