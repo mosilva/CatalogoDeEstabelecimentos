@@ -98,10 +98,16 @@ function createFormRegisterCategory(){
   button.setAttribute('id', 'btn-cadastrar-categoria')
   button.textContent = "Criar Categoria";
 
+  const buttonEdit = document.createElement("button");
+  buttonEdit.setAttribute('id', 'btn-alterar-categoria');
+  buttonEdit.style.display = "none";
+  buttonEdit.textContent = "Alterar Categoria";
+
   divRegister.appendChild(form);
   form.appendChild(inputCode);
   form.appendChild(inputName);
   form.appendChild(button);
+  form.appendChild(buttonEdit);
 
 }
 
@@ -179,22 +185,33 @@ function createIcon(icon, rowTable){
       const buttonHide = document.querySelector("#btn-nova-categoria");
       const divRegister = document.querySelector(".div-register");
       const formRegister = document.querySelector("#form-register");
+      const buttonEdit = document.querySelector("#btn-alterar-categoria");
 
-      const buttonEdit = document.createElement("button");
-      buttonEdit.textContent = "Alterar Categoria";
-      formRegister.appendChild(buttonEdit);
 
+      if(buttonEdit['display'] == 'block'){
+        buttonEdit.style.display = "none"; 
+      }
+      else{
+        buttonEdit.style.display = "block";
+      }
 
       codigoCategoryInput.value= codigoCategoryTable;
       nameCategoryInput.value = nameCategoryTable;
-      
+
       buttonHide.textContent = "Esconder Form";
       divRegister.style.display = "block";
       buttonCreateCategory.style.display = "none";
 
 
-      buttonEdit.addEventListener("click",editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value));
+      buttonEdit.addEventListener('click', async function(event){
+        event.preventDefault();
+        await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value)
+        clearTable();
+        insertContentTable(await listCategories());
+       
+      });
 
+ 
 
     });
   }
