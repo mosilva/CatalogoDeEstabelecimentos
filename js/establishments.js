@@ -164,7 +164,6 @@ window.establishment = async (status = "hide") => {
   }
 
   (async () => {
-    const catalogEstablishment = await catalogEstablishments();
 
     const tableMainTbody = document.createElement("tbody");
     const tableMainCatalogo = document.createElement("table");
