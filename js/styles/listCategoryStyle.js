@@ -112,6 +112,7 @@
     }
     .categoryContainer button{
       width: 70vw;
+      
     }
     `;
 
