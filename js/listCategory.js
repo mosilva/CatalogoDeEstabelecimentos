@@ -208,13 +208,10 @@ function createIcon(icon, rowTable){
         event.preventDefault();
         await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
         await clearTable();
-        result = await listCategories();
-        await insertContentTable(result);
-  
+        result = await listCategoriesByName("");
+        insertContentTable(result);
        
       });
-
- 
 
     });
   }
