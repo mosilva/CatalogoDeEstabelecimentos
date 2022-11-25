@@ -61,7 +61,9 @@ window.listEstablishments = async function () {
     if (!promise) {
       return [];
     }
-    return promise.json();
+    const establishments = await promise.json();
+    localStorage.setItem("establishments", JSON.stringify(establishments));
+    return establishments;
   } catch (error) {
     console.error("Erro na comunicação: ", error);
   }
@@ -106,11 +108,12 @@ window.listCategories = async function () {
       }),
     });
 
-    if (!promise) {
+    if (!promise.ok) {
       return [];
     }
-
-    return promise.json();
+    const categories = await promise.json();
+    localStorage.setItem("categories", JSON.stringify(categories));
+    return categories;
   } catch (error) {
     console.error("Erro na comunicação: ", error);
   }
@@ -166,22 +169,26 @@ window.listCategoriesByName = async function (nameCategory) {
   }
 };
 
-window.editCategories = async function (idCategory, codeCategory, nameCategory) {
-  try{
-    const promise = await fetch(`${url}/category`, {   
-    method: 'PUT',
-    headers: {
-     "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-    "uid": `${idCategory}`,
-    "code": `${codeCategory}`,
-    "name": `${nameCategory}`,
-    "group": {
-        "uid": uidGroup
+window.editCategories = async function (
+  idCategory,
+  codeCategory,
+  nameCategory
+) {
+  try {
+    const promise = await fetch(`${url}/category`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
       },
-   }),
- }).catch((error) => {});
+      body: JSON.stringify({
+        uid: `${idCategory}`,
+        code: `${codeCategory}`,
+        name: `${nameCategory}`,
+        group: {
+          uid: uidGroup,
+        },
+      }),
+    }).catch((error) => {});
 
     if (!promise) {
       return [];
