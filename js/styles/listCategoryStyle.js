@@ -48,7 +48,8 @@
       border-radius: 10px;
       margin-top: 15vh;
       margin-bottom: 5vh;
-      padding top: 2vh;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
       font-family: 'Source Sans Pro', sans-serif;
       font-size: 1.2rem;
   }
