@@ -10,7 +10,6 @@ window.category = async (status = "hide") => {
 
 
     const requestCategory = await listCategories();
-    console.log("list category", requestCategory)
     const listCategory =
     requestCategory.length != 0
       ? requestCategory

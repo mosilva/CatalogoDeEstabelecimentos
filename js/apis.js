@@ -58,7 +58,7 @@ window.listEstablishments = async function () {
         },
       }),
     });
-    if (promise) {
+    if (!promise) {
       return [];
     }
     const establishments = await promise.json();
@@ -108,7 +108,7 @@ window.listCategories = async function () {
       }),
     });
 
-    if (promise.ok) {
+    if (!promise.ok) {
       return [];
     }
     const categories = await promise.json();

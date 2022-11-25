@@ -8,7 +8,6 @@ window.generateFooter = async function () {
 
 
   const requestCategory = await listCategories();
-  console.log("list category", requestCategory)
   const categories =
     requestCategory.length != 0
       ? requestCategory

@@ -38,7 +38,6 @@ window.establishment = async (status = "hide") => {
 
   async function searchCategories(myParent) {
     const requestCategory = await listCategories();
-    console.log("lista", requestCategory)
     const listCategoryReturn =
       requestCategory.length != 0
         ? requestCategory
@@ -237,7 +236,6 @@ window.establishment = async (status = "hide") => {
 
         (async () => {
           const requestEstablishments = await listEstablishments();
-          console.warn("estal", requestEstablishments)
           const listEstablishmentsConverted =
             requestEstablishments.length != 0
               ? requestEstablishments
