@@ -8,7 +8,12 @@ window.category = async (status = "hide") => {
   (async () => {
     createLinkApiGoogle();
 
-    const listCategory = await listCategories();
+
+    const requestCategory = await listCategories();
+    const listCategory =
+    requestCategory.length != 0
+      ? requestCategory
+      : JSON.parse(localStorage.categories)
 
     const titlesTable = ["Codigo", "Nome", "Excluir", "Editar"];
 

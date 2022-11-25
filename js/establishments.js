@@ -37,7 +37,11 @@ window.establishment = async (status = "hide") => {
   ];
 
   async function searchCategories(myParent) {
-    listCategoryReturn = await listCategories();
+    const requestCategory = await listCategories();
+    const listCategoryReturn =
+      requestCategory.length != 0
+        ? requestCategory
+        : JSON.parse(localStorage.categories);
 
     let categories = [];
 
@@ -175,7 +179,7 @@ window.establishment = async (status = "hide") => {
       title.textContent = "Estabelecimentos";
       const boxRegister = document.createElement("section");
       boxRegister.setAttribute("class", "boxRegister");
-      const btnRegister = document.createElement("button");
+      window.btnRegister = document.createElement("button");
       btnRegister.textContent = "Cadastrar";
       btnRegister.setAttribute("class", "btnRegister");
       btnRegister.setAttribute("id", "btn-register");
@@ -232,7 +236,11 @@ window.establishment = async (status = "hide") => {
         }
 
         (async () => {
-          const listEstablishmentsConverted = await listEstablishments();
+          const requestEstablishments = await listEstablishments();
+          const listEstablishmentsConverted =
+            requestEstablishments.length != 0
+              ? requestEstablishments
+              : JSON.parse(localStorage.establishments);
 
           showEstablishments(listEstablishmentsConverted);
           createIcon("delete");
@@ -275,10 +283,7 @@ window.establishment = async (status = "hide") => {
       };
 
       await createEstablishment(newEstablishment);
-      window.alert(
-        "Estabelecimento cadastrado com sucesso! \n Atualize a página."
-      );
-
+      alert("Estabelecimento cadastrado com sucesso!");
       establishmentRenderAux();
     });
 
@@ -313,10 +318,7 @@ window.establishment = async (status = "hide") => {
 
       await editEstablishmentAll(editEstablishment);
 
-      window.alert(
-        "Estabelecimento editado com sucesso! \n Atualize a página."
-      );
-
+      alert("Estabelecimento editado com sucesso!");
       establishmentRenderAux();
     });
 
@@ -359,15 +361,22 @@ window.establishment = async (status = "hide") => {
     );
 
     async function deleteEstablishmentEvent(event) {
-      const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
-      deleteEstab(event.target.parentNode.parentNode);
+      if (btnRegister.innerHTML == "Voltar") {
+        alert(
+          "Não é possível deletar durante a edição ou cadastro de um estabelecimento. \n Pressione o botão voltar e tente novamente"
+        );
+      } else {
+        const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
+        deleteEstab(event.target.parentNode.parentNode);
 
-      setTimeout(function () {
-        event.target.parentNode.parentNode.remove();
-      }, 500);
+        setTimeout(function () {
+          event.target.parentNode.parentNode.remove();
+        }, 500);
 
-      await deleteEstablishment(itemDelete[0].textContent);
-      establishmentRenderAux();
+        await deleteEstablishment(itemDelete[0].textContent);
+        alert("Estabelecimento deletado com sucesso");
+
+      }  
     }
 
     async function editEstablishmentEvent(event) {
@@ -377,7 +386,6 @@ window.establishment = async (status = "hide") => {
         document.querySelector("#edit-establishment"),
         document.querySelector(".registry-form")
       );
-
       const h2TitleForm = document.querySelector("#title-form");
       h2TitleForm.textContent = "Editar estabelecimento";
 
