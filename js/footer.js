@@ -5,11 +5,15 @@
 })();
 
 window.generateFooter = async function () {
+
+
   const requestCategory = await listCategories();
+  console.log("list category", requestCategory)
   const categories =
     requestCategory.length != 0
       ? requestCategory
       : JSON.parse(localStorage.categories);
+
   const requestEstablishments = await listEstablishments();
   const establishments =
     requestEstablishments.length != 0

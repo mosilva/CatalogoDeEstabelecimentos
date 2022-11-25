@@ -37,7 +37,12 @@ window.establishment = async (status = "hide") => {
   ];
 
   async function searchCategories(myParent) {
-    listCategoryReturn = await listCategories();
+    const requestCategory = await listCategories();
+    console.log("lista", requestCategory)
+    const listCategoryReturn =
+      requestCategory.length != 0
+        ? requestCategory
+        : JSON.parse(localStorage.categories);
 
     let categories = [];
 
@@ -231,7 +236,12 @@ window.establishment = async (status = "hide") => {
         }
 
         (async () => {
-          const listEstablishmentsConverted = await listEstablishments();
+          const requestEstablishments = await listEstablishments();
+          console.warn("estal", requestEstablishments)
+          const listEstablishmentsConverted =
+            requestEstablishments.length != 0
+              ? requestEstablishments
+              : JSON.parse(localStorage.establishments);
 
           showEstablishments(listEstablishmentsConverted);
           createIcon("delete");
@@ -274,9 +284,7 @@ window.establishment = async (status = "hide") => {
       };
 
       await createEstablishment(newEstablishment);
-      alert(
-        "Estabelecimento cadastrado com sucesso!"
-      );
+      alert("Estabelecimento cadastrado com sucesso!");
       establishmentRenderAux();
     });
 
@@ -311,9 +319,7 @@ window.establishment = async (status = "hide") => {
 
       await editEstablishmentAll(editEstablishment);
 
-      alert(
-        "Estabelecimento editado com sucesso!"
-      );
+      alert("Estabelecimento editado com sucesso!");
       establishmentRenderAux();
     });
 
@@ -356,23 +362,24 @@ window.establishment = async (status = "hide") => {
     );
 
     async function deleteEstablishmentEvent(event) {
-      if(btnRegister.innerHTML == "Voltar"){
-        alert("Não é possível deletar durante a edição ou cadastro de um estabelecimento. \n Pressione o botão voltar e tente novamente");
-      }
-      else{
+      if (btnRegister.innerHTML == "Voltar") {
+        alert(
+          "Não é possível deletar durante a edição ou cadastro de um estabelecimento. \n Pressione o botão voltar e tente novamente"
+        );
+      } else {
         const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
         deleteEstab(event.target.parentNode.parentNode);
-  
+
         setTimeout(function () {
           event.target.parentNode.parentNode.remove();
         }, 500);
-  
+
         await deleteEstablishment(itemDelete[0].textContent);
         alert("Estabelecimento deletado com sucesso");
         establishmentRenderAux();
-      }  
+      }
     }
-    
+
     async function editEstablishmentEvent(event) {
       hiddenFormEdit(
         document.querySelector("#btn-register"),
@@ -380,25 +387,25 @@ window.establishment = async (status = "hide") => {
         document.querySelector("#edit-establishment"),
         document.querySelector(".registry-form")
       );
-        const h2TitleForm = document.querySelector("#title-form");
-        h2TitleForm.textContent = "Editar estabelecimento";
+      const h2TitleForm = document.querySelector("#title-form");
+      h2TitleForm.textContent = "Editar estabelecimento";
 
-        const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
+      const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
 
-        uidEdit = itemUpdate[0].textContent;
+      uidEdit = itemUpdate[0].textContent;
 
-        const endereco = document.querySelector("#Endereço");
-        endereco.value = itemUpdate[1].textContent;
-        const telefone = document.querySelector("#Telefone");
-        telefone.value = itemUpdate[2].textContent;
-        const nome = document.querySelector("#Nome");
-        nome.value = itemUpdate[3].textContent;
-        const category = document.querySelector("#select-list");
-        category.value = itemUpdate[4].textContent;
-        const cep = document.querySelector("#CEP");
-        cep.value = itemUpdate[5].textContent;
-        const email = document.querySelector("#Email");
-        email.value = itemUpdate[6].textContent;
+      const endereco = document.querySelector("#Endereço");
+      endereco.value = itemUpdate[1].textContent;
+      const telefone = document.querySelector("#Telefone");
+      telefone.value = itemUpdate[2].textContent;
+      const nome = document.querySelector("#Nome");
+      nome.value = itemUpdate[3].textContent;
+      const category = document.querySelector("#select-list");
+      category.value = itemUpdate[4].textContent;
+      const cep = document.querySelector("#CEP");
+      cep.value = itemUpdate[5].textContent;
+      const email = document.querySelector("#Email");
+      email.value = itemUpdate[6].textContent;
     }
 
     async function createIcon(icon) {
