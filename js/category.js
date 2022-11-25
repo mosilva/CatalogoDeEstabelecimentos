@@ -293,7 +293,7 @@ window.category = async (status = "hide") => {
 
         if (propriedadesContainerRegister["display"] == "none") {
           containerRegister.style.display = "block";
-          button.textContent = "Esconder form";
+          button.textContent = "Voltar";
         } else {
           containerRegister.style.display = "none";
           button.textContent = item;
