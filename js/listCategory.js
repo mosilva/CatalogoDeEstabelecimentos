@@ -515,7 +515,7 @@ function createIcon(icon, rowTable){
 
 
       buttonEdit.addEventListener('click', async function(event){
-
+        event.preventDefault();
         await editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value);
 
         categoriesRenderAux();
