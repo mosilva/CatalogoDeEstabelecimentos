@@ -32,7 +32,7 @@ function generateHeader() {
 
     link.addEventListener("click", hiddenSection);
     link.innerText = item.nome;
-    link.setAttribute("href", item.link);
+    // link.setAttribute("href", item.link);
     navList.appendChild(list);
     list.appendChild(link);
   });
