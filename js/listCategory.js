@@ -217,6 +217,24 @@ function createIcon(icon, rowTable){
     });
   }
 
+  function selectBtnNovaCategoria(){
+    const btnNovaCategoria = document.querySelector("#btn-nova-categoria");
+    const btnEditCategoria = document.querySelector("#btn-alterar-categoria");
+    const btnCadastrarCategoria = document.querySelector("#btn-cadastrar-categoria");
+      
+    btnNovaCategoria.addEventListener("click", function(event){
+      event.preventDefault();
+    
+      if(btnCadastrarCategoria.style.display == 'none'){
+        btnCadastrarCategoria.style.display = 'block';
+        btnEditCategoria.style.display = 'none';
+      }
+
+    });
+
+  }
+  selectBtnNovaCategoria();
+
   iconGoogle.textContent = icon;
   iconGoogle.setAttribute('class', 'material-symbols-outlined');
   
