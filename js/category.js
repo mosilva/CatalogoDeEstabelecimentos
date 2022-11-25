@@ -247,7 +247,7 @@ window.category = async (status = "hide") => {
    
       requestEstablishments.forEach((item) => {
         if (nameCategoryTable == item.category.name) {
-            alert("Categoria está sendo usada em um estabelecimento");
+            alert("A categoria está sendo usada em algum estabelecimento. Não é possível deletá-lo!");
         }})
 
     
