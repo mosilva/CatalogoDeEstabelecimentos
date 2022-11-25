@@ -376,8 +376,12 @@ window.establishment = async (status = "hide") => {
 
         await deleteEstablishment(itemDelete[0].textContent);
         alert("Estabelecimento deletado com sucesso");
+<<<<<<< HEAD
         establishmentRenderAux();
       }
+=======
+      }  
+>>>>>>> cc81a9971480f7cf530919088287957a57f1190f
     }
 
     async function editEstablishmentEvent(event) {
