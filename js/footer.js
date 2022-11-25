@@ -5,8 +5,11 @@
 })();
 
 window.generateFooter = async function() {
-  const categories = await listCategories();
-  const establishments = await listEstablishments();
+  const requestCategory = await listCategories();
+  const categories = requestCategory.length != 0 ? requestCategory : JSON.parse(localStorage.categories) 
+  const requestEstablishments =await listEstablishments();
+  const establishments = requestEstablishments.length != 0 ? requestEstablishments : JSON.parse(localStorage.establishments) 
+
   const footer = document.createElement("footer");
   const list = document.createElement("list");
   const listUnordered = document.createElement("ul");
