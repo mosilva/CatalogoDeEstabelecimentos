@@ -160,6 +160,10 @@
             color: #C9184A;
             font-weight: bolder;
         }
+        .establishmentContainer .selectLink:hover{
+            cursor: pointer;
+            font-size: 1rem;
+        }
 
         .establishmentContainer .main-button{
             width: 22vw;
@@ -196,7 +200,7 @@
                 width: 60vw;
             }
             .establishmentContainer .main-button{
-                width: 60vw;
+                width: 80vw;
             }
             .establishmentContainer .boxSearch{
                 width: 95vw;
@@ -233,10 +237,11 @@
             }
             .establishmentContainer .registry-form{
                 width: 97vw;
-                height: 92vh;
-                margin-top: -8vh;
+                height: 105vh;
+                margin-top: -6vh;
                 display: flex;
                 flex-direction: column;
+                margin-bottom: 4vh;
             }
             .establishmentContainer .title-form{
                 width: 52vh;
@@ -256,26 +261,41 @@
                 padding-top: 0.9vh;
                 font-size: 1.2rem;
             }
+            .establishmentContainer .divSelect{
+                width: 70vw;
+                display: flex;
+                flex-direction: column;
+                margin-left: 10vw;
+                margin-bottom: 3vh;
+            }
             .establishmentContainer .select-list{
                 width: 70vw;
-                margin-left: 20vw;
                 font-size: 1.2rem;
+            }
+            .establishmentContainer .divText{
+                width: 70vw;
+            }
+            .establishmentContainer .selectText{
+                font-size: 1.2rem;
+            }
+            .establishmentContainer .selectLink{
+                font-size: 1.4rem;
+            }
+            .establishmentContainer .selectLink:hover{
+                font-size: 1.4rem;
             }
             .establishmentContainer .campo{
                 width: 70vw;
-                margin-left: 20vw;
+                margin-left: 10vw;
+                margin-bottom: 3vh;
             }
             .establishmentContainer .campo::placeholder{
                 font-size: 1.2rem;
             }
-            .establishmentContainer .main-button{
-                width: 65vw;
-                margin-right: 10vw;
-            }
             .establishmentContainer .imageIcon{
                 height: 4vh;
                 width: 6vw;
-                margin-left: 20vw;
+                margin-left: 30vw;
             }
         }
     `;

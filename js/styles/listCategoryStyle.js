@@ -107,8 +107,12 @@
     .categoryContainer .title{
       padding-top: 22vh;
     }
+    .categoryContainer form{
+      flex-direction: column;
+    }
     .categoryContainer button{
       width: 70vw;
+      
     }
     `;
 
