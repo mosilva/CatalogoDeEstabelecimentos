@@ -174,7 +174,7 @@ window.establishment = async (status = "hide") => {
       title.textContent = "Estabelecimentos";
       const boxRegister = document.createElement("section");
       boxRegister.setAttribute("class", "boxRegister");
-      const btnRegister = document.createElement("button");
+      window.btnRegister = document.createElement("button");
       btnRegister.textContent = "Cadastrar";
       btnRegister.setAttribute("class", "btnRegister");
       btnRegister.setAttribute("id", "btn-register");
@@ -274,11 +274,9 @@ window.establishment = async (status = "hide") => {
       };
 
       await createEstablishment(newEstablishment);
-      window.alert(
+      alert(
         "Estabelecimento cadastrado com sucesso! \n Atualize a página."
       );
-
-      establishmentRenderAux();
     });
 
     const buttonEdit = document.querySelector("#edit-establishment");
@@ -312,11 +310,9 @@ window.establishment = async (status = "hide") => {
 
       await editEstablishmentAll(editEstablishment);
 
-      window.alert(
+      alert(
         "Estabelecimento editado com sucesso! \n Atualize a página."
       );
-
-      establishmentRenderAux();
     });
 
     function showEstablishments(Establishments) {
@@ -358,17 +354,22 @@ window.establishment = async (status = "hide") => {
     );
 
     async function deleteEstablishmentEvent(event) {
-      const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
-      deleteEstab(event.target.parentNode.parentNode);
-
-      setTimeout(function () {
-        event.target.parentNode.parentNode.remove();
-      }, 500);
-
-      await deleteEstablishment(itemDelete[0].textContent);
-      establishmentRenderAux();
+      if(btnRegister.innerHTML == "Voltar"){
+        alert("Não é possível deletar durante a edição ou cadastro de um estabelecimento. \n Pressione o botão voltar e tente novamente");
+      }
+      else{
+        const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
+        deleteEstab(event.target.parentNode.parentNode);
+  
+        setTimeout(function () {
+          event.target.parentNode.parentNode.remove();
+        }, 500);
+  
+        await deleteEstablishment(itemDelete[0].textContent);
+        establishmentRenderAux();
+      }  
     }
-
+    
     async function editEstablishmentEvent(event) {
       hiddenFormEdit(
         document.querySelector("#btn-register"),
@@ -376,26 +377,25 @@ window.establishment = async (status = "hide") => {
         document.querySelector("#edit-establishment"),
         document.querySelector(".registry-form")
       );
+        const h2TitleForm = document.querySelector("#title-form");
+        h2TitleForm.textContent = "Editar estabelecimento";
 
-      const h2TitleForm = document.querySelector("#title-form");
-      h2TitleForm.textContent = "Editar estabelecimento";
+        const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
 
-      const itemUpdate = this.parentNode.parentNode.querySelectorAll("td");
+        uidEdit = itemUpdate[0].textContent;
 
-      uidEdit = itemUpdate[0].textContent;
-
-      const endereco = document.querySelector("#Endereço");
-      endereco.value = itemUpdate[1].textContent;
-      const telefone = document.querySelector("#Telefone");
-      telefone.value = itemUpdate[2].textContent;
-      const nome = document.querySelector("#Nome");
-      nome.value = itemUpdate[3].textContent;
-      const category = document.querySelector("#select-list");
-      category.value = itemUpdate[4].textContent;
-      const cep = document.querySelector("#CEP");
-      cep.value = itemUpdate[5].textContent;
-      const email = document.querySelector("#Email");
-      email.value = itemUpdate[6].textContent;
+        const endereco = document.querySelector("#Endereço");
+        endereco.value = itemUpdate[1].textContent;
+        const telefone = document.querySelector("#Telefone");
+        telefone.value = itemUpdate[2].textContent;
+        const nome = document.querySelector("#Nome");
+        nome.value = itemUpdate[3].textContent;
+        const category = document.querySelector("#select-list");
+        category.value = itemUpdate[4].textContent;
+        const cep = document.querySelector("#CEP");
+        cep.value = itemUpdate[5].textContent;
+        const email = document.querySelector("#Email");
+        email.value = itemUpdate[6].textContent;
     }
 
     async function createIcon(icon) {
