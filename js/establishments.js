@@ -60,7 +60,7 @@ window.establishment = async (status = "hide") => {
     const selectLink = document.createElement("a");
     selectLink.setAttribute("class", "selectLink");
     selectLink.addEventListener("click", hiddenSection);
-    selectLink.textContent = "Crie uma!";
+    selectLink.textContent = "Crie aqui!";
     myParent.appendChild(divSelect);
     divSelect.appendChild(selectList);
     divSelect.appendChild(divText);
