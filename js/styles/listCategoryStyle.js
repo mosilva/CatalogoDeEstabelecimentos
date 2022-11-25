@@ -96,6 +96,12 @@
     display:none;
   }
 
+  .categoryContainer .div-btn{
+    display: flex;
+    justify-content: center;
+    align-itens: center;
+  }
+
   @media(max-width: 700px) and (min-width: 360px){
     .categoryContainer .title{
       padding-top: 22vh;

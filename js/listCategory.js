@@ -34,11 +34,13 @@ const titlesTable = ["Codigo", "Nome", "Excluir" , "Editar"];
 const titlePage = document.createElement('h1');
 titlePage.textContent = 'Categorias';
 categoryContainer.appendChild(titlePage);
-
+const divButton = document.createElement('div');
+divButton.classList.add("div-btn");
 const buttonCadastrar = document.createElement('button');
 buttonCadastrar.textContent = "Criar Nova Categoria";
 buttonCadastrar.setAttribute('id', 'btn-nova-categoria');
-categoryContainer.appendChild(buttonCadastrar);
+divButton.appendChild(buttonCadastrar);
+categoryContainer.appendChild(divButton);
 
 createFormRegisterCategory();
 
@@ -78,6 +80,7 @@ function createFormRegisterCategory(){
   const form = document.createElement('form');
   form.setAttribute('action', '');
   form.setAttribute('method', 'POST');
+  form.setAttribute('id','form-register');
 
   const inputCode = document.createElement('input');
   inputCode.classList.add('campo');
@@ -165,7 +168,34 @@ function createIcon(icon, rowTable){
 
   }else{
 
-    iconGoogle.addEventListener("dblclick",function(event){    
+    iconGoogle.addEventListener("dblclick",function(event){
+      const itemEdit = this.parentNode.parentNode.querySelectorAll('td');
+      const idCategoryTable = itemEdit[0].textContent;
+      const codigoCategoryTable = itemEdit[1].textContent;
+      const nameCategoryTable = itemEdit[2].textContent;
+      const nameCategoryInput = document.querySelector("#nomeCategoria");
+      const codigoCategoryInput = document.querySelector("#codigoCategoria");
+      const buttonCreateCategory = document.querySelector("#btn-cadastrar-categoria");
+      const buttonHide = document.querySelector("#btn-nova-categoria");
+      const divRegister = document.querySelector(".div-register");
+      const formRegister = document.querySelector("#form-register");
+
+      const buttonEdit = document.createElement("button");
+      buttonEdit.textContent = "Alterar Categoria";
+      formRegister.appendChild(buttonEdit);
+
+
+      codigoCategoryInput.value= codigoCategoryTable;
+      nameCategoryInput.value = nameCategoryTable;
+      
+      buttonHide.textContent = "Esconder Form";
+      divRegister.style.display = "block";
+      buttonCreateCategory.style.display = "none";
+
+
+      buttonEdit.addEventListener("click",editCategories(idCategoryTable, codigoCategoryInput.value, nameCategoryInput.value));
+
+
     });
   }
 
@@ -225,6 +255,12 @@ function captureDataRegister(){
 
 captureDataRegister();
 
+
+
+
+
+
+
 window.hiddenFormRegister = function(buttonSelect, container, item) {
   const button = buttonSelect;
   const containerRegister = container;
@@ -247,6 +283,7 @@ window.hiddenFormRegister = function(buttonSelect, container, item) {
   });
 
 }
+
 hiddenFormRegister(document.querySelector('#btn-nova-categoria'),document.querySelector('.div-register'), "Criar Nova categoria");
 
 
