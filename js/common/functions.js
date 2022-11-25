@@ -1,4 +1,10 @@
-window.hiddenFormRegister = function (buttonSelect, buttonSecondary, buttonEdit, container, item) {
+window.hiddenFormRegister = function (
+  buttonSelect,
+  buttonSecondary,
+  buttonEdit,
+  container,
+  item
+) {
   const button = buttonSelect;
   const containerRegister = container;
   const buttonEditUpdate = buttonEdit;
@@ -47,9 +53,12 @@ window.hiddenSection = (event) => {
   }
 };
 
-
-
-window.hiddenFormEdit = function (buttonPrincipal, buttonSecondary, buttonEdit, container) {
+window.hiddenFormEdit = function (
+  buttonPrincipal,
+  buttonSecondary,
+  buttonEdit,
+  container
+) {
   const containerEdit = container;
   const buttonEditUpdate = buttonEdit;
   const propriedadesContainerEdit = containerEdit.style;
@@ -57,28 +66,24 @@ window.hiddenFormEdit = function (buttonPrincipal, buttonSecondary, buttonEdit, 
   buttonEditUpdate.style.display = "block";
 
   if (propriedadesContainerEdit["display"] == "none") {
-      containerEdit.style.display = "block";
-      buttonPrincipal.textContent = "Voltar";
-    } else {
-      containerEdit.style.display = "none";
-      buttonPrincipal.textContent = "Cadastrar";
-    };
-  
+    containerEdit.style.display = "block";
+    buttonPrincipal.textContent = "Voltar";
+  } else {
+    containerEdit.style.display = "none";
+    buttonPrincipal.textContent = "Cadastrar";
+  }
 };
-
 
 window.hiddenForFooter = async (event) => {
   event.preventDefault();
   document.querySelector(".homeContainer").classList.add("hide");
   document.querySelector(".establishmentContainer").classList.add("hide");
-  document.querySelector(".categoryContainer").classList.remove("hide")
-
+  document.querySelector(".categoryContainer").classList.remove("hide");
 };
 
 window.clearForm = function () {
   const trs = document.querySelectorAll(".campo");
   for (let i = 0; i < trs.length; i++) {
-    trs[i].value =""
+    trs[i].value = "";
   }
-} 
-
+};

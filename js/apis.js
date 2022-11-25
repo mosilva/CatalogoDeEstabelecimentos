@@ -193,7 +193,6 @@ window.editCategories = async function (
     if (!promise) {
       return [];
     }
-    
   } catch (error) {
     console.error("Erro na comunicação: ", error);
   }
@@ -244,7 +243,7 @@ window.createEstablishment = async function (newEstablishment) {
           uid: uidGroup,
         },
       }),
-});
+    });
     if (!promise) {
       return [];
     }

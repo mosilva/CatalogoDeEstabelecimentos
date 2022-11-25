@@ -1,6 +1,6 @@
 (() => {
-    const establishmentStyle = document.createElement("style");
-    establishmentStyle.innerHTML += `
+  const establishmentStyle = document.createElement("style");
+  establishmentStyle.innerHTML += `
         .hide{
             display: none;
         }
@@ -300,5 +300,5 @@
         }
     `;
 
-    document.body.appendChild(establishmentStyle);
+  document.body.appendChild(establishmentStyle);
 })();

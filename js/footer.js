@@ -4,11 +4,17 @@
   document.body.appendChild(styleJs);
 })();
 
-window.generateFooter = async function() {
+window.generateFooter = async function () {
   const requestCategory = await listCategories();
-  const categories = requestCategory.length != 0 ? requestCategory : JSON.parse(localStorage.categories) 
-  const requestEstablishments =await listEstablishments();
-  const establishments = requestEstablishments.length != 0 ? requestEstablishments : JSON.parse(localStorage.establishments) 
+  const categories =
+    requestCategory.length != 0
+      ? requestCategory
+      : JSON.parse(localStorage.categories);
+  const requestEstablishments = await listEstablishments();
+  const establishments =
+    requestEstablishments.length != 0
+      ? requestEstablishments
+      : JSON.parse(localStorage.establishments);
 
   const footer = document.createElement("footer");
   const list = document.createElement("list");
@@ -34,14 +40,13 @@ window.generateFooter = async function() {
   list.appendChild(listUnordered);
   footer.appendChild(list);
   document.body.appendChild(footer);
-}
+};
 
 generateFooter();
 
-async function  generateFooterRender(){
-  const body = document.querySelector('body');
-  const footer = body.querySelector('footer');
-  body.removeChild(footer)
+async function generateFooterRender() {
+  const body = document.querySelector("body");
+  const footer = body.querySelector("footer");
+  body.removeChild(footer);
   await generateFooter();
 }
-

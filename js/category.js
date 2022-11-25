@@ -1,4 +1,4 @@
-window.category = async(status="hide") => {
+window.category = async (status = "hide") => {
   (() => {
     const styleJS = document.createElement("script");
     styleJS.setAttribute("src", "js/styles/listCategoryStyle.js");
@@ -14,7 +14,9 @@ window.category = async(status="hide") => {
 
     const categoryContainer = document.createElement("section");
     categoryContainer.classList.add("categoryContainer");
-    status === 'hide'? categoryContainer.classList.add(status) : categoryContainer.classList.remove('hide'); 
+    status === "hide"
+      ? categoryContainer.classList.add(status)
+      : categoryContainer.classList.remove("hide");
     categoryContainer.setAttribute("id", "id-container");
 
     const main = document.querySelector("main");
@@ -304,9 +306,9 @@ window.category = async(status="hide") => {
 
 category();
 
-async function  categoriesRenderAux(){
-  const main = document.querySelector('main');
-  const section = document.querySelector('section.categoryContainer');
-  main.removeChild(section)
+async function categoriesRenderAux() {
+  const main = document.querySelector("main");
+  const section = document.querySelector("section.categoryContainer");
+  main.removeChild(section);
   await category("no hide");
 }

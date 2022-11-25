@@ -1,6 +1,6 @@
 (() => {
-    const homeStyle = document.createElement("style");
-    homeStyle.innerHTML += `
+  const homeStyle = document.createElement("style");
+  homeStyle.innerHTML += `
       .homeContainer{
         font-family: 'Source Sans Pro', sans-serif;
         height: 110vh;
@@ -51,6 +51,5 @@
         }
       }
     `;
-    document.body.appendChild(homeStyle);
-  })();
-  
+  document.body.appendChild(homeStyle);
+})();

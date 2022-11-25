@@ -1,6 +1,6 @@
 (() => {
-    const headerStyle = document.createElement("style");
-    headerStyle.innerHTML += `    
+  const headerStyle = document.createElement("style");
+  headerStyle.innerHTML += `    
       .containerHeader{
         font-family: 'Source Sans Pro', sans-serif;
         background-color: #a4133c;
@@ -54,6 +54,5 @@
         }
       }
     `;
-    document.body.appendChild(headerStyle);
-  })();
-  
+  document.body.appendChild(headerStyle);
+})();

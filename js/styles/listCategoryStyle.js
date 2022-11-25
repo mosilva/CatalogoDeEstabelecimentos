@@ -1,6 +1,6 @@
-(() => { 
-    const style = document.createElement('style');
-    style.innerHTML = `
+(() => {
+  const style = document.createElement("style");
+  style.innerHTML = `
     .categoryContainer .hide{
       display: none;
     }
@@ -116,6 +116,5 @@
     }
     `;
 
-    document.body.appendChild(style);
+  document.body.appendChild(style);
 })();
-
