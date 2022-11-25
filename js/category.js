@@ -241,9 +241,18 @@ window.category = async (status = "hide") => {
 
     async function deleteCategory(event) {
       const itemDelete = this.parentNode.parentNode.querySelectorAll("td");
+      const nameCategoryTable = itemDelete[2].textContent;
 
+      const requestEstablishments = await listEstablishments();
+   
+      requestEstablishments.forEach((item) => {
+        if (nameCategoryTable == item.category.name) {
+            alert("Categoria está sendo usada em um estabelecimento");
+        }})
+
+    
       await deleteCategories(itemDelete[0].textContent);
-
+    
       categoriesRenderAux();
     }
 
